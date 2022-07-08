@@ -1,28 +1,90 @@
-import whereWeEnd from './where we end/Where We End.flac';
+import whereWeEndSrc from './where we end/Where We End.flac';
 
-import slumber from './dreaming of detuned love/Slumber.flac';
-import yourCarelessEmbrace from './dreaming of detuned love/Your Careless Embrace.flac';
-import restlessThoughts from './dreaming of detuned love/Restless Thoughts.flac';
-import detunedLove from './dreaming of detuned love/Detuned Love.flac';
-import fallingIntoTheVoid from './dreaming of detuned love/Falling into the Void.flac';
+import slumberSrc from './dreaming of detuned love/Slumber.flac';
+import yourCarelessEmbraceSrc from './dreaming of detuned love/Your Careless Embrace.flac';
+import restlessThoughtsSrc from './dreaming of detuned love/Restless Thoughts.flac';
+import detunedLoveSrc from './dreaming of detuned love/Detuned Love.flac';
+import fallingIntoTheVoidSrc from './dreaming of detuned love/Falling into the Void.flac';
 
-import lysergic from './lysergic/Lysergic.flac';
+import lysergicSrc from './lysergic/Lysergic.flac';
 
-import distressed from './ethereal/Distressed.flac';
-import impurity from './ethereal/Impurity.flac';
-import achlys from './ethereal/Achlys.flac';
-import ethereal from './ethereal/Ethereal.flac';
+import distressedSrc from './ethereal/Distressed.flac';
+import impuritySrc from './ethereal/Impurity.flac';
+import achlysSrc from './ethereal/Achlys.flac';
+import etherealSrc from './ethereal/Ethereal.flac';
 
-import serene from './storm ep/Serene.flac';
-import cumulonimbus from './storm ep/Cumulonimbus.flac';
-import rainfaill from './storm ep/Rainfall.flac';
-import thunder from './storm ep/Thunder.flac';
-import dissipate from './storm ep/Dissipate.flac';
+import sereneSrc from './storm ep/Serene.flac';
+import cumulonimbusSrc from './storm ep/Cumulonimbus.flac';
+import rainfaillSrc from './storm ep/Rainfall.flac';
+import thunderSrc from './storm ep/Thunder.flac';
+import dissipateSrc from './storm ep/Dissipate.flac';
 
-const dreamingOfDetunedLove = [slumber, yourCarelessEmbrace, restlessThoughts, detunedLove, fallingIntoTheVoid]
+const whereWeEnd = [
+    {
+        name: 'Where We End',
+        src: whereWeEndSrc
+    }
+]
 
-const etherealEP = [distressed, impurity, achlys, ethereal]
+const dreamingOfDetunedLove = [
+    {
+        name: 'Slumber',
+        src: slumberSrc
+    },{
+        name: 'Your Careless Embrace',
+        src: yourCarelessEmbraceSrc
+    },{
+        name: 'Restless Thoughts',
+        src: restlessThoughtsSrc
+    },{
+        name: 'Detuned Love',
+        src: detunedLoveSrc
+    },{
+        name: 'Falling into the Void',
+        src: fallingIntoTheVoidSrc
+    }
+]
 
-const stormEP = [serene, cumulonimbus, rainfaill, thunder, dissipate]
+const lysergic = [
+    {
+        name: 'Lysergic',
+        src: lysergicSrc
+    }
+]
 
-export { whereWeEnd, dreamingOfDetunedLove, lysergic, etherealEP, stormEP }
+const ethereal = [
+    {
+        name: 'Distressed',
+        src: distressedSrc
+    },{
+        name: 'Impurity',
+        src: impuritySrc
+    },{
+        name: 'Achlys',
+        src: achlysSrc
+    },{
+        name: 'Ethereal',
+        src: etherealSrc
+    }
+]
+
+const stormEP = [
+    {
+        name: 'Serene',
+        src: sereneSrc
+    },{
+        name: 'Cumulonimbus',
+        src: cumulonimbusSrc
+    },{
+        name: 'Rainfall',
+        src:rainfaillSrc
+    },{
+        name: 'Thunder',
+        src: thunderSrc
+    },{
+        name: 'Dissipate',
+        src:dissipateSrc
+    }
+]
+
+export { whereWeEnd, dreamingOfDetunedLove, lysergic, ethereal as etherealEP, stormEP }

@@ -5,7 +5,7 @@ const songInfo: any = [
     {
         title: 'Where We End',
         art: art.whereWeEnd,
-        songs: [whereWeEnd]
+        songs: whereWeEnd
     },
     {
         title: 'Dreaming of Detuned Love',
@@ -15,7 +15,7 @@ const songInfo: any = [
     {
         title: 'Lysergic',
         art: art.lysergic,
-        songs: [lysergic]
+        songs: lysergic
     },
     {
         title: 'Ethereal',

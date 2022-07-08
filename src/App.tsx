@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import songInfo from './songInfo';
 
 import Navbar from './containers/Navbar';
 import Home from './routes/Home';
@@ -10,12 +11,14 @@ import Player from './containers/Player';
 
 
 function App() {
+  const [data] = useState(songInfo);
+
   return (
     <Router>
       <Navbar/>
       <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path="/music" element={<Music/>}/>
+        <Route path="/music" element={<Music data={data}/>}/>
         <Route path="/music/:id" element={<Album/>}/>
         <Route path="/contact" element={<Contact/>}/>
       </Routes>

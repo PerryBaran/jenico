@@ -19,7 +19,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/music" element={<Music data={data}/>}/>
-        <Route path="/music/:id" element={<Album/>}/>
+        <Route path="/music/:id" element={<Album data={data}/>}/>
         <Route path="/contact" element={<Contact/>}/>
       </Routes>
       <Player/>

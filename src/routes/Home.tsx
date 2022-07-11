@@ -3,8 +3,7 @@ import Background from '../components/Background';
 import { background } from '../media/videos/index';
 import { spotify, bandcamp, soundcloud, youtube, instagram} from '../media/icons/index';
 
-function Home(props:any) {
-
+function Home() {
     return (
         <div>
             <header className="home">

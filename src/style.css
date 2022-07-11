@@ -4,9 +4,18 @@
     -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
     font-family: 'Dosis', sans-serif;
     overflow: hidden;
+    color: white;
+}
+
+body {
+    background-image: linear-gradient(rgb(57, 29, 58), black);
 }
 
 h1 {
+    font-family: 'Major Mono Display', monospace;
+}
+
+h2 {
     font-family: 'Major Mono Display', monospace;
 }
 
@@ -28,7 +37,6 @@ a {
     display: inline-flex;
     width: 100%;
     height: 50px;
-    color: white;
     position: absolute;
     z-index: 10;
 }
@@ -102,7 +110,6 @@ a {
 
 .home h1 {
     width: 100%;
-    color: white;
     text-align: center;
     font-size: 15rem;
     text-shadow: 0px 0px 15px black;
@@ -121,7 +128,7 @@ a {
 
 .home a {
     margin: 10px;
-    text-shadow: 0px 0px 10px rgb(255, 0, 221);
+    text-shadow: 0px 0px 10px rgb(44, 0, 38);
     overflow: visible;
 }
 
@@ -134,25 +141,79 @@ a {
     justify-content: center;
     align-items: center;
     width: 50px;
-    transition-duration: 100ms;
+    transition-duration: 500ms;
 }
 
+
 .music {
-    background-image: linear-gradient(rgb(57, 29, 58), black);
     padding-top: 100px;
     height: 100vh;
     overflow-y: scroll;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding-bottom: 100px;
 }
 
 .cover img{
-    width: 400px;
+    width: 500px;
 }
 
 .cover {
-    color: white;
     font-size: 2rem;
     text-align: center;
+    
+    width: 500px;
+    margin: 10px;
+}
+
+.albumBackground {
+    height: 100vh;
+    width: 100%;
+
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size:cover;
+
+    filter: brightness(0.5) blur(8px);
+}
+
+.album {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+
+}
+
+.album > div > div{
     display: inline-flex;
-    width: 33%;
-    padding-bottom: 100px;
+}
+
+.album div {
+    overflow: visible;
+}
+
+.album h2 {
+    text-align: center;
+    text-shadow: 0px 0px 15px black;
+    font-weight: 100;
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    overflow: visible;
+}
+
+.album img {
+    width: 500px;
+    box-shadow: 0px 0px 50px -10px rgb(247, 247, 247);
+}
+
+.songList button {
+    font-family: 'Dosis', sans-serif;
+    font-size: 3rem;
 }

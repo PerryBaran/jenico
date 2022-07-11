@@ -1,7 +1,8 @@
 import art from './media/images/index'
 import { whereWeEnd, dreamingOfDetunedLove, lysergic, etherealEP, stormEP } from './media/music/index'
+import { SongInfo } from './Interface'
 
-const songInfo: any = [
+const songInfo: SongInfo[] = [
     {
         title: 'Where We End',
         art: art.whereWeEnd,
@@ -10,7 +11,7 @@ const songInfo: any = [
     {
         title: 'Dreaming of Detuned Love',
         art: art.dreamingOfDetunedLove,
-        songs: dreamingOfDetunedLove,
+        songs: dreamingOfDetunedLove
     },
     {
         title: 'Lysergic',

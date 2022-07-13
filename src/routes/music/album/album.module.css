@@ -1,0 +1,50 @@
+.albumBackground {
+    height: 100vh;
+    width: 100%;
+
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size:cover;
+
+    filter: brightness(0.5) blur(8px);
+}
+
+.album {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+
+}
+
+.album > div > div{
+    display: inline-flex;
+}
+
+.album div {
+    overflow: visible;
+}
+
+.album h2 {
+    text-align: center;
+    text-shadow: 0px 0px 15px black;
+    font-weight: 100;
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    overflow: visible;
+}
+
+.album img {
+    width: 500px;
+    box-shadow: 0px 0px 50px -10px rgb(247, 247, 247);
+}
+
+.songList button {
+    font-family: 'Dosis', sans-serif;
+    font-size: 3rem;
+}

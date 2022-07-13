@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    position: absolute;
+    top:0;
+    justify-content: center;
+    align-items: center;
+
+    width: 100vw;
+    height: 100vh;
+    
+    z-index: -100;
+}
+
+.container video {
+    object-fit: cover;
+
+    width: 100vw;
+    height: 100vh;
+
+    z-index: -99;   
+}

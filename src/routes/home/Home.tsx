@@ -1,12 +1,13 @@
 import React from 'react';
-import Background from '../components/Background';
-import { background } from '../media/videos/index';
-import { spotify, bandcamp, soundcloud, youtube, instagram} from '../media/icons/index';
+import Background from '../../components/background/Background';
+import { background } from '../../media/videos/index';
+import { spotify, bandcamp, soundcloud, youtube, instagram} from '../../media/icons/index';
+import style from "./home.module.css";
 
 function Home() {
     return (
         <div>
-            <header className="home">
+            <header className={style.container}>
                 <div>
                     <h1>Jenico</h1>
                     <div>

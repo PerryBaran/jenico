@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {useParams} from 'react-router-dom';
-import { SongInfo, Songs } from '../Interface';
+import { SongInfo, Songs } from '../../../Interface';
+import style from './album.module.css';
 
 function Album(props: {data: SongInfo[]}) {
     const {data} = props
@@ -15,14 +16,11 @@ function Album(props: {data: SongInfo[]}) {
         }
     //eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
-        
-
-   
 
     const renderSongList = () => {
         if (info?.songs.length && info.songs.length > 1) {
             return (
-                <ul className='songList'>
+                <ul className={style.songList}>
                     {info?.songs.map((song: Songs) => {
                         return (
                             <li key={song.name}>
@@ -37,8 +35,8 @@ function Album(props: {data: SongInfo[]}) {
 
     return (
         <div>
-            <div className='albumBackground' style={{backgroundImage: `url(${info?.art})`}} />
-            <div className='album'>
+            <div className={style.albumBackground} style={{backgroundImage: `url(${info?.art})`}} />
+            <div className={style.album}>
                 <div>
                     <h2>{info?.title}</h2>
                     <div>

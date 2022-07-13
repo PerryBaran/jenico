@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Dispatch, SetStateAction, useRef } from 'react';
+import React, { useState, useEffect, Dispatch, SetStateAction, useRef, ChangeEvent } from 'react';
 import style from './player.module.css';
 import { SongInfo } from '../../Interface';
 import { play, pause, skip, lowVolume, menu } from '../../media/icons/index';
@@ -11,6 +11,7 @@ function Player(props: {data: SongInfo[], songIndex: number, setSongIndex: Dispa
     const [duration, setDuration] = useState('0:00');
     const audioRef = useRef<HTMLAudioElement | null>(null);
     const barRef = useRef<HTMLInputElement | null>(null);
+    const volRef = useRef<HTMLInputElement | null>(null);
 
     useEffect(() => {
         if (audioRef.current) {
@@ -34,6 +35,12 @@ function Player(props: {data: SongInfo[], songIndex: number, setSongIndex: Dispa
         }, 250);
         return () => clearInterval(updateTimer);
     });
+
+    useEffect(() => {
+        if (audioRef.current) {
+            audioRef.current.volume = volume;
+        }
+    }, [volume]);
 
     const calcDisplayTime = (seconds: number) => {
         let sec: number | string = seconds;
@@ -60,21 +67,68 @@ function Player(props: {data: SongInfo[], songIndex: number, setSongIndex: Dispa
             barRef.current.max = `${seconds}`;
             setDuration(calcDisplayTime(seconds));
         }
-    }
+    };
+
+    const skipSong = (forwards = true) => {
+        const albumLength = data[albumIndex].songs.length;
+        const playlistLength = data.length;
+        if (forwards) {
+            const tempSongIndex = songIndex + 1;
+            if (tempSongIndex >= albumLength) {
+                let tempAlbumIndex = albumIndex + 1;
+                if (tempAlbumIndex >= playlistLength) {
+                    setAlbumIndex(0);
+                    setSongIndex(0);
+                    return;
+                } else {
+                    setAlbumIndex(tempAlbumIndex)
+                    setSongIndex(0);
+                    return;
+                }
+            } else {
+                setSongIndex(tempSongIndex);
+                return;
+            }
+        } else {
+            const tempSongIndex = songIndex - 1;
+            if (tempSongIndex < 0) {
+                let tempAlbumIndex = albumIndex - 1;
+                if (tempAlbumIndex < 0) {
+                    setAlbumIndex(playlistLength - 1);
+                    setSongIndex(data[playlistLength - 1].songs.length - 1);
+                    return;
+                } else {
+                    setAlbumIndex(tempAlbumIndex);
+                    setSongIndex(data[albumIndex - 1].songs.length - 1);
+                    return;
+                }
+            } else {
+                setSongIndex(tempSongIndex);
+                return
+            }
+        }
+    };
+
+    const changeVolume = (e: ChangeEvent<HTMLInputElement>) => {
+        const currentVolume = Number(e.target.value)/100;
+        setVolume(currentVolume);
+    };
 
     return (
         <section className={style.container}>
             <audio 
                 ref={audioRef}
-                src={data[albumIndex].songs[songIndex].src}
+                src={data[albumIndex]?.songs[songIndex]?.src}
                 onLoadedMetadata={() => {
-                    updateProgressBarDuration()}
-                }/>
+                    updateProgressBarDuration();
+                    playing && audioRef.current?.play();
+                }}
+                onEnded={() => skipSong()}/>
             <div className={style.start}>
-                <img src={data[albumIndex].art} alt='album cover art'/>
+                <img src={data[albumIndex]?.art} alt='album cover art'/>
                 <div>
-                    <h3>{data[albumIndex].title}</h3>
-                    <p>{data[albumIndex].songs[songIndex].name}</p>
+                    <h3>{data[albumIndex]?.title}</h3>
+                    <p>{data[albumIndex]?.songs[songIndex]?.name}</p>
                 </div>
             </div>
             <div className={style.center}>
@@ -92,9 +146,9 @@ function Player(props: {data: SongInfo[], songIndex: number, setSongIndex: Dispa
                         </div>
                         <div>
                             <div className={style.play}>
-                                <button><img src={skip} alt='skip backward'/></button>
+                                <button onClick={() => skipSong(false)}><img src={skip} alt='skip backward'/></button>
                                 <button onClick={() => setPlaying(!playing)}><img src={playing? pause : play} alt='play/pause'/></button>
-                                <button><img src={skip} alt='skip forward'/></button>
+                                <button onClick={() => skipSong()}><img src={skip} alt='skip forward'/></button>
                             </div>
                         </div>
                         <div>
@@ -104,8 +158,20 @@ function Player(props: {data: SongInfo[], songIndex: number, setSongIndex: Dispa
                 </div>
             </div>
             <div className={style.end}>
-                <button><img src={menu} alt='tracklist'/></button>
-                <button><img src={lowVolume} alt='volume'/></button>
+                <div>
+                    <button><img src={menu} alt='tracklist'/></button>
+                </div>
+                <div className={style.volume}>
+                    <button><img src={lowVolume} alt='volume'/></button>
+                    <input
+                        type='range'
+                        name='volume'
+                        ref={volRef}
+                        min={0}
+                        max={100}
+                        defaultValue={volume * 100}
+                        onChange={e => changeVolume(e)}/>
+                </div>
             </div>
         </section>
     );

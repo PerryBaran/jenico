@@ -1,11 +1,12 @@
 import React, { useState, useEffect, Dispatch, SetStateAction, useRef, ChangeEvent } from 'react';
 import style from './player.module.css';
-import { SongInfo } from '../../Interface';
+import { SongInfo, Songs } from '../../Interface';
 import { play, pause, skip, lowVolume, menu } from '../../media/icons/index';
 
 function Player(props: {data: SongInfo[], playing: boolean, setPlaying: Dispatch<SetStateAction<boolean>>,songIndex: number, setSongIndex: Dispatch<SetStateAction<number>>, albumIndex: number, setAlbumIndex: Dispatch<SetStateAction<number>>}) {
     const {data, playing, setPlaying, songIndex, setSongIndex, albumIndex, setAlbumIndex} = props;
     const [volume, setVolume] = useState(0.5);
+    const [pageIndex, setPageIndex] = useState(albumIndex)
     const [time, setTime] = useState('0:00');
     const [duration, setDuration] = useState('0:00');
     const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -21,6 +22,10 @@ function Player(props: {data: SongInfo[], playing: boolean, setPlaying: Dispatch
             }
         }
     }, [playing, songIndex]);
+
+    useEffect(() => {
+        setPageIndex(albumIndex)
+    }, [albumIndex]);
 
     useEffect(() => {
         const updateTimer = setInterval(() => {
@@ -103,7 +108,7 @@ function Player(props: {data: SongInfo[], playing: boolean, setPlaying: Dispatch
                 }
             } else {
                 setSongIndex(tempSongIndex);
-                return
+                return;
             }
         }
     };
@@ -112,6 +117,30 @@ function Player(props: {data: SongInfo[], playing: boolean, setPlaying: Dispatch
         const currentVolume = Number(e.target.value)/100;
         setVolume(currentVolume);
     };
+
+    const scrollTrackList = (forwards = true) => {
+        const playlistLength = data.length;
+        if (forwards) {
+            const tempPageIndex = pageIndex + 1
+            if (tempPageIndex >= playlistLength) {
+                setPageIndex(0);
+            } else {
+                setPageIndex(tempPageIndex);
+            }
+        } else {
+            const tempPageIndex = pageIndex - 1
+            if (tempPageIndex < 0) {
+                setPageIndex(playlistLength - 1);
+            } else {
+                setPageIndex(tempPageIndex);
+            }
+        }
+    };
+
+    const setSongTracklist = (index: number) => {
+        setAlbumIndex(pageIndex);
+        setSongIndex(index);
+    }
 
     return (
         <section className={style.container}>
@@ -157,12 +186,27 @@ function Player(props: {data: SongInfo[], playing: boolean, setPlaying: Dispatch
                 </div>
             </div>
             <div className={style.end}>
-                <div>
+                <div className={style.tracklistContainer}>
+                    <div className={style.tracklist}>
+                        <div>
+                            <button onClick={() => scrollTrackList(false)}>&lt;</button>
+                            <h4>{data[pageIndex]?.title}</h4>
+                            <button onClick={() => scrollTrackList()}>&gt;</button>
+                        </div>
+                        <ul>
+                            {data[pageIndex]?.songs.map((song: Songs) => {
+                                const index = data[pageIndex]?.songs.indexOf(song);
+                                return (
+                                    <li key={song.name}>
+                                        <button className={style.tracklistButton} onClick={() => setSongTracklist(index)}>{song.name}</button>
+                                    </li>
+                                )
+                            })}
+                        </ul>
+                    </div>
                     <button><img src={menu} alt='tracklist'/></button>
-                    <div></div>
                 </div>
                 <div className={style.volume}>
-                    <button><img src={lowVolume} alt='volume'/></button>
                     <input
                         type='range'
                         name='volume'
@@ -171,6 +215,7 @@ function Player(props: {data: SongInfo[], playing: boolean, setPlaying: Dispatch
                         max={100}
                         defaultValue={volume * 100}
                         onChange={e => changeVolume(e)}/>
+                    <button><img src={lowVolume} alt='volume'/></button>
                 </div>
             </div>
         </section>

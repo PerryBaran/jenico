@@ -25,7 +25,6 @@ h2 {
 
 button {
     all: unset;
-    font-family: 'Major Mono Display', monospace;
     text-align: center;
     cursor: pointer;
     

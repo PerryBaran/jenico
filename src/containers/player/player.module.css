@@ -1,3 +1,7 @@
+:root {
+    --white: rgba(255, 255, 255);
+}
+
 .container {
     background-image: linear-gradient(rgba(57, 29, 58, 0), rgb(0, 0, 0));
     height: 100px;
@@ -119,7 +123,7 @@
     overflow: visible;
 }
 
-.end img {
+.end button > img {
     width: 30px;
     filter:invert();
 }
@@ -202,10 +206,18 @@
     display: none;
     position: absolute;
     bottom: 40px;
+    right: 5px;
     height: 160px;
     width: 210px;
-    border: 1px solid white;
+    border: 1px solid var(--white);
     border-radius: 10px;
+}
+
+.tracklist > img {
+    position: absolute;
+    width: 100%;
+    z-index: -100;
+    filter:brightness(0.3)
 }
 
 .tracklist h4 {
@@ -215,7 +227,7 @@
 }
 
 .tracklist > div {
-    border-bottom: 1px solid rgb(255, 255, 255);
+    border-bottom: 1px solid var(--white);
     
     height: 30px;
     display: grid;
@@ -223,21 +235,22 @@
 }
 
 .tracklist > div > button:nth-last-child(1) {
-    border-left: 1px solid rgb(255, 255, 255);
+    border-left: 1px solid var(--white);
 }
 
 .tracklist > div > button:nth-of-type(1) {
-    border-right: 1px solid rgb(255, 255, 255);
+    border-right: 1px solid var(--white);
 }
 
 .tracklist button {
-    color: rgb(255, 255, 255);
+    color: white;
+    font-weight: bold;
 }
 
 .tracklist li {
     width: 100%;
     font-size: 1.2rem;
-    border-bottom: 1px solid rgb(255, 255, 255);
+    border-bottom: 1px solid var(--white);
 }
 
 .tracklist ul {
@@ -254,4 +267,6 @@
 
 .tracklistContainer button:hover {
     font-weight: bold;
+    background-color: white;
+    color: black;
 }

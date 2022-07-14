@@ -2,7 +2,6 @@ import React, { useState, useEffect, Dispatch, SetStateAction, useRef, ChangeEve
 import style from './player.module.css';
 import { SongInfo, Songs } from '../../Interface';
 import { play, pause, skip, lowVolume, menu } from '../../media/icons/index';
-import KeyboardListener from './KeyboardListeners';
 
 function Player(props: {data: SongInfo[], playing: boolean, setPlaying: Dispatch<SetStateAction<boolean>>,songIndex: number, setSongIndex: Dispatch<SetStateAction<number>>, albumIndex: number, setAlbumIndex: Dispatch<SetStateAction<number>>}) {
     const {data, playing, setPlaying, songIndex, setSongIndex, albumIndex, setAlbumIndex} = props;
@@ -187,8 +186,20 @@ function Player(props: {data: SongInfo[], playing: boolean, setPlaying: Dispatch
                 </div>
             </div>
             <div className={style.end}>
+                <div className={style.volume}>
+                    <input
+                        type='range'
+                        name='volume'
+                        ref={volRef}
+                        min={0}
+                        max={100}
+                        defaultValue={volume * 100}
+                        onChange={e => changeVolume(e)}/>
+                    <button><img src={lowVolume} alt='volume'/></button>
+                </div>
                 <div className={style.tracklistContainer}>
                     <div className={style.tracklist}>
+                        <img src={data[pageIndex]?.art} alt='cover art'/>
                         <div>
                             <button onClick={() => scrollTrackList(false)}>&lt;</button>
                             <h4>{data[pageIndex]?.title}</h4>
@@ -207,24 +218,7 @@ function Player(props: {data: SongInfo[], playing: boolean, setPlaying: Dispatch
                     </div>
                     <button><img src={menu} alt='tracklist'/></button>
                 </div>
-                <div className={style.volume}>
-                    <input
-                        type='range'
-                        name='volume'
-                        ref={volRef}
-                        min={0}
-                        max={100}
-                        defaultValue={volume * 100}
-                        onChange={e => changeVolume(e)}/>
-                    <button><img src={lowVolume} alt='volume'/></button>
-                </div>
             </div>
-            <KeyboardListener
-                playing={playing}
-                setPlaying={setPlaying}
-                volume={volume}
-                setVolume={setVolume}
-                skipSong={skipSong}/>
         </section>
     );
 }

@@ -1,0 +1,43 @@
+{
+  "files": {
+    "main.css": "/jenico/static/css/main.07886971.css",
+    "main.js": "/jenico/static/js/main.9da19a05.js",
+    "static/media/DreamingOfDetunedLove.mp4": "/jenico/static/media/DreamingOfDetunedLove.54acb098a343556826f9.mp4",
+    "static/media/Dissipate.mp3": "/jenico/static/media/Dissipate.9529264c5d43687ef268.mp3",
+    "static/media/Falling into the Void.mp3": "/jenico/static/media/Falling into the Void.d7525db421a5c56dca06.mp3",
+    "static/media/Cumulonimbus.mp3": "/jenico/static/media/Cumulonimbus.8454436406079ac351d9.mp3",
+    "static/media/Ethereal.mp3": "/jenico/static/media/Ethereal.a6cc4e66782668de516d.mp3",
+    "static/media/background.png": "/jenico/static/media/background.48b6b08412e54dc77720.png",
+    "static/media/Rainfall.mp3": "/jenico/static/media/Rainfall.9a570715bc0af3a5930a.mp3",
+    "static/media/Your Careless Embrace.mp3": "/jenico/static/media/Your Careless Embrace.2cec34fe5cb530db8534.mp3",
+    "static/media/Thunder.mp3": "/jenico/static/media/Thunder.4f41764790ed71e79e79.mp3",
+    "static/media/Achlys.mp3": "/jenico/static/media/Achlys.22d346a81d33f308ebc5.mp3",
+    "static/media/Distressed.mp3": "/jenico/static/media/Distressed.b7d0ff677b361e7599f5.mp3",
+    "static/media/Where We End.mp3": "/jenico/static/media/Where We End.17b63ca3a8a97fd9c4e0.mp3",
+    "static/media/Restless Thoughts.mp3": "/jenico/static/media/Restless Thoughts.ea88dc0fb462c6e830fb.mp3",
+    "static/media/Detuned Love.mp3": "/jenico/static/media/Detuned Love.9663640d4b917f0c8b86.mp3",
+    "static/media/Impurity.mp3": "/jenico/static/media/Impurity.34d6964141b7e652b7a6.mp3",
+    "static/media/Lysergic.mp3": "/jenico/static/media/Lysergic.7d9cdc235541d847463d.mp3",
+    "static/media/Serene.mp3": "/jenico/static/media/Serene.d7964dee08cbe19370ed.mp3",
+    "static/media/DreamingOfDetunedLove.png": "/jenico/static/media/DreamingOfDetunedLove.253e738f93eb1ccdb69f.png",
+    "static/media/StormEP.png": "/jenico/static/media/StormEP.5cfe5955f9822c6878dc.png",
+    "static/media/WhereWeEnd.png": "/jenico/static/media/WhereWeEnd.35f23d3b45967c492427.png",
+    "static/media/Lysergic.png": "/jenico/static/media/Lysergic.b1af6dd6fde55484d429.png",
+    "static/media/Slumber.mp3": "/jenico/static/media/Slumber.ef73605102394ea7faaa.mp3",
+    "static/media/Ethereal.png": "/jenico/static/media/Ethereal.7c3da83c35cb158f9fec.png",
+    "static/media/Instagram.png": "/jenico/static/media/Instagram.db2612bd586501d9ed3e.png",
+    "static/media/Youtube.png": "/jenico/static/media/Youtube.87c4bb995a03f25bd570.png",
+    "static/media/Spotify.png": "/jenico/static/media/Spotify.d0fceab7e685f59c797a.png",
+    "static/media/BandCamp.png": "/jenico/static/media/BandCamp.9d6a220010282093953d.png",
+    "static/media/Soundcloud.png": "/jenico/static/media/Soundcloud.5edabff3d2e161ac2ef7.png",
+    "static/media/pauseCircle.png": "/jenico/static/media/pauseCircle.06a57ef017d3b6c3ab3f.png",
+    "static/media/medium-volume.png": "/jenico/static/media/medium-volume.71cf7588d1ae755db04b.png",
+    "index.html": "/jenico/index.html",
+    "main.07886971.css.map": "/jenico/static/css/main.07886971.css.map",
+    "main.9da19a05.js.map": "/jenico/static/js/main.9da19a05.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.07886971.css",
+    "static/js/main.9da19a05.js"
+  ]
+}

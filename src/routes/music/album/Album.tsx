@@ -27,7 +27,7 @@ function Album(props: {data: SongInfo[], playing: boolean, setPlaying: Dispatch<
                     {info?.songs.map((song: Songs) => {
                         const index = info?.songs.indexOf(song);
                         return (
-                            <li key={song.name} className={isSongPlaying(index)}>
+                            <li key={song.name} className={`${isSongPlaying(index)} ${style.song}`}>
                                 <button onClick={() => playSelectedSong(index)}>{song.name}</button>
                             </li>
                         )

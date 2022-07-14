@@ -2,6 +2,7 @@ import React, { useState, useEffect, Dispatch, SetStateAction, useRef, ChangeEve
 import style from './player.module.css';
 import { SongInfo, Songs } from '../../Interface';
 import { play, pause, skip, lowVolume, menu } from '../../media/icons/index';
+import KeyboardListener from './KeyboardListeners';
 
 function Player(props: {data: SongInfo[], playing: boolean, setPlaying: Dispatch<SetStateAction<boolean>>,songIndex: number, setSongIndex: Dispatch<SetStateAction<number>>, albumIndex: number, setAlbumIndex: Dispatch<SetStateAction<number>>}) {
     const {data, playing, setPlaying, songIndex, setSongIndex, albumIndex, setAlbumIndex} = props;
@@ -218,6 +219,12 @@ function Player(props: {data: SongInfo[], playing: boolean, setPlaying: Dispatch
                     <button><img src={lowVolume} alt='volume'/></button>
                 </div>
             </div>
+            <KeyboardListener
+                playing={playing}
+                setPlaying={setPlaying}
+                volume={volume}
+                setVolume={setVolume}
+                skipSong={skipSong}/>
         </section>
     );
 }

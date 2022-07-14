@@ -47,10 +47,6 @@
     overflow: visible;
 }
 
-.songList li:before {
-    content: '';
-}
-
 .songList button {
     font-family: 'Dosis', sans-serif;
     font-size: 3rem;
@@ -77,3 +73,6 @@
     text-shadow: 0 0 10px rgb(247, 3, 255);
 }
 
+.song:hover {
+    font-weight: bold;
+}

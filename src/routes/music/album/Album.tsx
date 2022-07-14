@@ -27,14 +27,14 @@ function Album(props: {data: SongInfo[], playing: boolean, setPlaying: Dispatch<
                     {info?.songs.map((song: Songs) => {
                         const index = info?.songs.indexOf(song);
                         return (
-                            <li key={song.name}>
+                            <li key={song.name} className={isSongPlaying(index)}>
                                 <button onClick={() => playSelectedSong(index)}>{song.name}</button>
                             </li>
                         )
                     })}
                 </ul>
             )
-        }
+        };
     };
 
     const isPageAlbumPlaying = () => {
@@ -42,6 +42,13 @@ function Album(props: {data: SongInfo[], playing: boolean, setPlaying: Dispatch<
             return pauseCircle
         }
         return playCircle
+    };
+
+    const isSongPlaying = (index: number) => {
+        if (pageIndex === albumIndex && songIndex === index) {
+            return style.playing
+        }
+        return ''
     };
 
     const playCurrentAlbum = () => {

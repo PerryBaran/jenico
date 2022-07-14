@@ -56,6 +56,7 @@ function Album(props: {data: SongInfo[], playing: boolean, setPlaying: Dispatch<
             setPlaying(!playing)
         } else {
             setAlbumIndex(pageIndex);
+            setSongIndex(0);
             setPlaying(true);
         }
     };

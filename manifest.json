@@ -1,9 +1,0 @@
-{
-  "short_name": "Jenico",
-  "name": "Web Site for Jenico, Electronic Music Producer",
-  "icons": [],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
-}

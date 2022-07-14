@@ -17,30 +17,32 @@ function App() {
   const [albumIndex, setAlbumIndex] = useState(0);
 
   return (
-    <Router>
-      <Navbar/>
-      <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/music" element={<Music data={data}/>}/>
-        <Route path="/music/:id" element={<Album 
-                                            data={data} 
-                                            playing={playing} 
-                                            setPlaying={setPlaying} 
-                                            songIndex={songIndex} 
-                                            setSongIndex={setSongIndex} 
-                                            albumIndex={albumIndex}
-                                            setAlbumIndex={setAlbumIndex}/>}/>
-        <Route path="/contact" element={<Contact/>}/>
-      </Routes>
-      <Player
-        data={data}
-        playing={playing}
-        setPlaying={setPlaying}
-        songIndex={songIndex} 
-        setSongIndex={setSongIndex}
-        albumIndex={albumIndex}
-        setAlbumIndex={setAlbumIndex}/>
-    </Router>
+    <div>
+      <Router>
+        <Navbar/>
+        <Routes>
+          <Route path="/" element={<Home/>}/>
+          <Route path="/music" element={<Music data={data}/>}/>
+          <Route path="/music/:id" element={<Album 
+                                              data={data} 
+                                              playing={playing} 
+                                              setPlaying={setPlaying} 
+                                              songIndex={songIndex} 
+                                              setSongIndex={setSongIndex} 
+                                              albumIndex={albumIndex}
+                                              setAlbumIndex={setAlbumIndex}/>}/>
+          <Route path="/contact" element={<Contact/>}/>
+        </Routes>
+        <Player
+          data={data}
+          playing={playing}
+          setPlaying={setPlaying}
+          songIndex={songIndex} 
+          setSongIndex={setSongIndex}
+          albumIndex={albumIndex}
+          setAlbumIndex={setAlbumIndex}/>
+      </Router>
+    </div>
   );
 }
 

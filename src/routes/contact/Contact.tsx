@@ -30,37 +30,42 @@ function Contact() {
     };
 
     return (
-        <section className={style.container}>
-            <form ref={form} onSubmit={e => sendEmail(e)}>
-                <label htmlFor='name'>Name</label>
-                <input 
-                    type='text' 
-                    name='name' 
-                    required
-                    value={name}
-                    onChange={e => setName(e.target.value)}/>
-                <label htmlFor='email'>Email </label>
-                <input 
-                    type='email' 
-                    name='email' 
-                    required
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}/>
-                <label htmlFor='subject'>Subject</label>
-                <input 
-                    type='text' 
-                    name='subject' 
-                    required
-                    value={subject}
-                    onChange={e => setSubject(e.target.value)}/>
-                <label htmlFor='message'>Message</label>
-                <textarea 
-                    name='message' 
-                    required
-                    value={message}
-                    onChange={e => setMessage(e.target.value)}/>
-                <button type='submit' name='submit'>Submit</button>
-            </form>
+        <section className='background'>
+            <div className={style.container}>
+                <form ref={form} onSubmit={e => sendEmail(e)}>
+                    <label htmlFor='name'>Name</label>
+                    <input 
+                        type='text' 
+                        name='name' 
+                        required
+                        value={name}
+                        onChange={e => setName(e.target.value)}/>
+                    <label htmlFor='email'>Email </label>
+                    <input 
+                        type='email' 
+                        name='email' 
+                        required
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}/>
+                    <label htmlFor='subject'>Subject</label>
+                    <input 
+                        type='text' 
+                        name='subject' 
+                        required
+                        value={subject}
+                        onChange={e => setSubject(e.target.value)}/>
+                    <label htmlFor='message'>Message</label>
+                    <textarea 
+                        name='message' 
+                        required
+                        value={message}
+                        onChange={e => setMessage(e.target.value)}/>
+                        <div>
+                            <button type='submit' name='submit'>Submit</button>
+                        </div>
+                </form>
+            </div>
+
         </section>
     );
 };

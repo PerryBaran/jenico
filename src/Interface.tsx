@@ -7,6 +7,7 @@ interface SongInfo {
     title: string;
     art: string;
     songs: Songs[];
+    hyperlink: string;
 }
 
 

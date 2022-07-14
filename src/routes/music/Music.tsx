@@ -6,7 +6,8 @@ import style from './music.module.css';
 function Music(props: {data: SongInfo[]}) {
     const {data} = props
     return (
-        <div className={style.container}>
+        <div className='background'>
+            <div className={style.container}>
             {data.map((album: SongInfo) => {
                 return (
                     <button className={style.cover} key={album.title}>
@@ -18,6 +19,8 @@ function Music(props: {data: SongInfo[]}) {
                 )
             })}
         </div>
+        </div>
+        
     );
 }
 

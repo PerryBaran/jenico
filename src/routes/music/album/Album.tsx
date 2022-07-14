@@ -77,7 +77,7 @@ function Album(props: {data: SongInfo[], playing: boolean, setPlaying: Dispatch<
             <div className={style.albumBackground} style={{backgroundImage: `url(${info?.art})`}} />
             <div className={style.album}>
                 <div>
-                    <h2>{info?.title}</h2>
+                    <h2><a href={info?.hyperlink} target='_blank' rel="noreferrer">{info?.title}</a></h2>
                     <div>
                         <button className={style.playAlbum} onClick={() => playCurrentAlbum()}>
                             <img src={info?.art} alt={`Cover for ${info?.title}`}/>

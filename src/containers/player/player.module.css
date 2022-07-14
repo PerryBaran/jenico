@@ -79,6 +79,7 @@
 .belowBar {
     width: 100%;
     padding-top: 15px;
+    overflow: visible;
 }
 
 .belowBar > div {
@@ -89,6 +90,11 @@
 
 .belowBar div:nth-of-type(3) {
     text-align: right;
+}
+
+.belowBar p {
+    font-weight: bold;
+    overflow: visible;
 }
 
 .play {

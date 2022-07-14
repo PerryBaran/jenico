@@ -1,19 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import {useParams} from 'react-router-dom';
+import React, { useEffect, useState, Dispatch, SetStateAction } from 'react';
+import { useParams } from 'react-router-dom';
 import { SongInfo, Songs } from '../../../Interface';
 import style from './album.module.css';
+import { playCircle, pauseCircle } from '../../../media/icons/index';
 
-function Album(props: {data: SongInfo[]}) {
-    const {data} = props
-    const params = useParams()
-    const [info, setInfo] = useState<null|SongInfo>(null)
+function Album(props: {data: SongInfo[], playing: boolean, setPlaying: Dispatch<SetStateAction<boolean>>, songIndex: number,setSongIndex: Dispatch<SetStateAction<number>>, albumIndex: number, setAlbumIndex: Dispatch<SetStateAction<number>>}) {
+    const {data, playing, setPlaying, songIndex, setSongIndex, albumIndex, setAlbumIndex} = props;
+    const params = useParams();
+    const [info, setInfo] = useState<null|SongInfo>(null);
+    const [pageIndex, setPageIndex] = useState(0);
 
     useEffect(() => {
         for (let i = data.length - 1; i >= 0; i--) {
             if (data[i].title === params.id) {
-                setInfo(data[i])
-            }
-        }
+                setInfo(data[i]);
+                setPageIndex(i);
+            };
+        };
     //eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
@@ -22,16 +25,44 @@ function Album(props: {data: SongInfo[]}) {
             return (
                 <ul className={style.songList}>
                     {info?.songs.map((song: Songs) => {
+                        const index = info?.songs.indexOf(song);
                         return (
                             <li key={song.name}>
-                                <button>{song.name}</button>
+                                <button onClick={() => playSelectedSong(index)}>{song.name}</button>
                             </li>
                         )
                     })}
                 </ul>
             )
         }
-    }
+    };
+
+    const isPageAlbumPlaying = () => {
+        if (playing && pageIndex === albumIndex) {
+            return pauseCircle
+        }
+        return playCircle
+    };
+
+    const playCurrentAlbum = () => {
+        if (pageIndex === albumIndex) {
+            setPlaying(!playing)
+        } else {
+            setAlbumIndex(pageIndex);
+            setPlaying(true);
+        }
+    };
+
+    const playSelectedSong = (index: number) => {
+        if (pageIndex === albumIndex) {
+            setSongIndex(index);
+            setPlaying(true);
+        } else {
+            setAlbumIndex(pageIndex);
+            setSongIndex(index);
+            setPlaying(true);
+        }
+    };
 
     return (
         <div>
@@ -40,7 +71,10 @@ function Album(props: {data: SongInfo[]}) {
                 <div>
                     <h2>{info?.title}</h2>
                     <div>
-                        <img src={info?.art} alt={`Cover for ${info?.title}`}/>
+                        <button className={style.playAlbum} onClick={() => playCurrentAlbum()}>
+                            <img src={info?.art} alt={`Cover for ${info?.title}`}/>
+                            <img src={isPageAlbumPlaying()} alt='play/pause album'/>
+                        </button>
                         {renderSongList()}
                     </div> 
                 </div>

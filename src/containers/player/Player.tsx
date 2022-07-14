@@ -3,9 +3,8 @@ import style from './player.module.css';
 import { SongInfo } from '../../Interface';
 import { play, pause, skip, lowVolume, menu } from '../../media/icons/index';
 
-function Player(props: {data: SongInfo[], songIndex: number, setSongIndex: Dispatch<SetStateAction<number>>, albumIndex: number, setAlbumIndex: Dispatch<SetStateAction<number>>}) {
-    const {data, songIndex, setSongIndex, albumIndex, setAlbumIndex} = props;
-    const [playing, setPlaying] = useState(false);
+function Player(props: {data: SongInfo[], playing: boolean, setPlaying: Dispatch<SetStateAction<boolean>>,songIndex: number, setSongIndex: Dispatch<SetStateAction<number>>, albumIndex: number, setAlbumIndex: Dispatch<SetStateAction<number>>}) {
+    const {data, playing, setPlaying, songIndex, setSongIndex, albumIndex, setAlbumIndex} = props;
     const [volume, setVolume] = useState(0.5);
     const [time, setTime] = useState('0:00');
     const [duration, setDuration] = useState('0:00');
@@ -160,6 +159,7 @@ function Player(props: {data: SongInfo[], songIndex: number, setSongIndex: Dispa
             <div className={style.end}>
                 <div>
                     <button><img src={menu} alt='tracklist'/></button>
+                    <div></div>
                 </div>
                 <div className={style.volume}>
                     <button><img src={lowVolume} alt='volume'/></button>

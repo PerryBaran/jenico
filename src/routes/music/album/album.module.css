@@ -48,3 +48,20 @@
     font-family: 'Dosis', sans-serif;
     font-size: 3rem;
 }
+
+.playAlbum {
+    position: relative;
+    width: 500px;
+}
+
+.playAlbum > img:nth-last-child(1) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0;
+    transition-duration: 1s;
+}
+
+.playAlbum:hover img:nth-last-child(1) {
+    opacity: 0.9;
+}

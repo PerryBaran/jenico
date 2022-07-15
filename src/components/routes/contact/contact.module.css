@@ -86,6 +86,6 @@
 @media screen and (max-height: 500px) {
     .container form {
         position: relative;
-        bottom: 25px;
+        bottom: 30px;
     }
 }

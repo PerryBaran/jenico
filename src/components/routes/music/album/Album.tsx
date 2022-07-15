@@ -81,7 +81,7 @@ function Album(props: {data: SongInfo[], playing: boolean, setPlaying: Dispatch<
                     <div>
                         <button className={style.playAlbum} onClick={() => playCurrentAlbum()}>
                             <img src={info?.art} alt={`Cover for ${info?.title}`}/>
-                            <img src={isPageAlbumPlaying()} alt='play/pause album'/>
+                            <img src={isPageAlbumPlaying()} alt='play/pause album' className={style.playPause}/>
                         </button>
                         {renderSongList()}
                     </div> 

@@ -61,6 +61,8 @@
     position: absolute;
     top: 0;
     right: 0;
+    left: 0;
+    bottom: 0;
     opacity: 0;
     transition-duration: 1s;
 }
@@ -127,12 +129,17 @@
     .song button {
         font-size: 1rem;
     }
+
+    .album > div {
+        width: fit-content;
+    }
 }
 
 @media screen and (max-height: 450px) {
     .album > div > div {
         display: inline-flex;
         text-align: left;
+        width: 100%;
     }
 
     .songList {

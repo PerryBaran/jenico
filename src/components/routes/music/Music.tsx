@@ -2,12 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import {SongInfo} from '../../../Interface';
 import style from './music.module.css';
+import BackgroundAnimation from '../../background/animation/BackgroundAnimation';
 
 function Music(props: {data: SongInfo[]}) {
     const {data} = props
     return (
-        <div className='background'>
+        <div>
+            <BackgroundAnimation/> 
             <div className={style.container}>
+               
             {data.map((album: SongInfo) => {
                 return (
                     <button className={style.cover} key={album.title}>
@@ -18,6 +21,7 @@ function Music(props: {data: SongInfo[]}) {
                     </button>
                 )
             })}
+            
         </div>
         </div>
         

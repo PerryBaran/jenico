@@ -1,5 +1,5 @@
 import React from 'react';
-import BackgroundVideo from '../../background/BackgroundVideo';
+import BackgroundVideo from '../../background/video/BackgroundVideo';
 import { background } from '../../../media/videos/index';
 import { spotify, bandcamp, soundcloud, youtube, instagram} from '../../../media/icons/index';
 import style from "./home.module.css";

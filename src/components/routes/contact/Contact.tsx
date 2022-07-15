@@ -1,4 +1,5 @@
 import React, { useState, useRef, FormEvent } from 'react';
+import BackgroundAnimation from '../../background/animation/BackgroundAnimation';
 import style from './contact.module.css';
 import emailjs from 'emailjs-com'
 
@@ -30,8 +31,9 @@ function Contact() {
     };
 
     return (
-        <section className='background'>
-            <div className={style.container}>
+        <>
+            <BackgroundAnimation />
+            <section className={style.container}>
                 <form ref={form} onSubmit={e => sendEmail(e)}>
                     <label htmlFor='name'>Name</label>
                     <input 
@@ -64,9 +66,8 @@ function Contact() {
                             <button type='submit' name='submit'>Submit</button>
                         </div>
                 </form>
-            </div>
-
-        </section>
+            </section>
+        </>
     );
 };
 

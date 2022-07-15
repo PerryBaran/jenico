@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './background.module.css';
+import style from './backgroundVideo.module.css';
 
 
 const BackgroundVideo = (props: { src: string; }) => {

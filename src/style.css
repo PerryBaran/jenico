@@ -46,25 +46,3 @@ a {
 ::-webkit-scrollbar-thumb {
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 1));
 }
-
-.background {
-    background-image: url('./media/images/background.png');
-}
-
-.background > div {
-    backdrop-filter: brightness(0.8);
-    animation: hue 10s;
-    animation-iteration-count: infinite;
-}
-
-
-
-@keyframes hue {
-    0% {
-        backdrop-filter: hue-rotate(0deg);
-    }
-
-    100% {
-        backdrop-filter: hue-rotate(360deg);
-    }
-}

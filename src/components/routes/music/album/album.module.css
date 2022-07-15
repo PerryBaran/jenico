@@ -19,7 +19,7 @@
 
     display: flex;
     justify-content: center;
-
+    overflow: auto;
 }
 
 .album > div > div{
@@ -43,6 +43,7 @@
     width: 500px;
     box-shadow: 0px 0px 50px -10px rgb(247, 247, 247);
 }
+
 .songList {
     overflow: visible;
 }
@@ -75,4 +76,38 @@
 
 .song:hover {
     font-weight: bold;
+}
+
+@media screen and (max-width: 1060px), screen and (max-height: 820px) { 
+    .album > div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .playAlbum {
+        width: 300px;
+    }
+
+    .album img {
+        width: 300px;
+    }
+
+    .album h2 {
+        font-size: 1.2rem;
+    }
+
+    .album > div > div {
+        display: block;
+    }
+
+    .song button {
+        font-size: 1rem;
+    }
+
+    .songList {
+        padding-left: 0;
+        text-align: center;
+        overflow: auto;
+        height: 100px;
+    }
 }

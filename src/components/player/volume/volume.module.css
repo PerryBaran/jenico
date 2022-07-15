@@ -6,12 +6,7 @@
     align-items: flex-end;
     height: 50px;
     width: 50px;
-    bottom: 20px;
-}
-
-.container img {
-    width: 30px;
-    filter:invert();
+    bottom: 19px;
 }
 
 .container input {

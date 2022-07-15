@@ -18,7 +18,6 @@ function Home() {
                         <a href="https://www.instagram.com/jenico.flac/" target="_Blank" rel="noreferrer"><img alt="instagram" src={instagram}/><p>Instagram</p></a>
                     </div>
                 </div>
-                
             </header>
             <BackgroundVideo src={background}/>
         </div>

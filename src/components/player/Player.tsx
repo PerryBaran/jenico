@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Dispatch, SetStateAction, useRef, ChangeEvent } from 'react';
+import React, { useState, useEffect, Dispatch, SetStateAction, useRef } from 'react';
 import style from './player.module.css';
 import { SongInfo } from '../../Interface';
 import Audio from './audio/Audio';

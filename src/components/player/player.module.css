@@ -37,3 +37,13 @@
     width: 30px;
     filter:invert();
 }
+
+@media screen and (max-width: 1000px) {
+    .container {
+        grid-template-columns: 1fr 50% 1fr;
+    }
+
+    .end button > img {
+        width: 20px;
+    }
+}

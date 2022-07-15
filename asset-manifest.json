@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Jenico/static/css/main.31f09e77.css",
-    "main.js": "/Jenico/static/js/main.60b51a90.js",
+    "main.css": "/Jenico/static/css/main.9436d04d.css",
+    "main.js": "/Jenico/static/js/main.1cf1c94b.js",
     "static/media/DreamingOfDetunedLove.mp4": "/Jenico/static/media/DreamingOfDetunedLove.54acb098a343556826f9.mp4",
     "static/media/Dissipate.mp3": "/Jenico/static/media/Dissipate.9529264c5d43687ef268.mp3",
     "static/media/Falling into the Void.mp3": "/Jenico/static/media/Falling into the Void.d7525db421a5c56dca06.mp3",
@@ -33,11 +33,11 @@
     "static/media/pauseCircle.png": "/Jenico/static/media/pauseCircle.06a57ef017d3b6c3ab3f.png",
     "static/media/volume-mute.png": "/Jenico/static/media/volume-mute.a42cdcd7a55312d047a3.png",
     "index.html": "/Jenico/index.html",
-    "main.31f09e77.css.map": "/Jenico/static/css/main.31f09e77.css.map",
-    "main.60b51a90.js.map": "/Jenico/static/js/main.60b51a90.js.map"
+    "main.9436d04d.css.map": "/Jenico/static/css/main.9436d04d.css.map",
+    "main.1cf1c94b.js.map": "/Jenico/static/js/main.1cf1c94b.js.map"
   },
   "entrypoints": [
-    "static/css/main.31f09e77.css",
-    "static/js/main.60b51a90.js"
+    "static/css/main.9436d04d.css",
+    "static/js/main.1cf1c94b.js"
   ]
 }

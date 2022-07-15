@@ -77,6 +77,9 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         font-size: 1rem;
+
+        position: relative;
+        bottom: 20px;
     }
 
     .container textarea {

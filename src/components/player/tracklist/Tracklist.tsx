@@ -3,8 +3,8 @@ import style from './tracklist.module.css';
 import { menu } from '../../../media/icons/index';
 import { SongInfo, Songs } from '../../../Interface';
 
-function Tracklist(props: {data: SongInfo[], setSongIndex: Dispatch<SetStateAction<number>>, albumIndex: number, setAlbumIndex: Dispatch<SetStateAction<number>>}) {
-    const {data, setSongIndex, albumIndex, setAlbumIndex} = props;
+function Tracklist(props: {data: SongInfo[], setSongIndex: Dispatch<SetStateAction<number>>, albumIndex: number, setAlbumIndex: Dispatch<SetStateAction<number>>, setPlaying: Dispatch<SetStateAction<boolean>>}) {
+    const {data, setSongIndex, albumIndex, setAlbumIndex, setPlaying} = props;
     const [pageIndex, setPageIndex] = useState(albumIndex);
 
     useEffect(() => {
@@ -33,6 +33,7 @@ function Tracklist(props: {data: SongInfo[], setSongIndex: Dispatch<SetStateActi
     const setSongTracklist = (index: number) => {
         setAlbumIndex(pageIndex);
         setSongIndex(index);
+        setPlaying(true);
     };
 
     return (

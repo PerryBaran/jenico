@@ -102,7 +102,8 @@ function Player(props: {data: SongInfo[], playing: boolean, setPlaying: Dispatch
                     data={data}
                     setSongIndex={setSongIndex}
                     albumIndex={albumIndex}
-                    setAlbumIndex={setAlbumIndex}/>
+                    setAlbumIndex={setAlbumIndex}
+                    setPlaying={setPlaying}/>
             </div>
         </section>
     );

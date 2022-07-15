@@ -3,7 +3,7 @@
     height: 100vh;
     overflow-y: scroll;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     flex-wrap: wrap;
     padding-bottom: 200px;
 }
@@ -22,15 +22,33 @@
 }
 
 .cover {
-    font-size: 2rem;
     text-align: center;
     
     width: 500px;
     margin: 10px;
 }
 
+.container > button {
+    width: 500px;
+}
+
 @media screen and (max-width: 600px) { 
     .cover img{
         width: 350px;
     }
+}
+
+@media screen and (max-height: 670px) {
+    .cover img{ 
+        width: 200px;
+    }
+
+    .container > button {
+        width: 300px
+    }
+
+    .container p {
+        font-size: 1rem;
+    }
+
 }

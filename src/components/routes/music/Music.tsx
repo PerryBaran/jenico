@@ -10,18 +10,16 @@ function Music(props: {data: SongInfo[]}) {
         <div>
             <BackgroundAnimation/> 
             <div className={style.container}>
-               
-            {data.map((album: SongInfo) => {
-                return (
-                    <button className={style.cover} key={album.title}>
-                        <Link to={`${album.title}`}>
-                            <img src={album.art} alt={`${album.title} album cover`}/>
-                            <p>{album.title}</p>
-                        </Link>
-                    </button>
-                )
-            })}
-            
+                {data.map((album: SongInfo) => {
+                    return (
+                        <button className={style.cover} key={album.title}>
+                            <Link to={`${album.title}`}>
+                                <img src={album.art} alt={`${album.title} album cover`}/>
+                                <p>{album.title}</p>
+                            </Link>
+                        </button>
+                    )
+                })}
         </div>
         </div>
         

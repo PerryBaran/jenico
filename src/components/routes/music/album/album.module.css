@@ -78,13 +78,6 @@
 }
 
 @media screen and (max-width: 1060px)  { 
-    .album > div {
-        display: flex;
-        position: relative;
-        bottom: 50px;
-        flex-direction: column;
-    }
-
     .playAlbum {
         width: 300px;
     }
@@ -117,7 +110,7 @@
     }
 
     .album img {
-        width: 300px;
+        width: 150px;
     }
 
     .album > div {
@@ -131,5 +124,17 @@
 
     .song button {
         font-size: 1rem;
+    }
+}
+
+@media screen and (max-height: 450px) {
+    .album > div > div {
+        display: inline-flex;
+        text-align: left;
+    }
+
+    .songList {
+        padding-left: 0;
+        text-align: left;
     }
 }

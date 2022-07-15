@@ -67,7 +67,38 @@
         );
 }
 
-.container div {
+.container div:last-child {
     margin-top: 10px;
     text-align: right;
+}
+
+@media screen and (max-height: 560px) {
+    .container {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .container form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        font-size: 1rem;
+    }
+
+    .container textarea {
+        height:auto;
+        width: 100%;
+    }
+
+    .container div {
+        width: 90%;
+    }
+
+    .container div:last-child {
+        width: 90%;
+        grid-column: 2
+    }
+
+    .container input {
+        color: black;
+    }
 }

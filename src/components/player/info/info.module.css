@@ -12,6 +12,7 @@
     padding-right: 5px;
     display: inline-block;
     width: 100%;
+    font-size: min(0.8rem, 3vw);
 }
 
 .container img {
@@ -27,11 +28,5 @@
 
     .container img {
         display: none;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .container > div {
-        font-size: 0.7rem;
     }
 }

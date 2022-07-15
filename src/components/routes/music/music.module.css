@@ -17,38 +17,26 @@
 }
 
 .cover img{
-    width: 500px;
+    width: 80%;
+    max-width: 500px;
     box-shadow: 0 0 15px black;
 }
 
 .cover {
     text-align: center;
-    
-    width: 500px;
     margin: 10px;
 }
 
-.container > button {
-    width: 500px;
-}
-
-@media screen and (max-width: 600px) { 
-    .cover img{
-        width: 350px;
-    }
-}
-
-@media screen and (max-height: 670px) {
-    .cover img{ 
-        width: 200px;
-    }
-
-    .container > button {
-        width: 250px
+@media screen and (max-height: 560px) {
+    .cover img {
+        max-width: 200px;
     }
 
     .container p {
-        font-size: 0.8rem;
+        font-size: 1.2rem;
     }
 
+    .cover {
+        width: 200px;
+    }
 }

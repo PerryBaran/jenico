@@ -29,9 +29,13 @@
         );
 }
 
+.container div {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+}
+
 .container form label {
-    display: block;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 .container input {
@@ -43,7 +47,7 @@
 .container textarea {
     color: black;
     width: 100%;
-    height: 100px;
+    margin-top: 5px;
     border: 1px solid white;
 }
 
@@ -68,35 +72,13 @@
 }
 
 .container div:last-child {
-    margin-top: 10px;
-    text-align: right;
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    grid-column: 2;
 }
 
-@media screen and (max-height: 560px) {
-    .container form {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        font-size: 1rem;
-
-        position: relative;
-        bottom: 25px;
-    }
-
-    .container textarea {
-        height:auto;
-        width: 100%;
-    }
-
-    .container div {
-        width: 90%;
-    }
-
-    .container div:last-child {
-        width: 90%;
-        grid-column: 2
-    }
-
-    .container input {
-        color: black;
-    }
+.container div:last-child {
+    margin-top: 10px;
+    text-align: right;
 }

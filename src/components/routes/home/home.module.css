@@ -13,7 +13,7 @@
 .container h1 {
     width: 100%;
     text-align: center;
-    font-size: 14rem;
+    font-size: min(14rem, 20vw);
     text-shadow: 0px 0px 15px black;
     overflow: visible;
 }
@@ -26,7 +26,7 @@
     justify-content: center;
     align-items: center;
     color: white;
-    font-size: 2rem;
+    font-size: clamp(1rem, 2vw, 2rem);
 }
 
 .container a {
@@ -47,15 +47,8 @@
     transition-duration: 500ms;
 }
 
-@media screen and (max-width: 1000px) { 
+@media screen and (max-height: 600px) {
     .container h1 {
-        font-size: 5rem;
-    }
-
-    .container img { 
-        width: 45px;
-    }
-    .container > div > div { 
-        font-size: 1.5rem;
+        font-size: min(14rem, 30vh);
     }
 }

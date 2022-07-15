@@ -1,0 +1,86 @@
+.tracklistContainer {
+    position: relative;
+    overflow: visible;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 50px;
+    width: 50px;
+    bottom: 20px;
+}
+
+.tracklistContainer > button {
+    position: relative;
+}
+
+.tracklistContainer:hover .tracklist {
+    display: block;
+}
+
+.tracklist {
+    display: none;
+    position: absolute;
+    bottom: 45px;
+    right: 5px;
+    height: 210px;
+    width: 210px;
+    border: 1px solid var(--white);
+    border-radius: 10px;
+}
+
+.tracklist > img {
+    position: absolute;
+    width: 100%;
+    z-index: -100;
+    filter:brightness(0.3)
+}
+
+.tracklist h4 {
+    display: inline;
+    font-size: 1rem;
+    color: rgb(255, 255, 255);
+}
+
+.tracklist > div {
+    border-bottom: 1px solid var(--white);
+    
+    height: 30px;
+    display: grid;
+    grid-template-columns: 1fr 80% 1fr;
+}
+
+.tracklist > div > button:nth-last-child(1) {
+    border-left: 1px solid var(--white);
+}
+
+.tracklist > div > button:nth-of-type(1) {
+    border-right: 1px solid var(--white);
+}
+
+.tracklist button {
+    color: white;
+    font-weight: bold;
+}
+
+.tracklist li {
+    width: 100%;
+    font-size: 1.2rem;
+}
+
+.tracklist ul {
+    padding-left: 0;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.tracklistButton {
+    width: 100%;
+    padding-left: 10px;
+    text-align: left;
+}
+
+.tracklist button:hover {
+    font-weight: bold;
+    background-color: white;
+    color: black;
+}

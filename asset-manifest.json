@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Jenico/static/css/main.a424fc83.css",
-    "main.js": "/Jenico/static/js/main.5e6b0f5b.js",
+    "main.js": "/Jenico/static/js/main.970a8efd.js",
     "static/media/DreamingOfDetunedLove.mp4": "/Jenico/static/media/DreamingOfDetunedLove.54acb098a343556826f9.mp4",
     "static/media/Dissipate.mp3": "/Jenico/static/media/Dissipate.9529264c5d43687ef268.mp3",
     "static/media/Falling into the Void.mp3": "/Jenico/static/media/Falling into the Void.d7525db421a5c56dca06.mp3",
@@ -34,10 +34,10 @@
     "static/media/medium-volume.png": "/Jenico/static/media/medium-volume.71cf7588d1ae755db04b.png",
     "index.html": "/Jenico/index.html",
     "main.a424fc83.css.map": "/Jenico/static/css/main.a424fc83.css.map",
-    "main.5e6b0f5b.js.map": "/Jenico/static/js/main.5e6b0f5b.js.map"
+    "main.970a8efd.js.map": "/Jenico/static/js/main.970a8efd.js.map"
   },
   "entrypoints": [
     "static/css/main.a424fc83.css",
-    "static/js/main.5e6b0f5b.js"
+    "static/js/main.970a8efd.js"
   ]
 }

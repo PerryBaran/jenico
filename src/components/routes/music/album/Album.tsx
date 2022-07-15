@@ -1,8 +1,8 @@
 import React, { useEffect, useState, Dispatch, SetStateAction } from 'react';
 import { useParams } from 'react-router-dom';
-import { SongInfo, Songs } from '../../../Interface';
+import { SongInfo, Songs } from '../../../../Interface';
 import style from './album.module.css';
-import { playCircle, pauseCircle } from '../../../media/icons/index';
+import { playCircle, pauseCircle } from '../../../../media/icons/index';
 
 function Album(props: {data: SongInfo[], playing: boolean, setPlaying: Dispatch<SetStateAction<boolean>>, songIndex: number,setSongIndex: Dispatch<SetStateAction<number>>, albumIndex: number, setAlbumIndex: Dispatch<SetStateAction<number>>}) {
     const {data, playing, setPlaying, songIndex, setSongIndex, albumIndex, setAlbumIndex} = props;

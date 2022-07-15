@@ -1,7 +1,7 @@
 import React from 'react';
-import Background from '../../components/background/Background';
-import { background } from '../../media/videos/index';
-import { spotify, bandcamp, soundcloud, youtube, instagram} from '../../media/icons/index';
+import BackgroundVideo from '../../background/BackgroundVideo';
+import { background } from '../../../media/videos/index';
+import { spotify, bandcamp, soundcloud, youtube, instagram} from '../../../media/icons/index';
 import style from "./home.module.css";
 
 function Home() {
@@ -20,7 +20,7 @@ function Home() {
                 </div>
                 
             </header>
-            <Background src={background}/>
+            <BackgroundVideo src={background}/>
         </div>
     );
 }

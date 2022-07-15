@@ -2,7 +2,7 @@ import React from 'react';
 import style from './background.module.css';
 
 
-const Background = (props: { src: string; }) => {
+const BackgroundVideo = (props: { src: string; }) => {
     const {src} = props
 
     return (
@@ -18,4 +18,4 @@ const Background = (props: { src: string; }) => {
 };
 
 
-export default Background;
+export default BackgroundVideo;

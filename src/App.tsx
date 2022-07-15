@@ -1,13 +1,13 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import songInfo from './songInfo';
 
-import Navbar from './containers/navbar/Navbar';
-import Home from './routes/home/Home';
-import Music from './routes/music/Music';
-import Album from './routes/music/album/Album';
-import Contact from './routes/contact/Contact';
-import Player from './containers/player/Player';
+import Navbar from './components/navbar/Navbar';
+import Home from './components/routes/home/Home';
+import Music from './components/routes/music/Music';
+import Album from './components/routes/music/album/Album';
+import Contact from './components/routes/contact/Contact';
+import Player from './components/player/Player';
 
 
 function App() {
@@ -23,14 +23,16 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/music" element={<Music data={data}/>}/>
-          <Route path="/music/:id" element={<Album 
-                                              data={data} 
-                                              playing={playing} 
-                                              setPlaying={setPlaying} 
-                                              songIndex={songIndex} 
-                                              setSongIndex={setSongIndex} 
-                                              albumIndex={albumIndex}
-                                              setAlbumIndex={setAlbumIndex}/>}/>
+          <Route 
+            path="/music/:id" 
+            element={<Album 
+              data={data} 
+              playing={playing} 
+              setPlaying={setPlaying} 
+              songIndex={songIndex} 
+              setSongIndex={setSongIndex} 
+              albumIndex={albumIndex}
+              setAlbumIndex={setAlbumIndex}/>}/>
           <Route path="/contact" element={<Contact/>}/>
         </Routes>
         <Player

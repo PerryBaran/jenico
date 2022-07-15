@@ -80,6 +80,7 @@
 @media screen and (max-width: 1060px)  { 
     .playAlbum {
         width: 300px;
+        
     }
 
     .album img {
@@ -92,6 +93,7 @@
 
     .album > div > div {
         display: block;
+        width: 300px;
     }
 
     .song button {

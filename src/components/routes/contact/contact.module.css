@@ -73,11 +73,6 @@
 }
 
 @media screen and (max-height: 560px) {
-    .container {
-        padding-top: 50px;
-        padding-bottom: 50px;
-    }
-
     .container form {
         display: grid;
         grid-template-columns: 1fr 1fr;

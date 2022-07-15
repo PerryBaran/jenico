@@ -82,8 +82,8 @@
     font-weight: bold;
 }
 
-@media screen and (max-width: 970px) {
-    .album > div > div {
+@media (orientation: portrait) { 
+        .album > div > div {
         display: grid;
         grid-template-rows: 1fr 50%;
         width: 80%;

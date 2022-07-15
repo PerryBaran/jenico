@@ -82,3 +82,10 @@
     margin-top: 10px;
     text-align: right;
 }
+
+@media screen and (max-height: 500px) {
+    .container form {
+        position: relative;
+        bottom: 25px;
+    }
+}

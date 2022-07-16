@@ -18,16 +18,19 @@
 
     display: flex;
     justify-content: center;
+    
     overflow: auto;
 }
 
 .album > div > div{
+    
     height: 80%;
     display: inline-flex;
     overflow: visible;
 }
 
 .album > div {
+    
     overflow: visible;
     height: 70%;
 }

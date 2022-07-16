@@ -46,3 +46,11 @@ a {
 ::-webkit-scrollbar-thumb {
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 1));
 }
+
+.highlight {
+    text-shadow: 0 0 5px white;
+}
+
+.highlight:hover {
+    text-shadow: 0 0 5px black;
+}

@@ -3,8 +3,8 @@ import style from './tracklist.module.css';
 import { menu } from '../../../media/icons/index';
 import { SongInfo, Songs } from '../../../Interface';
 
-function Tracklist(props: {data: SongInfo[], setSongIndex: Dispatch<SetStateAction<number>>, albumIndex: number, setAlbumIndex: Dispatch<SetStateAction<number>>, setPlaying: Dispatch<SetStateAction<boolean>>}) {
-    const {data, setSongIndex, albumIndex, setAlbumIndex, setPlaying} = props;
+function Tracklist(props: {data: SongInfo[], songIndex: number, setSongIndex: Dispatch<SetStateAction<number>>, albumIndex: number, setAlbumIndex: Dispatch<SetStateAction<number>>, setPlaying: Dispatch<SetStateAction<boolean>>}) {
+    const {data, songIndex, setSongIndex, albumIndex, setAlbumIndex, setPlaying} = props;
     const [pageIndex, setPageIndex] = useState(albumIndex);
 
     useEffect(() => {
@@ -36,6 +36,13 @@ function Tracklist(props: {data: SongInfo[], setSongIndex: Dispatch<SetStateActi
         setPlaying(true);
     };
 
+    const highlightSelected = (index: number) => {
+        if (pageIndex === albumIndex && index === songIndex) {
+            return 'highlight'
+        }
+        return ''
+    };
+
     return (
         <div className={style.tracklistContainer}>
             <div className={style.tracklist}>
@@ -49,7 +56,7 @@ function Tracklist(props: {data: SongInfo[], setSongIndex: Dispatch<SetStateActi
                     {data[pageIndex]?.songs.map((song: Songs) => {
                         const index = data[pageIndex]?.songs.indexOf(song);
                         return (
-                            <li key={song.name}>
+                            <li key={song.name} className={highlightSelected(index)}>
                                 <button className={style.tracklistButton} onClick={() => setSongTracklist(index)}>{song.name}</button>
                             </li>
                         )

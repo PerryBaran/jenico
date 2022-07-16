@@ -13,6 +13,7 @@
     display: inline-block;
     width: 100%;
     font-size: min(0.8rem, 3vw);
+    z-index: 2000;
 }
 
 .container img {
@@ -21,9 +22,29 @@
     border: 2px solid white;
 }
 
-@media screen and (max-width: 1000px) {
+@media (orientation: portrait) {
     .container {
-        grid-template-columns: 100%;
+        display: block;
+        text-align: center;
+        grid-column: 1;
+    }
+
+    .container div > * {
+        display: inline-block;
+    }
+
+    .contaiern > div > p {
+        font-weight: bold;
+        font-size: 2rem;
+    }
+    .container div > p::before {
+        content: '-';
+        margin-right: 5px;
+    }
+
+    .container > div > h3 {
+        font-size: 0.8rem;
+        margin-right: 8px;
     }
 
     .container img {

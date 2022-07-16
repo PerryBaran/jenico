@@ -100,6 +100,7 @@ function Player(props: {data: SongInfo[], playing: boolean, setPlaying: Dispatch
                     audioRef={audioRef}/>
                 <Tracklist 
                     data={data}
+                    songIndex={songIndex}
                     setSongIndex={setSongIndex}
                     albumIndex={albumIndex}
                     setAlbumIndex={setAlbumIndex}

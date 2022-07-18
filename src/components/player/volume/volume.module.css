@@ -7,6 +7,7 @@
     height: 50px;
     width: 50px;
     bottom: 19px;
+    grid-column: 3;
 }
 
 .container input {
@@ -51,4 +52,16 @@
 
 .container:hover input {
     display: block;
+}
+
+.container button > img {
+    width: 30px;
+    filter:invert();
+}
+
+@media  (orientation: portrait) {
+    .container {
+        grid-row: 2;
+        grid-column: 1;
+    }
 }

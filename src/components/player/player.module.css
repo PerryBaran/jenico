@@ -10,7 +10,7 @@
     bottom: 0;
     z-index: 1000;
     display: grid;
-    grid-template-columns: 1fr 60% 1fr;
+    grid-template-columns: 2fr 60% 1fr 1fr;
     overflow: visible;
 }
 
@@ -33,35 +33,15 @@
     overflow: visible;
 }
 
-.end button > img {
-    width: 30px;
-    filter:invert();
-}
-
-@media screen and (max-width: 1000px) {
-    .container {
-        grid-template-columns: 1fr 50% 1fr;
-    }
-
-    .end button > img {
-        width: 20px;
-    }
-}
-
 @media (orientation: portrait) {
     .container {
-        display: grid;
-        grid-template-columns: 75% 1fr;
+        grid-template-columns: 1fr 75% 1fr;
         grid-template-rows: 20% 1fr;
         padding-left: 10px;
         padding-right: 10px;
     }
 
     .center {
-        grid-row: 2;
-    }
-
-    .end {
         grid-row: 2;
         grid-column: 2;
     }

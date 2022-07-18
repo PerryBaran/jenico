@@ -44,7 +44,7 @@ function Tracklist(props: {data: SongInfo[], songIndex: number, setSongIndex: Di
     };
 
     return (
-        <div className={style.tracklistContainer}>
+        <div className={style.container}>
             <div className={style.tracklist}>
                 <img src={data[pageIndex]?.art} alt='cover art'/>
                 <div>

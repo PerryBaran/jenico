@@ -95,17 +95,16 @@ function Player(props: {data: SongInfo[], playing: boolean, setPlaying: Dispatch
                     <Time time={duration}/>
                 </div>
             </div>
-            <div className={style.end}>
-                <Volume 
-                    audioRef={audioRef}/>
-                <Tracklist 
-                    data={data}
-                    songIndex={songIndex}
-                    setSongIndex={setSongIndex}
-                    albumIndex={albumIndex}
-                    setAlbumIndex={setAlbumIndex}
-                    setPlaying={setPlaying}/>
-            </div>
+            <Volume 
+                audioRef={audioRef}/>
+            <Tracklist 
+                data={data}
+                songIndex={songIndex}
+                setSongIndex={setSongIndex}
+                albumIndex={albumIndex}
+                setAlbumIndex={setAlbumIndex}
+                setPlaying={setPlaying}/>
+            
         </section>
     );
 }

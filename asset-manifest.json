@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Jenico/static/css/main.447e002a.css",
+    "main.css": "/Jenico/static/css/main.b76a0920.css",
     "main.js": "/Jenico/static/js/main.5de4a5ac.js",
     "static/media/DreamingOfDetunedLove.mp4": "/Jenico/static/media/DreamingOfDetunedLove.54acb098a343556826f9.mp4",
     "static/media/Dissipate.mp3": "/Jenico/static/media/Dissipate.9529264c5d43687ef268.mp3",
@@ -33,11 +33,11 @@
     "static/media/pauseCircle.png": "/Jenico/static/media/pauseCircle.06a57ef017d3b6c3ab3f.png",
     "static/media/volume-mute.png": "/Jenico/static/media/volume-mute.a42cdcd7a55312d047a3.png",
     "index.html": "/Jenico/index.html",
-    "main.447e002a.css.map": "/Jenico/static/css/main.447e002a.css.map",
+    "main.b76a0920.css.map": "/Jenico/static/css/main.b76a0920.css.map",
     "main.5de4a5ac.js.map": "/Jenico/static/js/main.5de4a5ac.js.map"
   },
   "entrypoints": [
-    "static/css/main.447e002a.css",
+    "static/css/main.b76a0920.css",
     "static/js/main.5de4a5ac.js"
   ]
 }

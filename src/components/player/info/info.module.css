@@ -1,24 +1,28 @@
 .container {
     display: grid;
+    grid-template-columns: 75px 1fr;    
+    align-items: center;    
+
     width: 100%;
     height: 100%;
-    align-items: center;
-    grid-template-columns: 75px 1fr;
     padding-left: 10px;
 }
 
 .container > div {
+    display: inline-block;    
+
+    width: 100%;    
     padding-left: 10px;
     padding-right: 5px;
-    display: inline-block;
-    width: 100%;
+
     font-size: min(0.8rem, 3vw);
+
     z-index: 2000;
 }
 
 .container img {
-    margin: auto;
     width: 100%;
+
     border: 2px solid white;
 }
 
@@ -35,8 +39,8 @@
 @media (orientation: portrait) {
     .container {
         display: block;
+        grid-column: 1 / span 3;        
         text-align: center;
-        grid-column: 1 / span 3;
     }
 
     .container div > * {
@@ -44,17 +48,18 @@
     }
 
     .contaiern > div > p {
+        font-size: 2rem;        
         font-weight: bold;
-        font-size: 2rem;
     }
+
     .container div > p::before {
         content: '-';
         margin-right: 5px;
     }
 
     .container > div > h3 {
+        margin-right: 8px;        
         font-size: 0.8rem;
-        margin-right: 8px;
     }
 
     .container img {

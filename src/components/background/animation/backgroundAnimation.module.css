@@ -1,15 +1,18 @@
 .background {
-    background-image: url('../../../media/images/background.png');
     position: absolute;
+
     width: 100vw;
-    height: 100vh;
+    height: 100vh;    
+
+    background-image: url('../../../media/images/background.png');
+
     z-index: -1000;
 }
 
 .background > div {
     width: 100vw;
     height: 100vh;
-    backdrop-filter: brightness(0.8);
+    
     animation: hue 20s;
     animation-iteration-count: infinite;
 }

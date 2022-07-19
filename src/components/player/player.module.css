@@ -3,14 +3,18 @@
 }
 
 .container {
-    background-image: linear-gradient(rgba(57, 29, 58, 0), rgb(0, 0, 0));
-    height: 100px;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    z-index: 1000;
     display: grid;
     grid-template-columns: 2fr 60% 1fr 1fr;
+
+    position: fixed;
+    bottom: 0;
+
+    width: 100%;
+    height: 100px;
+
+    background-image: linear-gradient(rgba(57, 29, 58, 0), rgb(0, 0, 0));
+
+    z-index: 1000;
     overflow: visible;
 }
 
@@ -26,17 +30,11 @@
     margin-top: 10px;
 }
 
-.end {
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    overflow: visible;
-}
-
 @media (orientation: portrait) {
     .container {
         grid-template-columns: 1fr 75% 1fr;
         grid-template-rows: 20% 1fr;
+        
         padding-left: 10px;
         padding-right: 10px;
     }

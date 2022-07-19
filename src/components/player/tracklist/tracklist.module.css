@@ -1,13 +1,17 @@
 .container {
-    position: relative;
-    overflow: visible;
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    height: 50px;
-    width: 50px;
+
+    grid-column: 4;    
+
+    position: relative;
     bottom: 20px;
-    grid-column: 4;
+
+    width: 50px;
+    height: 50px;
+
+    overflow: visible;
 }
 
 .container > button {
@@ -20,43 +24,51 @@
 
 .tracklist {
     display: none;
+
     position: absolute;
     bottom: 45px;
     right: 5px;
-    height: 210px;
+
     width: 210px;
-    border: 1px solid var(--white);
+    height: 210px;
+
+    border: 1px solid white;
     border-radius: 3px;
+
     z-index: 200;
 }
 
 .tracklist > img {
     position: absolute;
+
     width: 100%;
+
+    filter:brightness(0.3);
+
     z-index: -100;
-    filter:brightness(0.3)
 }
 
 .tracklist h4 {
     display: inline;
+    color: white;   
     font-size: 1rem;
-    color: rgb(255, 255, 255);
 }
 
 .tracklist > div {
-    border-bottom: 1px solid var(--white);
-    
-    height: 30px;
     display: grid;
     grid-template-columns: 1fr 80% 1fr;
+
+    height: 30px;
+
+    border-bottom: 1px solid white;
 }
 
 .tracklist > div > button:nth-last-child(1) {
-    border-left: 1px solid var(--white);
+    border-left: 1px solid white;
 }
 
 .tracklist > div > button:nth-of-type(1) {
-    border-right: 1px solid var(--white);
+    border-right: 1px solid white;
 }
 
 .tracklist button {
@@ -70,8 +82,8 @@
 }
 
 .tracklist ul {
+    height: 100%;    
     padding-left: 0;
-    height: 100%;
     overflow-y: auto;
 }
 
@@ -82,9 +94,9 @@
 }
 
 .tracklist button:hover {
-    font-weight: bold;
-    background-color: white;
     color: black;
+    background-color: white;
+    font-weight: bold;
 }
 
 .container button > img {

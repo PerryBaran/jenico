@@ -3,7 +3,16 @@ import style from './tracklist.module.css';
 import { menu } from '../../../media/icons/index';
 import { SongInfo, Songs } from '../../../Interface';
 
-function Tracklist(props: {data: SongInfo[], songIndex: number, setSongIndex: Dispatch<SetStateAction<number>>, albumIndex: number, setAlbumIndex: Dispatch<SetStateAction<number>>, setPlaying: Dispatch<SetStateAction<boolean>>}) {
+interface Props{
+    data: SongInfo[], 
+    songIndex: number, 
+    setSongIndex: Dispatch<SetStateAction<number>>, 
+    albumIndex: number, 
+    setAlbumIndex: Dispatch<SetStateAction<number>>, 
+    setPlaying: Dispatch<SetStateAction<boolean>>
+}
+
+function Tracklist(props: Props) {
     const {data, songIndex, setSongIndex, albumIndex, setAlbumIndex, setPlaying} = props;
     const [pageIndex, setPageIndex] = useState(albumIndex);
 

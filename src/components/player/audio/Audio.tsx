@@ -1,7 +1,17 @@
 import React, { RefObject, useEffect, Dispatch, SetStateAction } from 'react';
 import { SongInfo } from '../../../Interface';
 
-function Audio(props: {data: SongInfo[], playing: boolean, songIndex: number, albumIndex: number, audioRef: RefObject<HTMLAudioElement>, setDuration: Dispatch<SetStateAction<number>>, skipSong: () => void}) {
+interface Props {
+    data: SongInfo[], 
+    playing: boolean, 
+    songIndex: number, 
+    albumIndex: number, 
+    audioRef: RefObject<HTMLAudioElement>, 
+    setDuration: Dispatch<SetStateAction<number>>, 
+    skipSong: () => void
+}
+
+function Audio (props: Props) {
     const { playing, data, songIndex, albumIndex, audioRef, setDuration, skipSong} = props;
 
     useEffect(() => {

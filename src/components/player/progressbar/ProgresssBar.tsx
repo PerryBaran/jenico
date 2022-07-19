@@ -1,7 +1,14 @@
 import React, { RefObject, useEffect } from 'react';
 import style from './progressBar.module.css';
 
-function ProgresssBar(props: {barRef: RefObject<HTMLInputElement>, audioRef: RefObject<HTMLAudioElement>, time:number, duration: number}) {
+interface Props{
+    barRef: RefObject<HTMLInputElement>, 
+    audioRef: RefObject<HTMLAudioElement>, 
+    time:number, 
+    duration: number
+}
+
+function ProgresssBar(props: Props) {
     const {barRef, audioRef, time, duration} = props;
 
     const changeTime = (value: number) => {

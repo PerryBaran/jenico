@@ -9,7 +9,17 @@ import MediaControls from './mediaControls/MediaControls';
 import Volume from './volume/Volume';
 import Tracklist from './tracklist/Tracklist';
 
-function Player(props: {data: SongInfo[], playing: boolean, setPlaying: Dispatch<SetStateAction<boolean>>, songIndex: number, setSongIndex: Dispatch<SetStateAction<number>>, albumIndex: number, setAlbumIndex: Dispatch<SetStateAction<number>>}) {
+interface Props{
+    data: SongInfo[], 
+    playing: boolean, 
+    setPlaying: Dispatch<SetStateAction<boolean>>, 
+    songIndex: number, 
+    setSongIndex: Dispatch<SetStateAction<number>>, 
+    albumIndex: number, 
+    setAlbumIndex: Dispatch<SetStateAction<number>>
+}
+
+function Player(props: Props) {
     const {data, playing, setPlaying, songIndex, setSongIndex, albumIndex, setAlbumIndex} = props;
     const [time, setTime] = useState(0);
     const [duration, setDuration] = useState(0);

@@ -1,6 +1,14 @@
 import React, { useEffect, Dispatch, SetStateAction } from 'react';
 
-const KeyboardListener = (props: {playing: boolean, setPlaying: Dispatch<SetStateAction<boolean>>, volume: number, setVolume: Dispatch<SetStateAction<number>>, skipSong: (forwards?: boolean) => void}) => {
+interface Props{
+    playing: boolean, 
+    setPlaying: Dispatch<SetStateAction<boolean>>, 
+    volume: number, 
+    setVolume: Dispatch<SetStateAction<number>>, 
+    skipSong: (forwards?: boolean) => void
+}
+
+const KeyboardListener = (props: Props) => {
     const { playing, setPlaying, volume, setVolume, skipSong} = props;
 
     useEffect(() => {

@@ -2,8 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import style from './navbar.module.css';
 
-
-function Navbar(props:any) {
+function Navbar() {
     return (
         <div className={style.container}>
             <h1><Link to="/" className={style.link}>Jenico</Link></h1>

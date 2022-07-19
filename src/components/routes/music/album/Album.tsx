@@ -4,7 +4,17 @@ import { SongInfo, Songs } from '../../../../Interface';
 import style from './album.module.css';
 import { playCircle, pauseCircle } from '../../../../media/icons/index';
 
-function Album(props: {data: SongInfo[], playing: boolean, setPlaying: Dispatch<SetStateAction<boolean>>, songIndex: number,setSongIndex: Dispatch<SetStateAction<number>>, albumIndex: number, setAlbumIndex: Dispatch<SetStateAction<number>>}) {
+interface Props {
+    data: SongInfo[], 
+    playing: boolean, 
+    setPlaying: Dispatch<SetStateAction<boolean>>, 
+    songIndex: number,
+    setSongIndex: Dispatch<SetStateAction<number>>, 
+    albumIndex: number, 
+    setAlbumIndex: Dispatch<SetStateAction<number>>
+}
+
+function Album(props: Props) {
     const {data, playing, setPlaying, songIndex, setSongIndex, albumIndex, setAlbumIndex} = props;
     const params = useParams();
     const [info, setInfo] = useState<null|SongInfo>(null);

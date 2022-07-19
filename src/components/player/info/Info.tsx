@@ -2,7 +2,13 @@ import React from 'react';
 import { SongInfo } from '../../../Interface';
 import style from './info.module.css';
 
-function Info(props: {data: SongInfo[], songIndex: number, albumIndex: number}) {
+interface Props {
+    data: SongInfo[], 
+    songIndex: number, 
+    albumIndex: number
+}
+
+function Info(props: Props) {
     const { data, songIndex, albumIndex } = props;
 
     return (

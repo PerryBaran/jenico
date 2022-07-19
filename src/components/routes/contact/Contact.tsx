@@ -1,5 +1,5 @@
 import React, { useState, useRef, FormEvent } from 'react';
-import BackgroundAnimation from '../../background/animation/BackgroundAnimation';
+import BackgroundImage from '../../background/animation/BackgroundImage';
 import style from './contact.module.css';
 import emailjs from 'emailjs-com'
 import { background } from '../../../media/images/index';
@@ -33,7 +33,7 @@ function Contact() {
 
     return (
         <>
-            <BackgroundAnimation src={background}/>
+            <BackgroundImage src={background}/>
             <section className={style.container}>
                 <form ref={form} onSubmit={e => sendEmail(e)}>
                     <div>

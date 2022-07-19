@@ -2,9 +2,7 @@
     position: absolute;
 
     width: 100vw;
-    height: 100vh;    
-
-    background-image: url('../../../media/images/background.png');
+    height: 100vh;
 
     z-index: -1000;
 }

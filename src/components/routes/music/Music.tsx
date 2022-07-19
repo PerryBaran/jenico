@@ -1,14 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {SongInfo} from '../../../Interface';
+import { SongInfo } from '../../../Interface';
 import style from './music.module.css';
 import BackgroundAnimation from '../../background/animation/BackgroundAnimation';
+import { background } from '../../../media/images/index'
 
 function Music(props: {data: SongInfo[]}) {
     const {data} = props
     return (
         <div>
-            <BackgroundAnimation/> 
+            <BackgroundAnimation src={background}/> 
             <div className={style.container}>
                 {data.map((album: SongInfo) => {
                     return (

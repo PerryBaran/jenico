@@ -1,9 +1,11 @@
 import React from 'react';
 import style from './backgroundAnimation.module.css';
 
-function BackgroundAnimation() {
+function BackgroundAnimation(props: {src: string}) {
+    const { src } = props;
+
     return (
-        <div className={style.background}>
+        <div className={style.background} style={{backgroundImage: `url(${src})`}}>
             <div>
             </div>
         </div>

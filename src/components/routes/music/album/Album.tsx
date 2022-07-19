@@ -74,7 +74,7 @@ function Album(props: {data: SongInfo[], playing: boolean, setPlaying: Dispatch<
 
     return (
         <div>
-            <div className={style.albumBackground} style={{backgroundImage: `url(${info?.art})`}} />
+            <div className={style.albumBackground} style={{backgroundImage: `url(${info?.art})`}}/>
             <div className={style.album}>
                 <div>
                     <h2><a href={info?.hyperlink} target='_blank' rel="noreferrer">{info?.title}</a></h2>

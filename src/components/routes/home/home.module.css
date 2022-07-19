@@ -38,6 +38,7 @@
 
 .container a {
     margin: 10px;
+    height: 100px;
     text-shadow: 0px 0px 10px rgb(44, 0, 38);
     overflow: visible;
 }

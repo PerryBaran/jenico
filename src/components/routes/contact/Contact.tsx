@@ -1,5 +1,5 @@
 import React, { useState, useRef, FormEvent } from 'react';
-import BackgroundImage from '../../background/animation/BackgroundImage';
+import BackgroundImage from '../../background/image/BackgroundImage';
 import style from './contact.module.css';
 import sendEmail from '../../../services/emailJS';
 import { background } from '../../../media/images/index';
@@ -16,7 +16,7 @@ function Contact() {
     const handleSubmit = (e:FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        sendEmail(form.current)
+        sendEmail(form.current);
 
         setName('');
         setEmail('');

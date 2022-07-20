@@ -6,8 +6,6 @@ function BackgroundImage(props: {src: string}) {
 
     return (
         <div className={style.background} style={{backgroundImage: `url(${src})`}}>
-            <div>
-            </div>
         </div>
     );
 }

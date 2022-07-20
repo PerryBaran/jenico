@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { SongInfo } from '../../../Interface';
 import style from './music.module.css';
-import BackgroundImage from '../../background/animation/BackgroundImage';
+import BackgroundImage from '../../background/image/BackgroundImage';
 import { background } from '../../../media/images/index'
 
 function Music(props: {data: SongInfo[]}) {
@@ -21,7 +21,7 @@ function Music(props: {data: SongInfo[]}) {
                         </button>
                     )
                 })}
-        </div>
+            </div>
         </div>
         
     );

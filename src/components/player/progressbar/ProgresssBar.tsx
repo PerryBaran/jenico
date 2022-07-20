@@ -21,25 +21,23 @@ function ProgresssBar(props: Props) {
         if (barRef.current) {
             barRef.current.value = `${time}`
         }
-    }, [time, barRef])
+    }, [time, barRef]);
 
     useEffect(() => {
         if (barRef.current) {
             barRef.current.max = `${duration}`;
         }  
-    }, [duration, barRef])
+    }, [duration, barRef]);
 
     return (
-        <>
-            <input 
-                type='range'
-                ref={barRef}
-                name='time'
-                min={0}
-                defaultValue={0}
-                onChange={e => changeTime(Number(e.target.value))}
-                className={style.bar}/>
-        </>
+        <input 
+            type='range'
+            ref={barRef}
+            name='time'
+            min={0}
+            defaultValue={0}
+            onChange={e => changeTime(Number(e.target.value))}
+            className={style.bar}/>
     );
 }
 

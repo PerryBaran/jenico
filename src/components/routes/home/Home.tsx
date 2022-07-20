@@ -3,6 +3,7 @@ import BackgroundVideo from '../../background/video/BackgroundVideo';
 import { background } from '../../../media/videos/index';
 import { spotify, bandcamp, soundcloud, youtube, instagram} from '../../../media/icons/index';
 import style from "./home.module.css";
+import Socials from './socials/Socials';
 
 function Home() {
     return (
@@ -11,11 +12,11 @@ function Home() {
                 <div>
                     <h1>Jenico</h1>
                     <div>
-                        <a href="https://open.spotify.com/artist/6XqSoJQMIWNKBuLzzmJwiz" target="_Blank" rel="noreferrer"><img alt="spotify" src={spotify}/><p>Spotify</p></a>
-                        <a href="https://jenico.bandcamp.com/" target="_Blank" rel="noreferrer"><img alt="bandcamp" src={bandcamp}/><p>Bandcamp</p></a>
-                        <a href="https://soundcloud.com/jenico_flac" target="_Blank" rel="noreferrer"><img alt="soundcloud" src={soundcloud}/><p>SoundCloud</p></a>
-                        <a href="https://www.youtube.com/channel/UCOHuR2EY8wKXsDcocxDvqOA" target="_Blank" rel="noreferrer"><img alt="youtube" src={youtube}/><p>YouTube</p></a>
-                        <a href="https://www.instagram.com/jenico.flac/" target="_Blank" rel="noreferrer"><img alt="instagram" src={instagram}/><p>Instagram</p></a>
+                        <Socials src="https://open.spotify.com/artist/6XqSoJQMIWNKBuLzzmJwiz" img={spotify} name="Spotify"/>
+                        <Socials src="https://jenico.bandcamp.com/" img={bandcamp} name="Bandcamp"/>
+                        <Socials src="https://soundcloud.com/jenico_flac" img={soundcloud} name="Soundcloud"/>
+                        <Socials src="https://www.youtube.com/channel/UCOHuR2EY8wKXsDcocxDvqOA" img={youtube} name="YouTube"/>
+                        <Socials src="https://www.instagram.com/jenico.flac/" img={instagram} name="Instagram"/>
                     </div>
                 </div>
             </header>

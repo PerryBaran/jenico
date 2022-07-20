@@ -16,13 +16,13 @@ function Audio (props: Props) {
 
     useEffect(() => {
         if (audioRef.current) {
-                if (playing) {
+            if (playing) {
                 audioRef.current.play();
             } else {
                 audioRef.current.pause();
             }
         }
-    }, [playing, songIndex, audioRef]);
+    }, [playing, songIndex, albumIndex, audioRef]);
 
     const updateDuration = () =>{
         if (audioRef.current) {

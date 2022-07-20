@@ -1,7 +1,7 @@
 import React, { useState, useRef, FormEvent } from 'react';
 import BackgroundImage from '../../background/animation/BackgroundImage';
 import style from './contact.module.css';
-import emailjs from 'emailjs-com'
+import sendEmail from '../../../services/emailJS';
 import { background } from '../../../media/images/index';
 
 function Contact() {
@@ -11,31 +11,24 @@ function Contact() {
     const [message, setMessage] = useState('');
 
 
-    const form = useRef<HTMLFormElement|null>(null);
+    const form = useRef<HTMLFormElement>(null);
 
-    const sendEmail = (e:FormEvent<HTMLFormElement>) => {
-      e.preventDefault();
+    const handleSubmit = (e:FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
 
-      if (form.current) {
-        emailjs.sendForm('service_szxchwk', 'template_ldjw82j', form.current, 'kavY_LmpokDn2OKmV')
-        .then((result) => {
-            alert('Email sent successfully')
-        }, (error) => {
-            alert(`Oops, something went wrong: ${error.text}`);
-        });
-      };
+        sendEmail(form.current)
 
-      setName('');
-      setEmail('');
-      setSubject('');
-      setMessage('');
+        setName('');
+        setEmail('');
+        setSubject('');
+        setMessage('');
     };
 
     return (
         <>
             <BackgroundImage src={background}/>
             <section className={style.container}>
-                <form ref={form} onSubmit={e => sendEmail(e)}>
+                <form ref={form} onSubmit={e => handleSubmit(e)}>
                     <div>
                         <label htmlFor='name'>Name</label>
                         <input 

@@ -11,5 +11,4 @@ interface SongInfo {
     hyperlink: string;
 }
 
-
 export type {Songs, SongInfo}

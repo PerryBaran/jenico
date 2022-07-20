@@ -1,6 +1,6 @@
-import {art} from './media/images/index'
-import { whereWeEnd, dreamingOfDetunedLove, lysergic, etherealEP, stormEP } from './media/music/index'
-import { SongInfo } from './Interface'
+import {art} from './images/index'
+import { whereWeEnd, dreamingOfDetunedLove, lysergic, etherealEP, stormEP } from './music/index'
+import { SongInfo } from '../Interface'
 
 const songInfo: SongInfo[] = [
     {

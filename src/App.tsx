@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
-import songInfo from './songInfo';
-import useFirebaseData from './hooks/useFirebase';
+import songInfo from './media/songInfo';
+import useFirebaseData from './hooks/useFirebaseData';
 
 import Navbar from './components/navbar/Navbar';
 import Home from './components/routes/home/Home';

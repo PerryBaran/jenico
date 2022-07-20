@@ -3,7 +3,7 @@ import dreamingOfDetunedLove from './DreamingOfDetunedLove.png'
 import ethereal from './Ethereal.png'
 import lysergic from './Lysergic.png'
 import stormEP from './StormEP.png'
-import background from './background.png';
+import background from './background.jpg';
 
 const art = {
     whereWeEnd: whereWeEnd,

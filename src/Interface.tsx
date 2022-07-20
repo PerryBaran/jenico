@@ -1,6 +1,7 @@
 interface Songs {
     name: string;
-    src: string;
+    src?: string;
+    ref?: string;
 }
 
 interface SongInfo {

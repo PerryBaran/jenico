@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import songInfo from './songInfo';
+import useFirebaseData from './hooks/useFirebase';
 
 import Navbar from './components/navbar/Navbar';
 import Home from './components/routes/home/Home';
@@ -11,10 +12,10 @@ import Player from './components/player/Player';
 
 
 function App() {
-  const [data] = useState(songInfo);
   const [playing, setPlaying] = useState(false);
   const [songIndex, setSongIndex] = useState(0);
   const [albumIndex, setAlbumIndex] = useState(0);
+  const [data] = useFirebaseData(songInfo, albumIndex, songIndex);
 
   return (
     <div>

@@ -1,89 +1,68 @@
-import whereWeEndSrc from './where we end/Where We End.mp3';
-
-import slumberSrc from './dreaming of detuned love/Slumber.mp3';
-import yourCarelessEmbraceSrc from './dreaming of detuned love/Your Careless Embrace.mp3';
-import restlessThoughtsSrc from './dreaming of detuned love/Restless Thoughts.mp3';
-import detunedLoveSrc from './dreaming of detuned love/Detuned Love.mp3';
-import fallingIntoTheVoidSrc from './dreaming of detuned love/Falling into the Void.mp3';
-
-import lysergicSrc from './lysergic/Lysergic.mp3';
-
-import distressedSrc from './ethereal/Distressed.mp3';
-import impuritySrc from './ethereal/Impurity.mp3';
-import achlysSrc from './ethereal/Achlys.mp3';
-import etherealSrc from './ethereal/Ethereal.mp3';
-
-import sereneSrc from './storm ep/Serene.mp3';
-import cumulonimbusSrc from './storm ep/Cumulonimbus.mp3';
-import rainfaillSrc from './storm ep/Rainfall.mp3';
-import thunderSrc from './storm ep/Thunder.mp3';
-import dissipateSrc from './storm ep/Dissipate.mp3';
-
 const whereWeEnd = [
     {
         name: 'Where We End',
-        src: whereWeEndSrc
+        ref: 'Where We End/Where We End.mp3'
     }
 ]
 
 const dreamingOfDetunedLove = [
     {
         name: 'Slumber',
-        src: slumberSrc
+        ref: 'Dreaming Of Detuned Love/Slumber.mp3'
     },{
         name: 'Your Careless Embrace',
-        src: yourCarelessEmbraceSrc
+        ref: 'Dreaming Of Detuned Love/Your Careless Embrace.mp3'
     },{
         name: 'Restless Thoughts',
-        src: restlessThoughtsSrc
+        ref: 'Dreaming Of Detuned Love/Restless Thoughts.mp3'
     },{
         name: 'Detuned Love',
-        src: detunedLoveSrc
+        ref: 'Dreaming Of Detuned Love/Detuned Love.mp3'
     },{
         name: 'Falling into the Void',
-        src: fallingIntoTheVoidSrc
+        ref: 'Dreaming Of Detuned Love/Falling into the Void.mp3'
     }
 ]
 
 const lysergic = [
     {
         name: 'Lysergic',
-        src: lysergicSrc
+        ref: 'Lysergic/Lysergic.mp3'
     }
 ]
 
 const ethereal = [
     {
         name: 'Distressed',
-        src: distressedSrc
+        ref: 'Ethereal/Distressed.mp3'
     },{
         name: 'Impurity',
-        src: impuritySrc
+        ref: 'Ethereal/Impurity.mp3'
     },{
         name: 'Achlys',
-        src: achlysSrc
+        ref: 'Ethereal/Achlys.mp3'
     },{
         name: 'Ethereal',
-        src: etherealSrc
+        ref: 'Ethereal/Ethereal.mp3'
     }
 ]
 
 const stormEP = [
     {
         name: 'Serene',
-        src: sereneSrc
+        ref: 'Storm EP/Serene.mp3'
     },{
         name: 'Cumulonimbus',
-        src: cumulonimbusSrc
+        ref: 'Storm EP/Cumulonimbus.mp3'
     },{
         name: 'Rainfall',
-        src:rainfaillSrc
+        ref: 'Storm EP/Rainfall.mp3'
     },{
         name: 'Thunder',
-        src: thunderSrc
+        ref: 'Storm EP/Thunder.mp3'
     },{
         name: 'Dissipate',
-        src:dissipateSrc
+        ref: 'Storm EP/Dissipate.mp3'
     }
 ]
 

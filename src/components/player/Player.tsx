@@ -8,21 +8,24 @@ import Time from './time/Time';
 import MediaControls from './mediaControls/MediaControls';
 import Volume from './volume/Volume';
 import Tracklist from './tracklist/Tracklist';
+import KeyboardListener from './keyboardListener/KeyboardListeners';
 
-interface Props{
+interface Props {
     data: SongInfo[], 
     playing: boolean, 
     setPlaying: Dispatch<SetStateAction<boolean>>, 
     songIndex: number, 
     setSongIndex: Dispatch<SetStateAction<number>>, 
     albumIndex: number, 
-    setAlbumIndex: Dispatch<SetStateAction<number>>
+    setAlbumIndex: Dispatch<SetStateAction<number>>,
+    formFocused: boolean
 }
 
 function Player(props: Props) {
-    const {data, playing, setPlaying, songIndex, setSongIndex, albumIndex, setAlbumIndex} = props;
+    const {data, playing, setPlaying, songIndex, setSongIndex, albumIndex, setAlbumIndex, formFocused} = props;
     const [time, setTime] = useState(0);
     const [duration, setDuration] = useState(0);
+    const [volume, setVolume] = useState(0.5);
     const audioRef = useRef<HTMLAudioElement | null>(null);
     const barRef = useRef<HTMLInputElement | null>(null);
 
@@ -106,7 +109,9 @@ function Player(props: Props) {
                 </div>
             </div>
             <Volume 
-                audioRef={audioRef}/>
+                audioRef={audioRef}
+                volume={volume}
+                setVolume={setVolume}/>
             <Tracklist 
                 data={data}
                 songIndex={songIndex}
@@ -114,7 +119,13 @@ function Player(props: Props) {
                 albumIndex={albumIndex}
                 setAlbumIndex={setAlbumIndex}
                 setPlaying={setPlaying}/>
-            
+            <KeyboardListener 
+                playing={playing}
+                setPlaying={setPlaying}
+                volume={volume}
+                setVolume={setVolume}
+                skipSong={skipSong}
+                formFocused={formFocused}/>
         </section>
     );
 }

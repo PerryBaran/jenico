@@ -16,6 +16,7 @@ function App() {
   const [songIndex, setSongIndex] = useState(0);
   const [albumIndex, setAlbumIndex] = useState(0);
   const [data] = useFirebaseData(songInfo, albumIndex, songIndex);
+  const [formFocused, setFormFocused] = useState(false);
 
   return (
     <div>
@@ -34,7 +35,7 @@ function App() {
               setSongIndex={setSongIndex} 
               albumIndex={albumIndex}
               setAlbumIndex={setAlbumIndex}/>}/>
-          <Route path="/contact" element={<Contact/>}/>
+          <Route path="/contact" element={<Contact setFormFocused={setFormFocused}/>}/>
         </Routes>
         <Player
           data={data}
@@ -43,7 +44,8 @@ function App() {
           songIndex={songIndex} 
           setSongIndex={setSongIndex}
           albumIndex={albumIndex}
-          setAlbumIndex={setAlbumIndex}/>
+          setAlbumIndex={setAlbumIndex}
+          formFocused={formFocused}/>
       </Router>
     </div>
   );

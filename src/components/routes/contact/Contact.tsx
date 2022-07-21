@@ -1,15 +1,16 @@
-import React, { useState, useRef, FormEvent } from 'react';
+import React, { useState, useRef, FormEvent, Dispatch, SetStateAction } from 'react';
 import BackgroundImage from '../../background/image/BackgroundImage';
 import style from './contact.module.css';
 import sendEmail from '../../../services/emailJS';
 import { background } from '../../../media/images/index';
 
-function Contact() {
+function Contact(props: {setFormFocused: Dispatch<SetStateAction<boolean>>}) {
+    const {setFormFocused} = props
+
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [subject, setSubject] = useState('');
     const [message, setMessage] = useState('');
-
 
     const form = useRef<HTMLFormElement>(null);
 
@@ -24,6 +25,9 @@ function Contact() {
         setMessage('');
     };
 
+    const onFocus = () => setFormFocused(true);
+    const onBlur = () => setFormFocused(false);
+
     return (
         <>
             <BackgroundImage src={background}/>
@@ -36,7 +40,9 @@ function Contact() {
                             name='name' 
                             required
                             value={name}
-                            onChange={e => setName(e.target.value)}/>
+                            onChange={e => setName(e.target.value)}
+                            onFocus={onFocus}
+                            onBlur={onBlur}/>
                     </div>
                     <div>
                         <label htmlFor='email'>Email </label>
@@ -45,7 +51,9 @@ function Contact() {
                             name='email' 
                             required
                             value={email}
-                            onChange={e => setEmail(e.target.value)}/>
+                            onChange={e => setEmail(e.target.value)}
+                            onFocus={onFocus}
+                            onBlur={onBlur}/>
                     </div>
                     <div>
                         <label htmlFor='subject'>Subject</label>
@@ -54,7 +62,9 @@ function Contact() {
                             name='subject' 
                             required
                             value={subject}
-                            onChange={e => setSubject(e.target.value)}/>
+                            onChange={e => setSubject(e.target.value)}
+                            onFocus={onFocus}
+                            onBlur={onBlur}/>
                     </div>
                     <div>
                         <label htmlFor='message'>Message</label>
@@ -62,7 +72,9 @@ function Contact() {
                             name='message' 
                             required
                             value={message}
-                            onChange={e => setMessage(e.target.value)}/>
+                            onChange={e => setMessage(e.target.value)}
+                            onFocus={onFocus}
+                            onBlur={onBlur}/>
                     </div>
                     <div>
                         <button type='submit' name='submit'>Submit</button>

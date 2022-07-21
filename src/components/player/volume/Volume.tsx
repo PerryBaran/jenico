@@ -1,11 +1,16 @@
-import React, { useState, useEffect, RefObject, ChangeEvent} from 'react';
+import React, { useEffect, RefObject, ChangeEvent, Dispatch, SetStateAction} from 'react';
 import style from './volume.module.css';
 import { mediumVolume, lowVolume, muteVolume } from '../../../media/icons/index';
 import { getLocalStorage, populateStorage } from '../../../services/localStorage';
 
-function Volume(props: {audioRef: RefObject<HTMLAudioElement>}) {
-    const { audioRef } = props
-    const [volume, setVolume] = useState(0.5);
+interface Props {
+    audioRef: RefObject<HTMLAudioElement>, 
+    volume: number, 
+    setVolume: Dispatch<SetStateAction<number>>
+}
+
+function Volume(props: Props) {
+    const { audioRef, volume, setVolume } = props
     
     useEffect(() => {
         if (audioRef.current) {
@@ -16,7 +21,7 @@ function Volume(props: {audioRef: RefObject<HTMLAudioElement>}) {
     useEffect(() => {
         const getVolume = Number(getLocalStorage('volume'));
         getVolume && setVolume(getVolume)
-    }, []);
+    }, [setVolume]);
 
     const icon = () => {
         if (volume === 0) {

@@ -1,12 +1,12 @@
 import React from 'react';
 import style from './socials.module.css';
 
-function Socials(props: {src: string, img:string, name: string}) {
-    const {src, img, name} = props
+function Socials(props: {href: string, imgSrc:string, name: string}) {
+    const {href, imgSrc, name} = props
 
     return (
-        <a href={src} target="_Blank" rel="noreferrer" className={style.link}>
-            <img alt={`${name} icon`} src={img}/>
+        <a href={href} target="_Blank" rel="noreferrer" className={style.link}>
+            <img alt={`${name} icon`} src={imgSrc}/>
             <p>{name}</p>
         </a>
     );

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Dispatch, SetStateAction } from 'react';
+import { useState, useEffect, Dispatch, SetStateAction } from 'react';
 import style from './tracklist.module.css';
 import { menu } from '../../../media/icons/index';
 import { SongInfo, Songs } from '../../../Interface';
@@ -10,7 +10,7 @@ interface Props{
     albumIndex: number, 
     setAlbumIndex: Dispatch<SetStateAction<number>>, 
     setPlaying: Dispatch<SetStateAction<boolean>>
-}
+};
 
 function Tracklist(props: Props) {
     const {data, songIndex, setSongIndex, albumIndex, setAlbumIndex, setPlaying} = props;
@@ -28,15 +28,15 @@ function Tracklist(props: Props) {
                 setPageIndex(0);
             } else {
                 setPageIndex(tempPageIndex);
-            }
+            };
         } else {
             const tempPageIndex = pageIndex - 1
             if (tempPageIndex < 0) {
                 setPageIndex(playlistLength - 1);
             } else {
                 setPageIndex(tempPageIndex);
-            }
-        }
+            };
+        };
     };
 
     const setSongTracklist = (index: number) => {
@@ -75,6 +75,6 @@ function Tracklist(props: Props) {
             <button><img src={menu} alt='tracklist'/></button>
         </div>
     );
-}
+};
 
 export default Tracklist;

@@ -22,6 +22,6 @@ function Home() {
             <BackgroundVideo src={background}/>
         </div>
     );
-}
+};
 
 export default Home;

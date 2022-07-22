@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import songInfo from './media/songInfo';
 import useFirebaseData from './hooks/useFirebaseData';
@@ -49,6 +49,6 @@ function App() {
       </Router>
     </div>
   );
-}
+};
 
 export default App;

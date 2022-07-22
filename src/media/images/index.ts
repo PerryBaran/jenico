@@ -11,6 +11,6 @@ const art = {
     lysergic: lysergic,
     ethereal: ethereal,
     stormEP: stormEP,
-}
+};
 
-export { art, background } 
+export { art, background };

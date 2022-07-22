@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { SongInfo } from '../../../Interface';
 import style from './music.module.css';
@@ -22,9 +21,8 @@ function Music(props: {data: SongInfo[]}) {
                     )
                 })}
             </div>
-        </div>
-        
+        </div>   
     );
-}
+};
 
 export default Music;

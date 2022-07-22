@@ -1,9 +1,22 @@
-.background {
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     position: absolute;
-    background-size: cover;
+    top:0;
+
+    width: 100vw;
+    height: 100vh;
+    
+    z-index: -100;
+}
+
+.container img{
+    object-fit: cover;
 
     width: 100vw;
     height: 100vh;
 
-    z-index: -1000;
+    z-index: -99;   
 }

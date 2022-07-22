@@ -4,7 +4,12 @@ function BackgroundImage(props: {src: string}) {
     const { src } = props;
 
     return (
-        <div className={style.background} style={{backgroundImage: `url(${src})`}}></div>
+        <div className={style.container}>
+            <img
+                src={src}
+                alt='background'
+            />
+      </div>
     );
 };
 

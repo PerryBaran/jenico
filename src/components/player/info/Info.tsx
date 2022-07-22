@@ -1,4 +1,3 @@
-import React from 'react';
 import { SongInfo } from '../../../Interface';
 import style from './info.module.css';
 
@@ -20,6 +19,6 @@ function Info(props: Props) {
                 </div>
         </div>
     );
-}
+};
 
 export default Info;

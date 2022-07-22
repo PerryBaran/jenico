@@ -1,4 +1,4 @@
-import React, { useEffect, Dispatch, SetStateAction } from 'react';
+import { useEffect, Dispatch, SetStateAction } from 'react';
 
 interface Props{
     playing: boolean, 
@@ -7,7 +7,7 @@ interface Props{
     setVolume: Dispatch<SetStateAction<number>>, 
     skipSong: (forwards?: boolean) => void,
     formFocused: boolean
-}
+};
 
 const KeyboardListener = (props: Props) => {
     const { playing, setPlaying, volume, setVolume, skipSong, formFocused} = props;
@@ -53,6 +53,6 @@ const KeyboardListener = (props: Props) => {
     return (
         <></>
     )
-}
+};
 
 export default KeyboardListener;

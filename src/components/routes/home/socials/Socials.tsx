@@ -1,8 +1,7 @@
-import React from 'react';
 import style from './socials.module.css';
 
 function Socials(props: {src: string, img:string, name: string}) {
-    const {src, img, name} = props
+    const {src, img, name} = props;
 
     return (
         <a href={src} target="_Blank" rel="noreferrer" className={style.link}>
@@ -10,6 +9,6 @@ function Socials(props: {src: string, img:string, name: string}) {
             <p>{name}</p>
         </a>
     );
-}
+};
 
 export default Socials;

@@ -22,14 +22,14 @@ const dreamingOfDetunedLove = [
         name: 'Falling into the Void',
         ref: 'Dreaming Of Detuned Love/Falling into the Void.mp3'
     }
-]
+];
 
 const lysergic = [
     {
         name: 'Lysergic',
         ref: 'Lysergic/Lysergic.mp3'
     }
-]
+];
 
 const ethereal = [
     {
@@ -45,7 +45,7 @@ const ethereal = [
         name: 'Ethereal',
         ref: 'Ethereal/Ethereal.mp3'
     }
-]
+];
 
 const stormEP = [
     {
@@ -64,6 +64,6 @@ const stormEP = [
         name: 'Dissipate',
         ref: 'Storm EP/Dissipate.mp3'
     }
-]
+];
 
-export { whereWeEnd, dreamingOfDetunedLove, lysergic, ethereal as etherealEP, stormEP }
+export { whereWeEnd, dreamingOfDetunedLove, lysergic, ethereal as etherealEP, stormEP };

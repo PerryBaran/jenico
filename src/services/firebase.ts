@@ -23,4 +23,4 @@ const getURL = async (path: string) => {
   }
 };
 
-export { getURL }
+export { getURL };

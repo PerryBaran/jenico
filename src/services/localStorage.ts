@@ -7,9 +7,9 @@ export function getLocalStorage(value:string) {
             return JSON.parse(retrieveStorage)
         }
         return undefined;
-    }
-}
+    };
+};
 
 export function populateStorage(name: string, value: any) {
     localStorage.setItem(name, JSON.stringify(value));
-}
+};

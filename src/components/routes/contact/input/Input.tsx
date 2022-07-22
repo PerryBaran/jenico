@@ -6,10 +6,10 @@ interface Props {
     value: string,
     setValue: Dispatch<SetStateAction<string>>,
     setFormFocused: Dispatch<SetStateAction<boolean>>
-}
+};
 
 function Input(props: Props) {
-    const {name, type, value, setValue, setFormFocused} = props
+    const {name, type, value, setValue, setFormFocused} = props;
 
     return (
         <div>
@@ -24,6 +24,6 @@ function Input(props: Props) {
                 onBlur={() => setFormFocused(false)}/>
         </div>
     );
-}
+};
 
 export default Input;

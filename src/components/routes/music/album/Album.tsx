@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Dispatch, SetStateAction } from 'react';
+import { useEffect, useState, Dispatch, SetStateAction } from 'react';
 import { useParams } from 'react-router-dom';
 import { SongInfo, Songs } from '../../../../Interface';
 import style from './album.module.css';
@@ -99,6 +99,6 @@ function Album(props: Props) {
             </div>
         </div>
     );
-}
+};
 
 export default Album;

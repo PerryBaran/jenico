@@ -1,9 +1,8 @@
-import React from 'react';
 import style from './backgroundVideo.module.css';
 
 
 const BackgroundVideo = (props: { src: string; }) => {
-    const {src} = props
+    const {src} = props;
 
     return (
         <div className={style.container}>

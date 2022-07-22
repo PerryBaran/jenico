@@ -13,4 +13,4 @@ import lowVolume from './low-volume.png';
 import muteVolume from './volume-mute.png';
 import menu from './menu.png';
 
-export {spotify, bandcamp, soundcloud, youtube, instagram, play, pause, skip, playCircle, pauseCircle, mediumVolume, lowVolume, muteVolume, menu}
+export {spotify, bandcamp, soundcloud, youtube, instagram, play, pause, skip, playCircle, pauseCircle, mediumVolume, lowVolume, muteVolume, menu};

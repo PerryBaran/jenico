@@ -1,4 +1,3 @@
-import React from 'react';
 import BackgroundVideo from '../../background/video/BackgroundVideo';
 import { background } from '../../../media/videos/index';
 import { spotify, bandcamp, soundcloud, youtube, instagram} from '../../../media/icons/index';
@@ -23,6 +22,6 @@ function Home() {
             <BackgroundVideo src={background}/>
         </div>
     );
-}
+};
 
 export default Home;

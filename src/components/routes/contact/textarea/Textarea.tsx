@@ -5,10 +5,10 @@ interface Props {
     value: string,
     setValue: Dispatch<SetStateAction<string>>,
     setFormFocused: Dispatch<SetStateAction<boolean>>
-}
+};
 
 function Textarea(props: Props) {
-    const {name, value, setValue, setFormFocused} = props
+    const {name, value, setValue, setFormFocused} = props;
 
     return (
         <div>

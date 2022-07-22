@@ -1,4 +1,4 @@
-import React, { RefObject, useEffect, Dispatch, SetStateAction } from 'react';
+import { RefObject, useEffect, Dispatch, SetStateAction } from 'react';
 import { SongInfo } from '../../../Interface';
 
 interface Props {
@@ -9,7 +9,7 @@ interface Props {
     audioRef: RefObject<HTMLAudioElement>, 
     setDuration: Dispatch<SetStateAction<number>>, 
     skipSong: () => void
-}
+};
 
 function Audio (props: Props) {
     const { playing, data, songIndex, albumIndex, audioRef, setDuration, skipSong} = props;
@@ -32,18 +32,16 @@ function Audio (props: Props) {
     };
 
     return (
-        <>
-            <audio 
-                ref={audioRef}
-                src={data[albumIndex]?.songs[songIndex]?.src}
-                onLoadedMetadata={() => {
-                    updateDuration();
-                    playing && audioRef.current?.play();
-                }}
-                onEnded={() => skipSong()}
-            />
-        </>       
+        <audio 
+            ref={audioRef}
+            src={data[albumIndex]?.songs[songIndex]?.src}
+            onLoadedMetadata={() => {
+                updateDuration();
+                playing && audioRef.current?.play();
+            }}
+            onEnded={() => skipSong()}
+        />  
     );
-}
+};
 
 export default Audio;

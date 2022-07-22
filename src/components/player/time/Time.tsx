@@ -1,4 +1,3 @@
-import React from 'react';
 import style from './time.module.css';
 
 function Time(props: {time: number}) {
@@ -22,6 +21,6 @@ function Time(props: {time: number}) {
             <p>{calcDisplayTime(time)}</p>
         </div>
     );
-}
+};
 
 export default Time;

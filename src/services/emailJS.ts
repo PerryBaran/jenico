@@ -1,4 +1,4 @@
-import emailjs from 'emailjs-com'
+import emailjs from 'emailjs-com';
 
 const sendEmail = async (content: HTMLFormElement | null) => {
     if (content) {
@@ -8,7 +8,7 @@ const sendEmail = async (content: HTMLFormElement | null) => {
         }, (error) => {
             alert(`Oops, something went wrong: ${error.text}`);
         });
-    }
-}
+    };
+};
 
-export default sendEmail
+export default sendEmail;

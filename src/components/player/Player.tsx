@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Dispatch, SetStateAction, useRef } from 'react';
+import { useState, useEffect, Dispatch, SetStateAction, useRef } from 'react';
 import style from './player.module.css';
 import { SongInfo } from '../../Interface';
 import Audio from './audio/Audio';
@@ -19,7 +19,7 @@ interface Props {
     albumIndex: number, 
     setAlbumIndex: Dispatch<SetStateAction<number>>,
     formFocused: boolean
-}
+};
 
 function Player(props: Props) {
     const {data, playing, setPlaying, songIndex, setSongIndex, albumIndex, setAlbumIndex, formFocused} = props;
@@ -39,6 +39,12 @@ function Player(props: Props) {
         return () => clearInterval(updateTimer);
     }, [time]);
 
+    useEffect(() => {
+        if (audioRef.current) {
+            audioRef.current.volume = volume;
+        }
+    }, [volume, audioRef]);
+
     const skipSong = (forwards = true) => {
         const albumLength = data[albumIndex].songs.length;
         const playlistLength = data.length;
@@ -54,11 +60,11 @@ function Player(props: Props) {
                     setAlbumIndex(tempAlbumIndex)
                     setSongIndex(0);
                     return;
-                }
+                };
             } else {
                 setSongIndex(tempSongIndex);
                 return;
-            }
+            };
         } else {
             const tempSongIndex = songIndex - 1;
             if (tempSongIndex < 0) {
@@ -71,12 +77,12 @@ function Player(props: Props) {
                     setAlbumIndex(tempAlbumIndex);
                     setSongIndex(data[albumIndex - 1].songs.length - 1);
                     return;
-                }
+                };
             } else {
                 setSongIndex(tempSongIndex);
                 return;
-            }
-        }
+            };
+        };
     };
 
     return (
@@ -108,8 +114,7 @@ function Player(props: Props) {
                     <Time time={duration}/>
                 </div>
             </div>
-            <Volume 
-                audioRef={audioRef}
+            <Volume
                 volume={volume}
                 setVolume={setVolume}/>
             <Tracklist 
@@ -128,6 +133,6 @@ function Player(props: Props) {
                 formFocused={formFocused}/>
         </section>
     );
-}
+};
 
 export default Player;

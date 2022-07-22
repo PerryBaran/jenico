@@ -1,22 +1,15 @@
-import React, { useEffect, RefObject, ChangeEvent, Dispatch, SetStateAction} from 'react';
+import { useEffect, ChangeEvent, Dispatch, SetStateAction} from 'react';
 import style from './volume.module.css';
 import { mediumVolume, lowVolume, muteVolume } from '../../../media/icons/index';
 import { getLocalStorage, populateStorage } from '../../../services/localStorage';
 
 interface Props {
-    audioRef: RefObject<HTMLAudioElement>, 
     volume: number, 
     setVolume: Dispatch<SetStateAction<number>>
-}
+};
 
 function Volume(props: Props) {
-    const { audioRef, volume, setVolume } = props
-    
-    useEffect(() => {
-        if (audioRef.current) {
-            audioRef.current.volume = volume;
-        }
-    }, [volume, audioRef]);
+    const { volume, setVolume } = props;
 
     useEffect(() => {
         const getVolume = Number(getLocalStorage('volume'));
@@ -41,16 +34,16 @@ function Volume(props: Props) {
 
     return (
         <div className={style.container}>
-                    <input
-                        type='range'
-                        name='volume'
-                        min={0}
-                        max={100}
-                        defaultValue={volume * 100}
-                        onChange={e => changeVolume(e)}/>
-                    <button><img src={icon()} alt='volume'/></button>
-                </div>
+            <input
+                type='range'
+                name='volume'
+                min={0}
+                max={100}
+                defaultValue={volume * 100}
+                onChange={e => changeVolume(e)}/>
+            <button><img src={icon()} alt='volume'/></button>
+        </div>
     );
-}
+};
 
 export default Volume;

@@ -27,7 +27,6 @@ function Player(props: Props) {
     const [duration, setDuration] = useState(0);
     const [volume, setVolume] = useState(0.5);
     const audioRef = useRef<HTMLAudioElement | null>(null);
-    const barRef = useRef<HTMLInputElement | null>(null);
 
     useEffect(() => {
         const updateTimer = setInterval(() => {
@@ -100,8 +99,7 @@ function Player(props: Props) {
                 songIndex={songIndex}
                 albumIndex={albumIndex}/>
             <div className={style.center}>
-                <ProgresssBar 
-                    barRef={barRef}
+                <ProgresssBar
                     audioRef={audioRef}
                     time={time}
                     duration={duration}/>

@@ -12,11 +12,11 @@ function Info(props: Props) {
 
     return (
         <div className={style.container}>
-            <img src={data[albumIndex]?.art} alt='album cover art'/>
-                <div>
-                    <h3>{data[albumIndex]?.title}</h3>
-                    <p>{data[albumIndex]?.songs[songIndex]?.name}</p>
-                </div>
+            <img src={data[albumIndex]?.art} alt={`${data[albumIndex]?.title} cover art`}/>
+            <div>
+                <h3>{data[albumIndex]?.title}</h3>
+                <p>{data[albumIndex]?.songs[songIndex]?.name}</p>
+            </div>
         </div>
     );
 };

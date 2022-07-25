@@ -10,20 +10,20 @@ it('renders without crashing', () => {
 
 it('correctly applies src', () => {
     render(<BackgroundVideo src='video'/>);
-    const img = screen.getByTestId('video');
-    expect(img).toHaveAttribute('src', 'video');
+    const video = screen.getByTestId('video');
+    expect(video).toHaveAttribute('src', 'video');
 });
 
 it('autoplays video', () => {
     render(<BackgroundVideo src=''/>);
-    const img = screen.getByTestId('video');
-    expect(img).toHaveAttribute('autoplay');
+    const video = screen.getByTestId('video');
+    expect(video).toHaveAttribute('autoplay');
 });
 
 it('loops video', () => {
     render(<BackgroundVideo src=''/>);
-    const img = screen.getByTestId('video');
-    expect(img).toHaveAttribute('loop');
+    const video = screen.getByTestId('video');
+    expect(video).toHaveAttribute('loop');
 });
 
 //can't test muted attribute as it doesn't show up in the DOM

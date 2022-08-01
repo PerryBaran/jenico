@@ -34,11 +34,10 @@ function Album(props: Props) {
         if (info?.songs.length && info.songs.length > 1) {
             return (
                 <ul className={style.songList}>
-                    {info?.songs.map((song: Songs) => {
-                        const index = info?.songs.indexOf(song);
+                    {info?.songs.map((song: Songs, i: number) => {
                         return (
-                            <li key={song.name} className={`${isSongPlaying(index)} ${style.song}`}>
-                                <button onClick={() => playSelectedSong(index)}>{song.name}</button>
+                            <li key={song.name} className={`${isSongPlaying(i)} ${style.song}`}>
+                                <button onClick={() => playSelectedSong(i)}>{song.name}</button>
                             </li>
                         )
                     })}

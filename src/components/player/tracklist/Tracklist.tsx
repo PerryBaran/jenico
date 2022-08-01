@@ -62,11 +62,10 @@ function Tracklist(props: Props) {
                     <button onClick={() => scrollTrackList()}>&gt;</button>
                 </div>
                 <ul>
-                    {data[pageIndex]?.songs.map((song: Songs) => {
-                        const index = data[pageIndex]?.songs.indexOf(song);
+                    {data[pageIndex]?.songs.map((song: Songs, i: number) => {
                         return (
-                            <li key={song.name} className={highlightSelected(index)}>
-                                <button className={style.tracklistButton} onClick={() => setSongTracklist(index)}>{song.name}</button>
+                            <li key={song.name} className={highlightSelected(i)}>
+                                <button className={style.tracklistButton} onClick={() => setSongTracklist(i)}>{song.name}</button>
                             </li>
                         )
                     })}

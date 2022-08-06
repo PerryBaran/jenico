@@ -3,8 +3,6 @@ import BackgroundImage from '../../background/image/BackgroundImage';
 import style from './contact.module.css';
 import sendEmail from '../../../services/emailJS';
 import { background } from '../../../media/images/index';
-import Input from './input/Input';
-import Textarea from './textarea/Textarea';
 
 function Contact(props: {setFormFocused: Dispatch<SetStateAction<boolean>>}) {
     const {setFormFocused} = props
@@ -31,11 +29,50 @@ function Contact(props: {setFormFocused: Dispatch<SetStateAction<boolean>>}) {
         <>
             <BackgroundImage src={background}/>
             <section className={style.container}>
-                <form ref={form} onSubmit={e => handleSubmit(e)}>
-                    <Input name='Name' type='text' value={name} setValue={setName} setFormFocused={setFormFocused}/>
-                    <Input name='Email' type='email' value={email} setValue={setEmail} setFormFocused={setFormFocused}/>
-                    <Input name='Subject' type='text' value={subject} setValue={setSubject} setFormFocused={setFormFocused}/>
-                    <Textarea name='Message' value={message} setValue={setMessage} setFormFocused={setFormFocused}/>
+                <form ref={form} onSubmit={handleSubmit}>
+                    <div>
+                        <label htmlFor='Name'>Name</label>
+                        <input 
+                            type='text' 
+                            name='Name'
+                            required
+                            value={name}
+                            onChange={e => setName(e.target.value)}
+                            onFocus={() => setFormFocused(true)}
+                            onBlur={() => setFormFocused(false)}/>
+                    </div>
+                    <div>
+                        <label htmlFor='Email'>Email</label>
+                        <input 
+                            type='email' 
+                            name='Email'
+                            required
+                            value={email}
+                            onChange={e => setEmail(e.target.value)}
+                            onFocus={() => setFormFocused(true)}
+                            onBlur={() => setFormFocused(false)}/>
+                    </div>   
+                    <div>
+                        <label htmlFor='Subject'>Subject</label>
+                        <input 
+                            type='text' 
+                            name='Subject'
+                            required
+                            value={subject}
+                            onChange={e => setSubject(e.target.value)}
+                            onFocus={() => setFormFocused(true)}
+                            onBlur={() => setFormFocused(false)}/>
+                    </div>                    
+                    <div>
+                        <label htmlFor='Message'>Message</label>
+                        <textarea
+                            name='Message'
+                            required
+                            value={message}
+                            onChange={e => setMessage(e.target.value)}
+                            onFocus={() => setFormFocused(true)}
+                            onBlur={() => setFormFocused(false)}/>
+                    </div>                    
                     <div>
                         <button type='submit' name='submit'>Submit</button>
                     </div>

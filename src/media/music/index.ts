@@ -3,7 +3,7 @@ const whereWeEnd = [
         name: 'Where We End',
         ref: 'Where We End/Where We End.mp3'
     }
-]
+];
 
 const dreamingOfDetunedLove = [
     {

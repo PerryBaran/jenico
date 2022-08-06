@@ -25,7 +25,7 @@
 }
 
 .link {
-    width: 100%
+    width: 100%;
 }
 
 .container button {
@@ -55,7 +55,7 @@
         display: none;
     }
 
-    .container .link:nth-child(2) > button {
-        border-left: none;
+    .gradientBorder:nth-of-type(1) {
+        display: none;
     }
 }

@@ -47,7 +47,6 @@ const KeyboardListener = (props: Props) => {
                 };
             };
         };
-        
     };
 
     return (

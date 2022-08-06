@@ -5,12 +5,15 @@ function Navbar() {
     return (
         <div className={style.container}>
             <h1><Link to="/" className={style.link}>Jenico</Link></h1>
+            <div className={style.gradientBorder}></div>
             <Link to="/" className={style.link}>
                 <button>Home</button>
             </Link>
+            <div className={style.gradientBorder}></div>
             <Link to="/music" className={style.link}>
                 <button>Music</button>
             </Link>
+            <div className={style.gradientBorder}></div>
             <Link to="/contact" className={style.link}>
                 <button>Contact</button>
             </Link>

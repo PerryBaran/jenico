@@ -27,7 +27,6 @@ function Player(props: Props) {
     const [duration, setDuration] = useState(0);
     const [volume, setVolume] = useState(0.5);
     const audioRef = useRef<HTMLAudioElement | null>(null);
-    const barRef = useRef<HTMLInputElement | null>(null);
 
     useEffect(() => {
         const updateTimer = setInterval(() => {
@@ -49,38 +48,33 @@ function Player(props: Props) {
         const albumLength = data[albumIndex].songs.length;
         const playlistLength = data.length;
         if (forwards) {
-            const tempSongIndex = songIndex + 1;
-            if (tempSongIndex >= albumLength) {
-                let tempAlbumIndex = albumIndex + 1;
-                if (tempAlbumIndex >= playlistLength) {
+            const nextSongIndex = songIndex + 1;
+            if (nextSongIndex < albumLength) {
+                setSongIndex(nextSongIndex);
+            } else {
+                const nextAlbumIndex = albumIndex + 1;
+                if (nextAlbumIndex < playlistLength) {
+                    setAlbumIndex(nextAlbumIndex);
+                    setSongIndex(0);
+                } else {
                     setAlbumIndex(0);
                     setSongIndex(0);
-                    return;
-                } else {
-                    setAlbumIndex(tempAlbumIndex)
-                    setSongIndex(0);
-                    return;
-                };
-            } else {
-                setSongIndex(tempSongIndex);
-                return;
+                };                
             };
         } else {
-            const tempSongIndex = songIndex - 1;
-            if (tempSongIndex < 0) {
-                let tempAlbumIndex = albumIndex - 1;
-                if (tempAlbumIndex < 0) {
-                    setAlbumIndex(playlistLength - 1);
-                    setSongIndex(data[playlistLength - 1].songs.length - 1);
-                    return;
-                } else {
-                    setAlbumIndex(tempAlbumIndex);
-                    setSongIndex(data[albumIndex - 1].songs.length - 1);
-                    return;
-                };
+            const prevSongIndex = songIndex - 1;
+            if (prevSongIndex >= 0) {
+                setSongIndex(prevSongIndex);   
             } else {
-                setSongIndex(tempSongIndex);
-                return;
+                const prevAlbumIndex = albumIndex - 1;
+                if (prevAlbumIndex >= 0) {
+                    setAlbumIndex(prevAlbumIndex);
+                    setSongIndex(data[prevAlbumIndex].songs.length - 1);                        
+                } else {
+                    const lastAlbumIndex = playlistLength - 1;
+                    setAlbumIndex(lastAlbumIndex);
+                    setSongIndex(data[lastAlbumIndex].songs.length - 1);
+                };
             };
         };
     };
@@ -100,8 +94,7 @@ function Player(props: Props) {
                 songIndex={songIndex}
                 albumIndex={albumIndex}/>
             <div className={style.center}>
-                <ProgresssBar 
-                    barRef={barRef}
+                <ProgresssBar
                     audioRef={audioRef}
                     time={time}
                     duration={duration}/>

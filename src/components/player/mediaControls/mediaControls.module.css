@@ -9,6 +9,6 @@
     filter:invert();
 }
 
-.container button:nth-of-type(1) > img{
+.container img[alt~='backward']{
     transform: rotate(180deg);
 }

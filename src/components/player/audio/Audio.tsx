@@ -12,7 +12,7 @@ interface Props {
 };
 
 function Audio (props: Props) {
-    const { playing, data, songIndex, albumIndex, audioRef, setDuration, skipSong} = props;
+    const { playing, data, songIndex, albumIndex, audioRef, setDuration, skipSong } = props;
 
     useEffect(() => {
         if (audioRef.current) {

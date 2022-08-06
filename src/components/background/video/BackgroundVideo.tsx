@@ -8,9 +8,10 @@ const BackgroundVideo = (props: { src: string; }) => {
         <div className={style.container}>
             <video 
                 autoPlay 
-                loop 
+                loop
                 muted
                 src={src}
+                data-testid='video'
             />
       </div>
     );

@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/jenico/static/css/main.6a5e05ab.css",
-    "main.js": "/jenico/static/js/main.d1017cb3.js",
+    "main.js": "/jenico/static/js/main.2f382780.js",
     "static/media/DreamingOfDetunedLove.mp4": "/jenico/static/media/DreamingOfDetunedLove.113c4468afdc634b9c90.mp4",
     "static/media/Instagram.png": "/jenico/static/media/Instagram.db2612bd586501d9ed3e.png",
     "static/media/background.jpg": "/jenico/static/media/background.c7387a0da1953b3cceb0.jpg",
@@ -18,10 +18,10 @@
     "static/media/volume-mute.png": "/jenico/static/media/volume-mute.a42cdcd7a55312d047a3.png",
     "index.html": "/jenico/index.html",
     "main.6a5e05ab.css.map": "/jenico/static/css/main.6a5e05ab.css.map",
-    "main.d1017cb3.js.map": "/jenico/static/js/main.d1017cb3.js.map"
+    "main.2f382780.js.map": "/jenico/static/js/main.2f382780.js.map"
   },
   "entrypoints": [
     "static/css/main.6a5e05ab.css",
-    "static/js/main.d1017cb3.js"
+    "static/js/main.2f382780.js"
   ]
 }

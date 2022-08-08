@@ -11,7 +11,7 @@
 }
 
 .container h1 {
-    width: 100%;
+    width: 25%;
 
     font-size: 2.2rem;
     font-weight: 100;
@@ -25,7 +25,7 @@
 }
 
 .link {
-    width: 100%;
+    width: 25%;
 }
 
 .container button {
@@ -44,10 +44,10 @@
 }
 
 .gradientBorder {
-    width: 5px;
+    width: 2px;
     height: 100%;
 
-    background-image: linear-gradient(rgb(255, 255, 255), rgba(255, 255, 255, 0));
+    background-image: linear-gradient(rgb(255, 255, 255), rgba(43, 43, 43, 0));
 }
 
 @media screen and (max-width: 650px){
@@ -57,5 +57,9 @@
 
     .gradientBorder:nth-of-type(1) {
         display: none;
+    }
+
+    .link {
+        width: 33%;
     }
 }

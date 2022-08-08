@@ -33,7 +33,6 @@ const songInfo: SongInfo[] = [
         songs: stormEP,
         hyperlink: 'https://distrokid.com/hyperfollow/jenico/storm-ep'
     }
-
-]
+];
 
 export default songInfo

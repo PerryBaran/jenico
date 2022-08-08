@@ -20,15 +20,12 @@ type ReducerAction =
 
 const reducer = (state: Form, action: ReducerAction) => {
     switch (action.type) {
-        case 'update':  {
+        case 'update': 
             return {
                 ...state,
                 [action.key]: action.value
             }
-        }
-        case 'reset':  {
-            return initialValues
-        }
+        case 'reset': return initialValues
         default: throw new Error('invalid action type');
     }
 };

@@ -1,14 +1,14 @@
 interface Songs {
-    name: string;
+    readonly name: string;
     src?: string;
-    ref?: string;
+    readonly ref?: string;
 };
 
 interface SongInfo {
-    title: string;
-    art: string;
-    songs: Songs[];
-    hyperlink: string;
+    readonly title: string;
+    readonly art: string;
+    readonly songs: Songs[];
+    readonly hyperlink: string;
 };
 
 export type {Songs, SongInfo};

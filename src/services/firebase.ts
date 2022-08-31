@@ -19,7 +19,10 @@ const getURL = async (path: string) => {
     const url = await getDownloadURL(fileRef);
     return url
   } catch(err) {
-    alert(err)
+    if (err instanceof Error) {
+      throw new Error(`Failed to retrieve song URL ${err.message}`);
+    }
+    throw new Error('Failed to retrieve song URL');
   }
 };
 

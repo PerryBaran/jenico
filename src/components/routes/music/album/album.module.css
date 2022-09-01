@@ -10,7 +10,7 @@
     filter: brightness(0.5) blur(8px);
 }
 
-.album {
+.albumContainer {
     display: flex;
     justify-content: center;
 
@@ -23,21 +23,13 @@
     overflow: auto;
 }
 
-.album > div {
+.albumContainer > div {
     height: 70%;
 
     overflow: visible;
 }
 
-.cover {
-    display: inline-flex;
-
-    height: 80%;
-    
-    overflow: visible;
-}
-
-.album h2 {
+.albumContainer h2 {
     margin-bottom: 15px;
 
     font-size: min(3rem, 5vh);
@@ -48,6 +40,14 @@
     overflow: visible;
 }
 
+.album {
+    display: inline-flex;
+
+    height: 80%;
+    
+    overflow: visible;
+}
+
 .album img {
     height:100%;
     max-height: 500px;
@@ -55,20 +55,11 @@
     box-shadow: 0px 0px 50px -10px rgb(247, 247, 247);
 }
 
-.songList {
-    overflow: visible;
-}
-
-.songList button {
-    font-family: 'Dosis', sans-serif;
-    font-size: min(3rem, 5vh);
-}
-
-.playAlbum {
+.album > button {
     position: relative;
 }
 
-.playAlbum > img:nth-last-child(1) {
+.album > button > img:nth-last-child(1) {
     position: absolute;
     top: 0;
     right: 0;
@@ -80,20 +71,41 @@
     transition-duration: 1s;
 }
 
-.playAlbum:hover img:nth-last-child(1) {
+.album > button:hover img:nth-last-child(1) {
     opacity: 0.9;
+}
+
+.album ul {
+    overflow: visible;
+}
+
+.album li {
+    font-family: 'Dosis', sans-serif;
+    font-size: min(3rem, 5vh);
+}
+
+.album li:hover {
+    font-weight: bold;
 }
 
 .playing {
     text-shadow: 0 0 5px white;
 }
 
-.song:hover {
-    font-weight: bold;
-}
+@media (orientation: portrait) {
+    .albumContainer h2 {
+        font-size: min(3rem, 5vw);
+    }
 
-@media (orientation: portrait) { 
-    .cover {
+    .albumContainer img {
+        aspect-ratio: 1;
+        width: 100%;
+        max-width: 500px;        
+        height: auto;
+        max-height: auto;
+    }   
+
+    .album {
         display: grid;
         grid-template-rows: 1fr 50%;
 
@@ -103,29 +115,17 @@
         text-align: center;
     }
 
-    .album img {
-        aspect-ratio: 1;
-        width: 100%;
-        max-width: 500px;        
-        height: auto;
-        max-height: auto;
-    }
-
-    .cover > * {
+    .album > * {
         margin: 0;        
         padding-left: 0;
     }
     
-    .album > div {
+    .albumContainer > div {
         height: 70%;        
         overflow: visible;
     }
 
-    .songList button { 
-        font-size: min(3rem, 5vw);
-    }
-
-    .album h2 {
+    .album li { 
         font-size: min(3rem, 5vw);
     }
 }

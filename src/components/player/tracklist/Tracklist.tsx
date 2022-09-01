@@ -15,6 +15,7 @@ interface Props{
 function Tracklist(props: Props) {
     const {data, songIndex, setSongIndex, albumIndex, setAlbumIndex, setPlaying} = props;
     const [pageIndex, setPageIndex] = useState(albumIndex);
+    const album = data[pageIndex];
 
     useEffect(() => {
         setPageIndex(albumIndex)
@@ -39,33 +40,26 @@ function Tracklist(props: Props) {
         };
     };
 
-    const setSongTracklist = (index: number) => {
+    const setSongFromTracklist = (index: number) => {
         setAlbumIndex(pageIndex);
         setSongIndex(index);
         setPlaying(true);
     };
 
-    const highlightSelected = (index: number) => {
-        if (pageIndex === albumIndex && index === songIndex) {
-            return 'highlight'
-        }
-        return ''
-    };
-
     return (
         <div className={style.container}>
             <div className={style.tracklist}>
-                <img src={data[pageIndex]?.art} alt='cover art'/>
+                <img src={album?.art} alt={`${album.title} cover art`}/>
                 <div>
                     <button onClick={() => scrollTrackList(false)}>&lt;</button>
-                    <h4>{data[pageIndex]?.title}</h4>
+                    <h4>{album?.title}</h4>
                     <button onClick={() => scrollTrackList()}>&gt;</button>
                 </div>
                 <ul>
-                    {data[pageIndex]?.songs.map((song: Songs, i: number) => {
+                    {album?.songs.map((song: Songs, i: number) => {
                         return (
-                            <li key={song.name} className={highlightSelected(i)}>
-                                <button className={style.tracklistButton} onClick={() => setSongTracklist(i)}>{song.name}</button>
+                            <li key={song.name} className={pageIndex === albumIndex && songIndex === i ? style.highlight : undefined}>
+                                <button onClick={() => setSongFromTracklist(i)}>{song.name}</button>
                             </li>
                         )
                     })}

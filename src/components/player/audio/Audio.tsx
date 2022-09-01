@@ -20,15 +20,15 @@ function Audio (props: Props) {
                 audioRef.current.play();
             } else {
                 audioRef.current.pause();
-            }
-        }
+            };
+        };
     }, [playing, songIndex, albumIndex, audioRef]);
 
     const updateDuration = () =>{
         if (audioRef.current) {
             const seconds = Math.round(audioRef.current.duration);
             setDuration(seconds);
-        }
+        };
     };
 
     return (

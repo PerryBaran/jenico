@@ -1,18 +1,19 @@
 import { Link } from 'react-router-dom';
 import { SongInfo } from '../../../Interface';
 import style from './music.module.css';
-import BackgroundImage from '../../background/image/BackgroundImage';
+import Background from '../../background/Background';
 import { background } from '../../../media/images/index'
 
 function Music(props: {data: SongInfo[]}) {
-    const {data} = props
+    const {data} = props;
+
     return (
-        <div>
-            <BackgroundImage src={background}/> 
+        <>
+            <Background src={background}/> 
             <div className={style.container}>
                 {data.map((album: SongInfo) => {
                     return (
-                        <button className={style.cover} key={album.title}>
+                        <button key={album.title}>
                             <Link to={`${album.title}`}>
                                 <img src={album.art} alt={`${album.title} album cover`}/>
                                 <p>{album.title}</p>
@@ -21,7 +22,7 @@ function Music(props: {data: SongInfo[]}) {
                     )
                 })}
             </div>
-        </div>   
+        </>   
     );
 };
 

@@ -18,21 +18,7 @@ function Album(props: Props) {
     const {data, playing, setPlaying, songIndex, setSongIndex, albumIndex, setAlbumIndex} = props;
     const params = useParams();
     const pageIndex = data.findIndex(album => album.title === params.id);
-    const info = data[pageIndex];
-
-    const isPageAlbumPlaying = () => {
-        if (playing && pageIndex === albumIndex) {
-            return pauseCircle;
-        }
-        return playCircle;
-    };
-
-    const isSongPlaying = (index: number) => {
-        if (pageIndex === albumIndex && songIndex === index) {
-            return style.playing;
-        }
-        return '';
-    };
+    const album = data[pageIndex];
 
     const playCurrentAlbum = () => {
         if (pageIndex === albumIndex) {
@@ -41,7 +27,7 @@ function Album(props: Props) {
             setAlbumIndex(pageIndex);
             setSongIndex(0);
             setPlaying(true);
-        }
+        };
     };
 
     const playSelectedSong = (index: number) => {
@@ -52,25 +38,31 @@ function Album(props: Props) {
             setAlbumIndex(pageIndex);
             setSongIndex(index);
             setPlaying(true);
-        }
+        };
     };
 
     return (
-        <div>
-            <div className={style.albumBackground} style={{backgroundImage: `url(${info?.art})`}}/>
-            <div className={style.album}>
+        <>
+            <div className={style.albumBackground} style={{backgroundImage: `url(${album?.art})`}}/>
+            <div className={style.albumContainer}>
                 <div>
-                    <h2><a href={info?.hyperlink} target='_blank' rel="noreferrer">{info?.title}</a></h2>
-                    <div className={style.cover}>
-                        <button className={style.playAlbum} onClick={() => playCurrentAlbum()}>
-                            <img src={info?.art} alt={`Cover for ${info?.title}`}/>
-                            <img src={isPageAlbumPlaying()} alt='play/pause album' className={style.playPause}/>
+                    <h2><a href={album?.hyperlink} target='_blank' rel="noreferrer">{album?.title}</a></h2>
+                    <div className={style.album}>
+                        <button onClick={() => playCurrentAlbum()}>
+                            <img src={album?.art} alt={`Cover for ${album?.title}`}/>
+                            <img
+                            src={playing && pageIndex === albumIndex ? pauseCircle : playCircle} 
+                            alt='play/pause album'
+                            />
                         </button>
-                        {info?.songs.length && info.songs.length > 1 &&
-                            <ul className={style.songList}>
-                                {info?.songs.map((song: Songs, i: number) => {
+                        {album?.songs.length && album.songs.length > 1 &&
+                            <ul>
+                                {album?.songs.map((song: Songs, i: number) => {
                                     return (
-                                        <li key={song.name} className={`${isSongPlaying(i)} ${style.song}`}>
+                                        <li 
+                                        key={song.name} 
+                                        className={pageIndex === albumIndex && songIndex === i ? style.playing : undefined}
+                                        >
                                             <button onClick={() => playSelectedSong(i)}>{song.name}</button>
                                         </li>
                                     )
@@ -80,7 +72,7 @@ function Album(props: Props) {
                     </div> 
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 

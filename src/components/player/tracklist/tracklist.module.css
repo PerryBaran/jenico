@@ -18,6 +18,11 @@
     position: relative;
 }
 
+.container > button > img {
+    width: 30px;
+    filter:invert();
+}
+
 .container:hover .tracklist {
     display: block;
 }
@@ -48,12 +53,6 @@
     z-index: -100;
 }
 
-.tracklist h4 {
-    display: inline;
-    color: white;   
-    font-size: 1rem;
-}
-
 .tracklist > div {
     display: grid;
     grid-template-columns: 1fr 80% 1fr;
@@ -61,6 +60,17 @@
     height: 30px;
 
     border-bottom: 1px solid white;
+}
+
+.tracklist h4 {
+    display: inline;
+    color: white;   
+    font-size: 1rem;
+}
+
+.tracklist button {
+    color: white;
+    font-weight: bold;
 }
 
 .tracklist > div > button:nth-last-child(1) {
@@ -71,9 +81,10 @@
     border-right: 1px solid white;
 }
 
-.tracklist button {
-    color: white;
-    font-weight: bold;
+.tracklist ul {
+    height: 100%;    
+    padding-left: 0;
+    overflow-y: auto;
 }
 
 .tracklist li {
@@ -81,13 +92,7 @@
     font-size: 1.2rem;
 }
 
-.tracklist ul {
-    height: 100%;    
-    padding-left: 0;
-    overflow-y: auto;
-}
-
-.tracklistButton {
+.tracklist li button {
     width: 100%;
     padding-left: 10px;
     text-align: left;
@@ -99,9 +104,12 @@
     font-weight: bold;
 }
 
-.container button > img {
-    width: 30px;
-    filter:invert();
+.highlight {
+    text-shadow: 0 0 5px white;
+}
+
+.highlight:hover {
+    text-shadow: 0 0 5px black;
 }
 
 @media (orientation: portrait) {

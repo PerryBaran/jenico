@@ -1,5 +1,5 @@
 import { useReducer, useRef, FormEvent, Dispatch, SetStateAction, ChangeEvent } from 'react';
-import BackgroundImage from '../../background/image/BackgroundImage';
+import Background from '../../background/Background';
 import style from './contact.module.css';
 import sendEmail from '../../../services/emailJS';
 import { background } from '../../../media/images/index';
@@ -15,7 +15,7 @@ type Form = typeof initialValues;
 
 type ReducerAction = 
     | {type: 'reset'}
-    | {type: 'update'; key: string; value: string};
+    | {type: 'update'; key: string; value: string;};
 
 
 const reducer = (state: Form, action: ReducerAction) => {
@@ -24,8 +24,8 @@ const reducer = (state: Form, action: ReducerAction) => {
             return {
                 ...state,
                 [action.key]: action.value
-            }
-        case 'reset': return initialValues
+            };
+        case 'reset': return initialValues;
         default: throw new Error('invalid action type');
     }
 };
@@ -51,7 +51,7 @@ function Contact(props: {setFormFocused: Dispatch<SetStateAction<boolean>>}) {
 
     return (
         <>
-            <BackgroundImage src={background}/>
+            <Background src={background}/>
             <section className={style.container}>
                 <form ref={formRef} onSubmit={handleSubmit}>
                     <div>

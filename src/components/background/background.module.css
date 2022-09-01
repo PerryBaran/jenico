@@ -12,11 +12,20 @@
     z-index: -100;
 }
 
-.container video {
+.container > * {
     object-fit: cover;
 
     width: 100vw;
     height: 100vh;
 
     z-index: -99;   
+}
+
+.hide {
+    opacity: 0;
+}
+
+.fadeIn {
+    opacity: 1;
+    transition-duration: 200ms;
 }

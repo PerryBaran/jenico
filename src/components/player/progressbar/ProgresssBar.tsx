@@ -14,19 +14,19 @@ function ProgresssBar(props: Props) {
     const changeTime = (value: number) => {
         if (audioRef.current) {
             audioRef.current.currentTime = value;
-        }
+        };
     };
     
     useEffect(() => {
         if (barRef.current) {
             barRef.current.value = `${time}`
-        }
+        };
     }, [time, barRef]);
 
     useEffect(() => {
         if (barRef.current) {
             barRef.current.max = `${duration}`;
-        }  
+        };
     }, [duration, barRef]);
 
     return (
@@ -37,7 +37,8 @@ function ProgresssBar(props: Props) {
             min={0}
             defaultValue={0}
             onChange={e => changeTime(Number(e.target.value))}
-            className={style.bar}/>
+            className={style.bar}
+        />
     );
 };
 

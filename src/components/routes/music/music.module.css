@@ -10,6 +10,19 @@
     overflow-y: scroll;
 }
 
+.container button {
+    margin: 10px;    
+    
+    text-align: center;
+}
+
+.container img{
+    width: 80%;
+    max-width: 500px;
+
+    box-shadow: 0 0 15px black;
+}
+
 .container p {
     font-family: 'Major Mono Display', monospace;
     font-size: 1.75rem;
@@ -19,29 +32,17 @@
     overflow: visible;
 }
 
-.cover img{
-    width: 80%;
-    max-width: 500px;
-
-    box-shadow: 0 0 15px black;
-}
-
-.cover {
-    margin: 10px;    
-    text-align: center;
-}
-
 @media screen and (max-height: 560px) {
-    .cover img {
+    .container button {
+        width: 200px;
+    }
+
+    .container img {
         max-width: 200px;
     }
 
     .container p {
         height: 40px;        
         font-size: 1rem;
-    }
-
-    .cover {
-        width: 200px;
     }
 }

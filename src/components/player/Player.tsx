@@ -8,7 +8,7 @@ import Time from './time/Time';
 import MediaControls from './mediaControls/MediaControls';
 import Volume from './volume/Volume';
 import Tracklist from './tracklist/Tracklist';
-import KeyboardListener from './keyboardListener/KeyboardListeners';
+import { getLocalStorage } from '../../services/localStorage';
 
 interface Props {
     data: SongInfo[], 
@@ -25,14 +25,17 @@ function Player(props: Props) {
     const {data, playing, setPlaying, songIndex, setSongIndex, albumIndex, setAlbumIndex, formFocused} = props;
     const [time, setTime] = useState(0);
     const [duration, setDuration] = useState(0);
-    const [volume, setVolume] = useState(0.5);
+    const [volume, setVolume] = useState(() => {
+        const getVolume = getLocalStorage('volume');
+        return getVolume ? Number(getVolume) : 0.5;
+    });
     const audioRef = useRef<HTMLAudioElement | null>(null);
 
     useEffect(() => {
         const updateTimer = setInterval(() => {
             if (audioRef.current) {
-                const seconds = Math.round(audioRef.current.currentTime)
-                setTime(seconds)
+                const seconds = Math.round(audioRef.current.currentTime);
+                setTime(seconds);
             }    
         }, 250);
         return () => clearInterval(updateTimer);
@@ -43,6 +46,56 @@ function Player(props: Props) {
             audioRef.current.volume = volume;
         }
     }, [volume, audioRef]);
+
+    useEffect(() => {
+        window.addEventListener('keydown', keyDownHandler);
+        return () => window.removeEventListener('keydown', keyDownHandler);
+    });
+
+    const keyDownHandler = (e: KeyboardEvent) => {
+        if (formFocused) return;
+        switch(e.code) {
+            case 'Space': {
+                e.preventDefault();
+                setPlaying(!playing);
+                break;
+            }
+            case 'ArrowRight': {
+                e.preventDefault();
+                skipSong();
+                break;
+            }
+            case 'ArrowLeft': {
+                e.preventDefault();
+                skipSong(false);
+                break;
+            }
+            case 'ArrowUp':
+            case 'Equal':
+            case 'NumpadAdd': {
+                e.preventDefault();
+                const newVolume = volume + 0.01;
+                if (newVolume < 1) {
+                    setVolume(newVolume);
+                } else {
+                    setVolume(1);
+                };
+                break;
+            }
+            case 'ArrowDown':
+            case 'Minus':
+            case 'NumpadSubtract': {
+                e.preventDefault();
+                const newVolume = volume - 0.01;
+                if (newVolume > 0) {
+                    setVolume(newVolume);
+                } else {
+                    setVolume(0);
+                };
+                break;
+            }
+        };
+    };
 
     const skipSong = (forwards = true) => {
         const albumLength = data[albumIndex].songs.length;
@@ -117,13 +170,6 @@ function Player(props: Props) {
                 albumIndex={albumIndex}
                 setAlbumIndex={setAlbumIndex}
                 setPlaying={setPlaying}/>
-            <KeyboardListener 
-                playing={playing}
-                setPlaying={setPlaying}
-                volume={volume}
-                setVolume={setVolume}
-                skipSong={skipSong}
-                formFocused={formFocused}/>
         </section>
     );
 };

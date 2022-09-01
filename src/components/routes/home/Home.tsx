@@ -1,4 +1,4 @@
-import BackgroundVideo from '../../background/video/BackgroundVideo';
+import Background from '../../background/Background';
 import { background } from '../../../media/videos/index';
 import { spotify, bandcamp, soundcloud, youtube, instagram } from '../../../media/icons/index';
 import style from "./home.module.css";
@@ -6,7 +6,7 @@ import Socials from './socials/Socials';
 
 function Home() {
     return (
-        <div>
+        <>
             <header className={style.container}>
                 <div>
                     <h1>Jenico</h1>
@@ -19,8 +19,8 @@ function Home() {
                     </div>
                 </div>
             </header>
-            <BackgroundVideo src={background}/>
-        </div>
+            <Background src={background} video={true}/>
+        </>
     );
 };
 

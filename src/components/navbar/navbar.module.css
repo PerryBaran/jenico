@@ -43,7 +43,7 @@
     font-size: 1.7rem;
 }
 
-.gradientBorder {
+.container > div {
     width: 2px;
     height: 100%;
 
@@ -55,7 +55,7 @@
         display: none;
     }
 
-    .gradientBorder:nth-of-type(1) {
+    .container > div:nth-of-type(1) {
         display: none;
     }
 

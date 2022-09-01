@@ -5,7 +5,7 @@ interface Props {
     data: SongInfo[], 
     songIndex: number, 
     albumIndex: number
-}
+};
 
 function Info(props: Props) {
     const { data, songIndex, albumIndex } = props;

@@ -3,7 +3,7 @@ import style from './time.module.css';
 function Time(props: {time: number}) {
     const { time } = props;
 
-    const calcDisplayTime = (seconds: number) => {
+    const displayTime = (seconds: number) => {
         let sec: number | string = seconds;
         let min = 0;
         while (sec >= 60) {
@@ -18,7 +18,7 @@ function Time(props: {time: number}) {
 
     return (
         <div className={style.container}>
-            <p>{calcDisplayTime(time)}</p>
+            <p>{displayTime(time)}</p>
         </div>
     );
 };

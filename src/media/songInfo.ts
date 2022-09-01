@@ -2,7 +2,7 @@ import {art} from './images/index'
 import { whereWeEnd, dreamingOfDetunedLove, lysergic, etherealEP, stormEP } from './music/index'
 import { Songs, SongInfo } from '../Interface'
 
-class Album implements SongInfo{
+class Album implements SongInfo {
     readonly title: string
     readonly art: string
     readonly songs: Songs[]

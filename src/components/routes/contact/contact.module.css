@@ -41,7 +41,9 @@
 }
 
 .container form label {
+    width: 65px;
     margin-top: 5px;
+    text-align: right;
 }
 
 .container input {

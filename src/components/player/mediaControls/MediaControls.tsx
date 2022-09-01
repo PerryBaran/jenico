@@ -14,7 +14,7 @@ function MediaControls(props: Props ) {
     return (
         <div className={style.container}>
             <button onClick={() => skipSong(false)}><img src={skip} alt='skip backward'/></button>
-            <button onClick={() => setPlaying(!playing)}><img src={playing? pause : play} alt='play/pause'/></button>
+            <button onClick={() => setPlaying(!playing)}><img src={playing ? pause : play} alt='play/pause'/></button>
             <button onClick={() => skipSong()}><img src={skip} alt='skip forward'/></button>
         </div>
     );

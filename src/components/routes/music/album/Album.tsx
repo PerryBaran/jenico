@@ -1,4 +1,4 @@
-import { useEffect, useState, Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 import { useParams } from 'react-router-dom';
 import { SongInfo, Songs } from '../../../../Interface';
 import style from './album.module.css';
@@ -17,52 +17,26 @@ interface Props {
 function Album(props: Props) {
     const {data, playing, setPlaying, songIndex, setSongIndex, albumIndex, setAlbumIndex} = props;
     const params = useParams();
-    const [info, setInfo] = useState<null|SongInfo>(null);
-    const [pageIndex, setPageIndex] = useState(0);
-
-    useEffect(() => {
-        for (let i = data.length - 1; i >= 0; i--) {
-            if (data[i].title === params.id) {
-                setInfo(data[i]);
-                setPageIndex(i);
-            };
-        };
-    //eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
-
-    const renderSongList = () => {
-        if (info?.songs.length && info.songs.length > 1) {
-            return (
-                <ul className={style.songList}>
-                    {info?.songs.map((song: Songs, i: number) => {
-                        return (
-                            <li key={song.name} className={`${isSongPlaying(i)} ${style.song}`}>
-                                <button onClick={() => playSelectedSong(i)}>{song.name}</button>
-                            </li>
-                        )
-                    })}
-                </ul>
-            )
-        };
-    };
+    const pageIndex = data.findIndex(album => album.title === params.id);
+    const info = data[pageIndex];
 
     const isPageAlbumPlaying = () => {
         if (playing && pageIndex === albumIndex) {
-            return pauseCircle
+            return pauseCircle;
         }
-        return playCircle
+        return playCircle;
     };
 
     const isSongPlaying = (index: number) => {
         if (pageIndex === albumIndex && songIndex === index) {
-            return style.playing
+            return style.playing;
         }
-        return ''
+        return '';
     };
 
     const playCurrentAlbum = () => {
         if (pageIndex === albumIndex) {
-            setPlaying(!playing)
+            setPlaying(!playing);
         } else {
             setAlbumIndex(pageIndex);
             setSongIndex(0);
@@ -92,7 +66,17 @@ function Album(props: Props) {
                             <img src={info?.art} alt={`Cover for ${info?.title}`}/>
                             <img src={isPageAlbumPlaying()} alt='play/pause album' className={style.playPause}/>
                         </button>
-                        {renderSongList()}
+                        {info?.songs.length && info.songs.length > 1 &&
+                            <ul className={style.songList}>
+                                {info?.songs.map((song: Songs, i: number) => {
+                                    return (
+                                        <li key={song.name} className={`${isSongPlaying(i)} ${style.song}`}>
+                                            <button onClick={() => playSelectedSong(i)}>{song.name}</button>
+                                        </li>
+                                    )
+                                })}
+                            </ul>
+                        }
                     </div> 
                 </div>
             </div>

@@ -1,11 +1,13 @@
 import { Songs } from '../../Interface';
 
-class Song implements Songs{
+class Song implements Songs {
     readonly name: string;
-    readonly ref: string;
-    constructor(name: string, ref: string) {
+    readonly ref?: string;
+    src?: string;
+    constructor(name: string, ref?: string, src?: string) {
         this.name = name
         this.ref = ref
+        this.src = src
     };
 };
 
@@ -36,4 +38,4 @@ const stormEP = [
     new Song('Dissipate', 'Storm EP/Dissipate.mp3')
 ];
 
-export { whereWeEnd, dreamingOfDetunedLove, lysergic, ethereal as etherealEP, stormEP };
+export { whereWeEnd, dreamingOfDetunedLove, lysergic, ethereal as etherealEP, stormEP, Song };

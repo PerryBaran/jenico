@@ -13,20 +13,17 @@ const initialValues = {
 
 type Form = typeof initialValues;
 
-type ReducerAction = 
-    | {type: 'reset'}
-    | {type: 'update'; key: string; value: string;};
+type ReducerAction = {type: 'reset'} | {type: 'update'; key: string; value: string;};
 
 const reducer = (state: Form, action: ReducerAction) => {
     switch (action.type) {
-        case 'update': 
-            return {
+        case 'update': return {
                 ...state,
                 [action.key]: action.value
             };
         case 'reset': return initialValues;
         default: throw new Error('invalid action type');
-    }
+    };
 };
 
 function Contact(props: {setFormFocused: Dispatch<SetStateAction<boolean>>}) {
@@ -44,6 +41,10 @@ function Contact(props: {setFormFocused: Dispatch<SetStateAction<boolean>>}) {
 
     const handleSubmit = (e:FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        if (!state.email.match(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/)) {
+            alert('Invalid email');
+            return;
+        }
         sendEmail(formRef.current);
         dispatch({type: 'reset'});
     };

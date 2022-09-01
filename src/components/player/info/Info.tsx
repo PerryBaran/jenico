@@ -9,13 +9,14 @@ interface Props {
 
 function Info(props: Props) {
     const { data, songIndex, albumIndex } = props;
+    const album = data[albumIndex];
 
     return (
         <div className={style.container}>
-            <img src={data[albumIndex]?.art} alt={`${data[albumIndex]?.title} cover art`}/>
+            <img src={album?.art} alt={`${album?.title} cover art`}/>
             <div>
-                <h3>{data[albumIndex]?.title}</h3>
-                <p>{data[albumIndex]?.songs[songIndex]?.name}</p>
+                <h3>{album?.title}</h3>
+                <p>{album?.songs[songIndex]?.name}</p>
             </div>
         </div>
     );

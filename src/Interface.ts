@@ -1,7 +1,7 @@
 interface Songs {
     readonly name: string;
-    src?: string;
     readonly ref?: string;
+    src?: string;
 };
 
 interface SongInfo {

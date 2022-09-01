@@ -17,7 +17,6 @@ type ReducerAction =
     | {type: 'reset'}
     | {type: 'update'; key: string; value: string;};
 
-
 const reducer = (state: Form, action: ReducerAction) => {
     switch (action.type) {
         case 'update': 
@@ -70,6 +69,7 @@ function Contact(props: {setFormFocused: Dispatch<SetStateAction<boolean>>}) {
                             type='email' 
                             name='email'
                             required
+                            pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$'
                             value={state.email}
                             onChange={handleChange}
                             onFocus={() => setFormFocused(true)}

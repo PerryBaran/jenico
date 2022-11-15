@@ -9,15 +9,14 @@ import MediaControls from "./mediaControls/MediaControls";
 import Volume from "./volume/Volume";
 import Tracklist from "./tracklist/Tracklist";
 import useLocalStorage from "../../hooks/useLocalStorage";
+import { findSelectedAlbum } from "../../helpers/findSelected";
 
 interface Props {
   data: SongInfo[];
   playing: boolean;
   setPlaying: Dispatch<SetStateAction<boolean>>;
-  songIndex: number;
-  setSongIndex: Dispatch<SetStateAction<number>>;
-  albumIndex: number;
-  setAlbumIndex: Dispatch<SetStateAction<number>>;
+  selectedSong: string;
+  handleSelectSong: (name: string) => void;
   formFocused: boolean;
 }
 
@@ -26,16 +25,14 @@ function Player(props: Props) {
     data,
     playing,
     setPlaying,
-    songIndex,
-    setSongIndex,
-    albumIndex,
-    setAlbumIndex,
+    selectedSong,
+    handleSelectSong,
     formFocused,
   } = props;
   const [time, setTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [volume, setVolume] = useLocalStorage("volume", 0.5);
-  
+
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
@@ -105,35 +102,43 @@ function Player(props: Props) {
   };
 
   const skipSong = (forwards = true) => {
+    const selectedAlbum = findSelectedAlbum(selectedSong, data);
+    if (!selectedAlbum) return;
+    const albumIndex = data.indexOf(selectedAlbum);
+    const songIndex = selectedAlbum.songs.findIndex(
+      (song) => song.name === selectedSong
+    );
     const albumLength = data[albumIndex].songs.length;
     const playlistLength = data.length;
     if (forwards) {
       const nextSongIndex = songIndex + 1;
       if (nextSongIndex < albumLength) {
-        setSongIndex(nextSongIndex);
+        handleSelectSong(data[albumIndex].songs[nextSongIndex].name);
       } else {
         const nextAlbumIndex = albumIndex + 1;
         if (nextAlbumIndex < playlistLength) {
-          setAlbumIndex(nextAlbumIndex);
-          setSongIndex(0);
+          handleSelectSong(data[nextAlbumIndex].songs[0].name);
         } else {
-          setAlbumIndex(0);
-          setSongIndex(0);
+          handleSelectSong(data[0].songs[0].name);
         }
       }
     } else {
       const prevSongIndex = songIndex - 1;
       if (prevSongIndex >= 0) {
-        setSongIndex(prevSongIndex);
+        handleSelectSong(data[albumIndex].songs[prevSongIndex].name);
       } else {
         const prevAlbumIndex = albumIndex - 1;
         if (prevAlbumIndex >= 0) {
-          setAlbumIndex(prevAlbumIndex);
-          setSongIndex(data[prevAlbumIndex].songs.length - 1);
+          handleSelectSong(
+            data[prevAlbumIndex].songs[data[prevAlbumIndex].songs.length - 1]
+              .name
+          );
         } else {
           const lastAlbumIndex = playlistLength - 1;
-          setAlbumIndex(lastAlbumIndex);
-          setSongIndex(data[lastAlbumIndex].songs.length - 1);
+          handleSelectSong(
+            data[lastAlbumIndex].songs[data[lastAlbumIndex].songs.length - 1]
+              .name
+          );
         }
       }
     }
@@ -144,13 +149,12 @@ function Player(props: Props) {
       <Audio
         data={data}
         playing={playing}
-        songIndex={songIndex}
-        albumIndex={albumIndex}
+        selectedSong={selectedSong}
         audioRef={audioRef}
         setDuration={setDuration}
         skipSong={skipSong}
       />
-      <Info data={data} songIndex={songIndex} albumIndex={albumIndex} />
+      <Info data={data} selectedSong={selectedSong} />
       <div className={style.center}>
         <ProgresssBar audioRef={audioRef} time={time} duration={duration} />
         <div className={style.belowBar}>
@@ -166,10 +170,8 @@ function Player(props: Props) {
       <Volume volume={volume} setVolume={setVolume} />
       <Tracklist
         data={data}
-        songIndex={songIndex}
-        setSongIndex={setSongIndex}
-        albumIndex={albumIndex}
-        setAlbumIndex={setAlbumIndex}
+        selectedSong={selectedSong}
+        handleSelectSong={handleSelectSong}
         setPlaying={setPlaying}
       />
     </section>

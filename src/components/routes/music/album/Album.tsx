@@ -8,45 +8,29 @@ interface Props {
   data: SongInfo[];
   playing: boolean;
   setPlaying: Dispatch<SetStateAction<boolean>>;
-  songIndex: number;
-  setSongIndex: Dispatch<SetStateAction<number>>;
-  albumIndex: number;
-  setAlbumIndex: Dispatch<SetStateAction<number>>;
+  selectedSong: string;
+  handleSelectSong: (name: string) => void;
 }
 
 function Album(props: Props) {
-  const {
-    data,
-    playing,
-    setPlaying,
-    songIndex,
-    setSongIndex,
-    albumIndex,
-    setAlbumIndex,
-  } = props;
+  const { data, playing, setPlaying, selectedSong, handleSelectSong } = props;
   const params = useParams();
-  const pageIndex = data.findIndex((album) => album.title === params.id);
-  const album = data[pageIndex];
+  const album = data.find((album) => album.title === params.album);
 
-  const playCurrentAlbum = () => {
-    if (pageIndex === albumIndex) {
-      setPlaying(!playing);
+  const handlePlayAlbum = () => {
+    if (!album) return;
+    const { songs } = album;
+    if (songs.some((song) => song.name === selectedSong)) {
+      setPlaying((prev) => !prev);
     } else {
-      setAlbumIndex(pageIndex);
-      setSongIndex(0);
+      handleSelectSong(songs[0].name);
       setPlaying(true);
     }
   };
 
-  const playSelectedSong = (index: number) => {
-    if (pageIndex === albumIndex) {
-      setSongIndex(index);
-      setPlaying(true);
-    } else {
-      setAlbumIndex(pageIndex);
-      setSongIndex(index);
-      setPlaying(true);
-    }
+  const handlePlaySong = (name: string) => {
+    handleSelectSong(name);
+    setPlaying(true);
   };
 
   return (
@@ -63,28 +47,29 @@ function Album(props: Props) {
             </a>
           </h2>
           <div className={style.album}>
-            <button onClick={() => playCurrentAlbum()}>
+            <button onClick={handlePlayAlbum}>
               <img src={album?.art} alt={`Cover for ${album?.title}`} />
               <img
                 src={
-                  playing && pageIndex === albumIndex ? pauseCircle : playCircle
+                  playing &&
+                  album?.songs.find((song) => song.name === selectedSong)
+                    ? pauseCircle
+                    : playCircle
                 }
                 alt="play/pause album"
               />
             </button>
             {album?.songs.length && album.songs.length > 1 && (
               <ul>
-                {album?.songs.map((song: Songs, i: number) => {
+                {album?.songs.map((song: Songs) => {
                   return (
                     <li
                       key={song.name}
                       className={
-                        pageIndex === albumIndex && songIndex === i
-                          ? style.playing
-                          : undefined
+                        song.name === selectedSong ? style.playing : undefined
                       }
                     >
-                      <button onClick={() => playSelectedSong(i)}>
+                      <button onClick={() => handlePlaySong(song.name)}>
                         {song.name}
                       </button>
                     </li>

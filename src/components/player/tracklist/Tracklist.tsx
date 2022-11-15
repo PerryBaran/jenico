@@ -2,25 +2,19 @@ import { useState, useEffect, Dispatch, SetStateAction } from "react";
 import style from "./tracklist.module.css";
 import { menu } from "../../../media/icons/index";
 import { SongInfo, Songs } from "../../../Interface";
+import { findSelectedAlbum } from "../../../helpers/findSelected";
 
 interface Props {
   data: SongInfo[];
-  songIndex: number;
-  setSongIndex: Dispatch<SetStateAction<number>>;
-  albumIndex: number;
-  setAlbumIndex: Dispatch<SetStateAction<number>>;
+  selectedSong: string;
+  handleSelectSong: (name: string) => void;
   setPlaying: Dispatch<SetStateAction<boolean>>;
 }
 
 function Tracklist(props: Props) {
-  const {
-    data,
-    songIndex,
-    setSongIndex,
-    albumIndex,
-    setAlbumIndex,
-    setPlaying,
-  } = props;
+  const { data, selectedSong, handleSelectSong, setPlaying } = props;
+  const playingAlbum = findSelectedAlbum(selectedSong, data) || data[0];
+  const albumIndex = data.indexOf(playingAlbum);
   const [pageIndex, setPageIndex] = useState(albumIndex);
   const album = data[pageIndex];
 
@@ -47,9 +41,8 @@ function Tracklist(props: Props) {
     }
   };
 
-  const setSongFromTracklist = (index: number) => {
-    setAlbumIndex(pageIndex);
-    setSongIndex(index);
+  const setSongFromTracklist = (name: string) => {
+    handleSelectSong(name);
     setPlaying(true);
   };
 
@@ -63,17 +56,17 @@ function Tracklist(props: Props) {
           <button onClick={() => scrollTrackList()}>&gt;</button>
         </div>
         <ul>
-          {album?.songs.map((song: Songs, i: number) => {
+          {album?.songs.map((song: Songs) => {
             return (
               <li
                 key={song.name}
                 className={
-                  pageIndex === albumIndex && songIndex === i
+                  pageIndex === albumIndex && song.name === selectedSong
                     ? style.highlight
                     : undefined
                 }
               >
-                <button onClick={() => setSongFromTracklist(i)}>
+                <button onClick={() => setSongFromTracklist(song.name)}>
                   {song.name}
                 </button>
               </li>

@@ -5,7 +5,7 @@ export default function useLocalStorage(key: string, fallBackValue: any) {
     const item = localStorage.getItem(key);
     if (!item) return fallBackValue;
     if (typeof fallBackValue === "number") return Number(JSON.parse(item));
-    return JSON.parse(item)
+    return JSON.parse(item);
   });
 
   useEffect(() => {

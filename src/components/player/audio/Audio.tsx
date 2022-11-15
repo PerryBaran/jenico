@@ -1,26 +1,21 @@
 import { RefObject, useEffect, Dispatch, SetStateAction } from "react";
+import { findSelectedSong } from "../../../helpers/findSelected";
 import { SongInfo } from "../../../Interface";
 
 interface Props {
   data: SongInfo[];
   playing: boolean;
-  songIndex: number;
-  albumIndex: number;
+  selectedSong: string;
   audioRef: RefObject<HTMLAudioElement>;
   setDuration: Dispatch<SetStateAction<number>>;
   skipSong: () => void;
 }
 
 function Audio(props: Props) {
-  const {
-    playing,
-    data,
-    songIndex,
-    albumIndex,
-    audioRef,
-    setDuration,
-    skipSong,
-  } = props;
+  const { playing, data, selectedSong, audioRef, setDuration, skipSong } =
+    props;
+
+  const source = findSelectedSong(selectedSong, data)?.src;
 
   useEffect(() => {
     if (audioRef.current) {
@@ -30,7 +25,7 @@ function Audio(props: Props) {
         audioRef.current.pause();
       }
     }
-  }, [playing, songIndex, albumIndex, audioRef]);
+  }, [playing, selectedSong, audioRef]);
 
   const updateDuration = () => {
     if (audioRef.current) {
@@ -42,7 +37,7 @@ function Audio(props: Props) {
   return (
     <audio
       ref={audioRef}
-      src={data[albumIndex]?.songs[songIndex]?.src}
+      src={source}
       onLoadedMetadata={() => {
         updateDuration();
         playing && audioRef.current?.play();

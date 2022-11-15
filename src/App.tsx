@@ -2,7 +2,7 @@ import { useState } from "react";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import songInfo from "./media/songInfo";
 import useFirebaseData from "./hooks/useFirebaseData";
-
+import { findSelectedSong } from "./helpers/findSelected";
 import Navbar from "./components/navbar/Navbar";
 import Home from "./components/routes/home/Home";
 import Music from "./components/routes/music/Music";
@@ -12,10 +12,14 @@ import Player from "./components/player/Player";
 
 function App() {
   const [playing, setPlaying] = useState(false);
-  const [songIndex, setSongIndex] = useState(0);
-  const [albumIndex, setAlbumIndex] = useState(0);
-  const [data] = useFirebaseData(songInfo, albumIndex, songIndex);
+  const [selectedSong, setSelectedSong] = useState(songInfo[0].songs[0].name);
+  const [data] = useFirebaseData(songInfo, selectedSong);
   const [formFocused, setFormFocused] = useState(false);
+
+  const handleSelectSong = (name: string) => {
+    const song = findSelectedSong(name, data);
+    if (song) setSelectedSong(song.name);
+  };
 
   return (
     <div>
@@ -25,16 +29,14 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/music" element={<Music data={data} />} />
           <Route
-            path="/music/:id"
+            path="/music/:album"
             element={
               <Album
                 data={data}
                 playing={playing}
                 setPlaying={setPlaying}
-                songIndex={songIndex}
-                setSongIndex={setSongIndex}
-                albumIndex={albumIndex}
-                setAlbumIndex={setAlbumIndex}
+                selectedSong={selectedSong}
+                handleSelectSong={handleSelectSong}
               />
             }
           />
@@ -47,10 +49,8 @@ function App() {
           data={data}
           playing={playing}
           setPlaying={setPlaying}
-          songIndex={songIndex}
-          setSongIndex={setSongIndex}
-          albumIndex={albumIndex}
-          setAlbumIndex={setAlbumIndex}
+          selectedSong={selectedSong}
+          handleSelectSong={handleSelectSong}
           formFocused={formFocused}
         />
       </Router>

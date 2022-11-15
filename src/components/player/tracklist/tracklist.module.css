@@ -1,120 +1,120 @@
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 
-    grid-column: 4;    
+  grid-column: 4;
 
-    position: relative;
-    bottom: 20px;
+  position: relative;
+  bottom: 20px;
 
-    width: 50px;
-    height: 50px;
+  width: 50px;
+  height: 50px;
 
-    overflow: visible;
+  overflow: visible;
 }
 
 .container > button {
-    position: relative;
+  position: relative;
 }
 
 .container > button > img {
-    width: 30px;
-    filter:invert();
+  width: 30px;
+  filter: invert();
 }
 
 .container:hover .tracklist {
-    display: block;
+  display: block;
 }
 
 .tracklist {
-    display: none;
+  display: none;
 
-    position: absolute;
-    bottom: 45px;
-    right: 5px;
+  position: absolute;
+  bottom: 45px;
+  right: 5px;
 
-    width: 210px;
-    height: 210px;
+  width: 210px;
+  height: 210px;
 
-    border: 1px solid white;
-    border-radius: 3px;
+  border: 1px solid white;
+  border-radius: 3px;
 
-    z-index: 200;
+  z-index: 200;
 }
 
 .tracklist > img {
-    position: absolute;
+  position: absolute;
 
-    width: 100%;
+  width: 100%;
 
-    filter:brightness(0.3);
+  filter: brightness(0.3);
 
-    z-index: -100;
+  z-index: -100;
 }
 
 .tracklist > div {
-    display: grid;
-    grid-template-columns: 1fr 80% 1fr;
+  display: grid;
+  grid-template-columns: 1fr 80% 1fr;
 
-    height: 30px;
+  height: 30px;
 
-    border-bottom: 1px solid white;
+  border-bottom: 1px solid white;
 }
 
 .tracklist h4 {
-    display: inline;
-    color: white;   
-    font-size: 1rem;
+  display: inline;
+  color: white;
+  font-size: 1rem;
 }
 
 .tracklist button {
-    color: white;
-    font-weight: bold;
+  color: white;
+  font-weight: bold;
 }
 
 .tracklist > div > button:nth-last-child(1) {
-    border-left: 1px solid white;
+  border-left: 1px solid white;
 }
 
 .tracklist > div > button:nth-of-type(1) {
-    border-right: 1px solid white;
+  border-right: 1px solid white;
 }
 
 .tracklist ul {
-    height: 100%;    
-    padding-left: 0;
-    overflow-y: auto;
+  height: 100%;
+  padding-left: 0;
+  overflow-y: auto;
 }
 
 .tracklist li {
-    width: 100%;
-    font-size: 1.2rem;
+  width: 100%;
+  font-size: 1.2rem;
 }
 
 .tracklist li button {
-    width: 100%;
-    padding-left: 10px;
-    text-align: left;
+  width: 100%;
+  padding-left: 10px;
+  text-align: left;
 }
 
 .tracklist button:hover {
-    color: black;
-    background-color: white;
-    font-weight: bold;
+  color: black;
+  background-color: white;
+  font-weight: bold;
 }
 
 .highlight {
-    text-shadow: 0 0 5px white;
+  text-shadow: 0 0 5px white;
 }
 
 .highlight:hover {
-    text-shadow: 0 0 5px black;
+  text-shadow: 0 0 5px black;
 }
 
 @media (orientation: portrait) {
-    .container {
-        grid-row: 2;
-        grid-column: 3;
-    }
+  .container {
+    grid-row: 2;
+    grid-column: 3;
+  }
 }

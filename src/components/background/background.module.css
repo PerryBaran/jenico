@@ -1,31 +1,31 @@
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    position: absolute;
-    top:0;
+  position: absolute;
+  top: 0;
 
-    width: 100vw;
-    height: 100vh;
-    
-    z-index: -100;
+  width: 100vw;
+  height: 100vh;
+
+  z-index: -100;
 }
 
 .container > * {
-    object-fit: cover;
+  object-fit: cover;
 
-    width: 100vw;
-    height: 100vh;
+  width: 100vw;
+  height: 100vh;
 
-    z-index: -99;   
+  z-index: -99;
 }
 
 .hide {
-    opacity: 0;
+  opacity: 0;
 }
 
 .fadeIn {
-    opacity: 1;
-    transition-duration: 200ms;
+  opacity: 1;
+  transition-duration: 200ms;
 }

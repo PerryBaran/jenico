@@ -1,47 +1,47 @@
 * {
-    box-sizing: border-box;
-    margin: auto;
-    color: white;
-    -webkit-tap-highlight-color:  rgba(255, 255, 255, 0.5);
-    font-family: 'Dosis', sans-serif;
-    overflow: hidden;
+  box-sizing: border-box;
+  margin: auto;
+  color: white;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0.5);
+  font-family: "Dosis", sans-serif;
+  overflow: hidden;
 }
 
 :root {
-    --dark-purple: rgb(57, 29, 58);
+  --dark-purple: rgb(57, 29, 58);
 }
 
 body {
-    background-color: black;
+  background-color: black;
 }
 
 h1 {
-    font-family: 'Major Mono Display', monospace;
+  font-family: "Major Mono Display", monospace;
 }
 
 h2 {
-    font-family: 'Major Mono Display', monospace;
+  font-family: "Major Mono Display", monospace;
 }
 
 button {
-    all: unset;
-    text-align: center;
-    cursor: pointer;
+  all: unset;
+  text-align: center;
+  cursor: pointer;
 }
 
 a {
-    all: unset;
-    cursor: pointer;
+  all: unset;
+  cursor: pointer;
 }
 
 ::-webkit-scrollbar {
-    width: 15px;
+  width: 15px;
 }
 
 ::-webkit-scrollbar-track {
-    background: none;
+  background: none;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 1));
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 1));
 }

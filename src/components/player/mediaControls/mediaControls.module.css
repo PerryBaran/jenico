@@ -1,14 +1,14 @@
 .container {
-    display: flex;
-    justify-content:space-evenly;
-    width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
 }
 
 .container img {
-    width: 20px;
-    filter:invert();
+  width: 20px;
+  filter: invert();
 }
 
-.container img[alt~='backward']{
-    transform: rotate(180deg);
+.container img[alt~="backward"] {
+  transform: rotate(180deg);
 }

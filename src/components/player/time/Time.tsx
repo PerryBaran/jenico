@@ -1,26 +1,26 @@
-import style from './time.module.css';
+import style from "./time.module.css";
 
-function Time(props: {time: number}) {
-    const { time } = props;
+function Time(props: { time: number }) {
+  const { time } = props;
 
-    const displayTime = (seconds: number) => {
-        let sec: number | string = seconds;
-        let min = 0;
-        while (sec >= 60) {
-            min++;
-            sec = sec - 60;
-        }
-        if (sec < 10) {
-            sec = `0${sec}`;
-        }
-        return `${min}:${sec}`;
-    };
+  const displayTime = (seconds: number) => {
+    let sec: number | string = seconds;
+    let min = 0;
+    while (sec >= 60) {
+      min++;
+      sec = sec - 60;
+    }
+    if (sec < 10) {
+      sec = `0${sec}`;
+    }
+    return `${min}:${sec}`;
+  };
 
-    return (
-        <div className={style.container}>
-            <p>{displayTime(time)}</p>
-        </div>
-    );
-};
+  return (
+    <div className={style.container}>
+      <p>{displayTime(time)}</p>
+    </div>
+  );
+}
 
 export default Time;

@@ -1,48 +1,48 @@
 .container {
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 
-    height: 100vh;
-    padding-top: 100px;
-    padding-bottom: 150px;
+  height: 100vh;
+  padding-top: 100px;
+  padding-bottom: 150px;
 
-    overflow-y: scroll;
+  overflow-y: scroll;
 }
 
 .container button {
-    margin: 10px;    
-    
-    text-align: center;
+  margin: 10px;
+
+  text-align: center;
 }
 
-.container img{
-    width: 80%;
-    max-width: 500px;
+.container img {
+  width: 80%;
+  max-width: 500px;
 
-    box-shadow: 0 0 15px black;
+  box-shadow: 0 0 15px black;
 }
 
 .container p {
-    font-family: 'Major Mono Display', monospace;
-    font-size: 1.75rem;
-    font-weight: bold;
-    text-shadow: 0px 0px 15px black;
+  font-family: "Major Mono Display", monospace;
+  font-size: 1.75rem;
+  font-weight: bold;
+  text-shadow: 0px 0px 15px black;
 
-    overflow: visible;
+  overflow: visible;
 }
 
 @media screen and (max-height: 560px) {
-    .container button {
-        width: 200px;
-    }
+  .container button {
+    width: 200px;
+  }
 
-    .container img {
-        max-width: 200px;
-    }
+  .container img {
+    max-width: 200px;
+  }
 
-    .container p {
-        height: 40px;        
-        font-size: 1rem;
-    }
+  .container p {
+    height: 40px;
+    font-size: 1rem;
+  }
 }

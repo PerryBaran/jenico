@@ -9,7 +9,10 @@ import MediaControls from "./mediaControls/MediaControls";
 import Volume from "./volume/Volume";
 import Tracklist from "./tracklist/Tracklist";
 import useLocalStorage from "../../hooks/useLocalStorage";
-import { findSelectedAlbum, findSelectedSong } from "../../helpers/findSelected";
+import {
+  findSelectedAlbum,
+  findSelectedSong,
+} from "../../helpers/findSelected";
 
 interface Props {
   data: SongInfo[];
@@ -153,7 +156,7 @@ function Player(props: Props) {
         skipSong={skipSong}
       />
       <Info
-        albumArt={album?.art} 
+        albumArt={album?.art}
         albumName={album?.title}
         songName={song?.name}
       />

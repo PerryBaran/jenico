@@ -9,8 +9,7 @@ interface Props {
 }
 
 function Audio(props: Props) {
-  const { playing, source, audioRef, setDuration, skipSong } =
-    props;
+  const { playing, source, audioRef, setDuration, skipSong } = props;
 
   useEffect(() => {
     if (audioRef.current) {

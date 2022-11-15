@@ -12,7 +12,8 @@ interface Props {
 }
 
 function Tracklist(props: Props) {
-  const { data, selectedSong, selectedAlbum, setSelectedSong, setPlaying } = props;
+  const { data, selectedSong, selectedAlbum, setSelectedSong, setPlaying } =
+    props;
   const albumIndex = data.indexOf(selectedAlbum);
   const [pageIndex, setPageIndex] = useState(albumIndex);
   const pageAlbum = data[pageIndex];
@@ -66,9 +67,7 @@ function Tracklist(props: Props) {
                     : undefined
                 }
               >
-                <button onClick={() => selectSong(name)}>
-                  {name}
-                </button>
+                <button onClick={() => selectSong(name)}>{name}</button>
               </li>
             );
           })}

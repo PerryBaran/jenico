@@ -1,26 +1,20 @@
-import {
-  findSelectedAlbum,
-  findSelectedSong,
-} from "../../../helpers/findSelected";
-import { SongInfo } from "../../../Interface";
 import style from "./info.module.css";
 
 interface Props {
-  data: SongInfo[];
-  selectedSong: string;
+  albumArt: string | undefined;
+  albumName: string | undefined;
+  songName: string | undefined;
 }
 
 function Info(props: Props) {
-  const { data, selectedSong } = props;
-  const album = findSelectedAlbum(selectedSong, data);
-  const song = findSelectedSong(selectedSong, data);
+  const { albumArt, albumName, songName } = props;
 
   return (
     <div className={style.container}>
-      <img src={album?.art} alt={`${album?.title} cover art`} />
+      <img src={albumArt} alt={`${albumName} cover art`} />
       <div>
-        <h3>{album?.title}</h3>
-        <p>{song?.name}</p>
+        <h3>{albumName}</h3>
+        <p>{songName}</p>
       </div>
     </div>
   );

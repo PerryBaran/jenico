@@ -2,21 +2,20 @@ import { useState, useEffect, Dispatch, SetStateAction } from "react";
 import style from "./tracklist.module.css";
 import { menu } from "../../../media/icons/index";
 import { SongInfo, Songs } from "../../../Interface";
-import { findSelectedAlbum } from "../../../helpers/findSelected";
 
 interface Props {
   data: SongInfo[];
   selectedSong: string;
-  handleSelectSong: (name: string) => void;
+  selectedAlbum: SongInfo;
+  setSelectedSong: Dispatch<SetStateAction<string>>;
   setPlaying: Dispatch<SetStateAction<boolean>>;
 }
 
 function Tracklist(props: Props) {
-  const { data, selectedSong, handleSelectSong, setPlaying } = props;
-  const playingAlbum = findSelectedAlbum(selectedSong, data) || data[0];
-  const albumIndex = data.indexOf(playingAlbum);
+  const { data, selectedSong, selectedAlbum, setSelectedSong, setPlaying } = props;
+  const albumIndex = data.indexOf(selectedAlbum);
   const [pageIndex, setPageIndex] = useState(albumIndex);
-  const album = data[pageIndex];
+  const pageAlbum = data[pageIndex];
 
   useEffect(() => {
     setPageIndex(albumIndex);
@@ -41,33 +40,34 @@ function Tracklist(props: Props) {
     }
   };
 
-  const setSongFromTracklist = (name: string) => {
-    handleSelectSong(name);
+  const selectSong = (name: string) => {
+    setSelectedSong(name);
     setPlaying(true);
   };
 
   return (
     <div className={style.container}>
       <div className={style.tracklist}>
-        <img src={album?.art} alt={`${album.title} cover art`} />
+        <img src={pageAlbum?.art} alt={`${pageAlbum.title} cover art`} />
         <div>
           <button onClick={() => scrollTrackList(false)}>&lt;</button>
-          <h4>{album?.title}</h4>
+          <h4>{pageAlbum?.title}</h4>
           <button onClick={() => scrollTrackList()}>&gt;</button>
         </div>
         <ul>
-          {album?.songs.map((song: Songs) => {
+          {pageAlbum?.songs.map((song: Songs) => {
+            const { name } = song;
             return (
               <li
-                key={song.name}
+                key={name}
                 className={
-                  pageIndex === albumIndex && song.name === selectedSong
+                  pageIndex === albumIndex && name === selectedSong
                     ? style.highlight
                     : undefined
                 }
               >
-                <button onClick={() => setSongFromTracklist(song.name)}>
-                  {song.name}
+                <button onClick={() => selectSong(name)}>
+                  {name}
                 </button>
               </li>
             );

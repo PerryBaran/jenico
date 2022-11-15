@@ -47,9 +47,8 @@
     display: inline-block;
   }
 
-  .contaiern > div > p {
-    font-size: 2rem;
-    font-weight: bold;
+  .container > div {
+    font-size: 0.8rem;
   }
 
   .container div > p::before {

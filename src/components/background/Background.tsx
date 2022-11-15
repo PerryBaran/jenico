@@ -13,7 +13,6 @@ const Background = (props: { src: string; video?: boolean }) => {
           loop
           muted
           src={src}
-          data-testid="video"
           onCanPlay={() => setLoaded(true)}
           className={loaded ? style.fadeIn : style.hide}
         />

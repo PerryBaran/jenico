@@ -53,5 +53,4 @@ export {
   lysergic,
   ethereal as etherealEP,
   stormEP,
-  Song,
 };

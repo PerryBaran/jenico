@@ -16,7 +16,7 @@ function MediaControls(props: Props) {
       <button onClick={() => skipSong(false)}>
         <img src={skip} alt="skip backward" />
       </button>
-      <button onClick={() => setPlaying(!playing)}>
+      <button onClick={() => setPlaying((prev) => !prev)}>
         <img src={playing ? pause : play} alt="play/pause" />
       </button>
       <button onClick={() => skipSong()}>

@@ -1,21 +1,16 @@
-import { RefObject, useEffect, Dispatch, SetStateAction } from "react";
-import { findSelectedSong } from "../../../helpers/findSelected";
-import { SongInfo } from "../../../Interface";
+import { RefObject, useEffect } from "react";
 
 interface Props {
-  data: SongInfo[];
   playing: boolean;
-  selectedSong: string;
+  source: string | undefined;
   audioRef: RefObject<HTMLAudioElement>;
-  setDuration: Dispatch<SetStateAction<number>>;
+  setDuration: (duration: number) => void;
   skipSong: () => void;
 }
 
 function Audio(props: Props) {
-  const { playing, data, selectedSong, audioRef, setDuration, skipSong } =
+  const { playing, source, audioRef, setDuration, skipSong } =
     props;
-
-  const source = findSelectedSong(selectedSong, data)?.src;
 
   useEffect(() => {
     if (audioRef.current) {
@@ -25,7 +20,7 @@ function Audio(props: Props) {
         audioRef.current.pause();
       }
     }
-  }, [playing, selectedSong, audioRef]);
+  }, [playing, source, audioRef]);
 
   const updateDuration = () => {
     if (audioRef.current) {

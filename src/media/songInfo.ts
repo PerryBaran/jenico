@@ -13,6 +13,7 @@ class Album implements SongInfo {
   readonly art: string;
   readonly songs: Songs[];
   readonly hyperlink: string;
+
   constructor(title: string, art: string, songs: Songs[], link: string) {
     this.title = title;
     this.art = art;

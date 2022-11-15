@@ -9,14 +9,14 @@ import MediaControls from "./mediaControls/MediaControls";
 import Volume from "./volume/Volume";
 import Tracklist from "./tracklist/Tracklist";
 import useLocalStorage from "../../hooks/useLocalStorage";
-import { findSelectedAlbum } from "../../helpers/findSelected";
+import { findSelectedAlbum, findSelectedSong } from "../../helpers/findSelected";
 
 interface Props {
   data: SongInfo[];
   playing: boolean;
   setPlaying: Dispatch<SetStateAction<boolean>>;
   selectedSong: string;
-  handleSelectSong: (name: string) => void;
+  setSelectedSong: Dispatch<SetStateAction<string>>;
   formFocused: boolean;
 }
 
@@ -26,14 +26,15 @@ function Player(props: Props) {
     playing,
     setPlaying,
     selectedSong,
-    handleSelectSong,
+    setSelectedSong,
     formFocused,
   } = props;
   const [time, setTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [volume, setVolume] = useLocalStorage("volume", 0.5);
-
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const album = findSelectedAlbum(selectedSong, data);
+  const song = findSelectedSong(selectedSong, data);
 
   useEffect(() => {
     const updateTimer = setInterval(() => {
@@ -102,40 +103,38 @@ function Player(props: Props) {
   };
 
   const skipSong = (forwards = true) => {
-    const selectedAlbum = findSelectedAlbum(selectedSong, data);
-    if (!selectedAlbum) return;
-    const albumIndex = data.indexOf(selectedAlbum);
-    const songIndex = selectedAlbum.songs.findIndex(
-      (song) => song.name === selectedSong
-    );
+    if (!album || !song) return;
+    const albumIndex = data.indexOf(album);
+    const songIndex = album.songs.indexOf(song);
     const albumLength = data[albumIndex].songs.length;
     const playlistLength = data.length;
+
     if (forwards) {
       const nextSongIndex = songIndex + 1;
       if (nextSongIndex < albumLength) {
-        handleSelectSong(data[albumIndex].songs[nextSongIndex].name);
+        setSelectedSong(data[albumIndex].songs[nextSongIndex].name);
       } else {
         const nextAlbumIndex = albumIndex + 1;
         if (nextAlbumIndex < playlistLength) {
-          handleSelectSong(data[nextAlbumIndex].songs[0].name);
+          setSelectedSong(data[nextAlbumIndex].songs[0].name);
         } else {
-          handleSelectSong(data[0].songs[0].name);
+          setSelectedSong(data[0].songs[0].name);
         }
       }
     } else {
       const prevSongIndex = songIndex - 1;
       if (prevSongIndex >= 0) {
-        handleSelectSong(data[albumIndex].songs[prevSongIndex].name);
+        setSelectedSong(data[albumIndex].songs[prevSongIndex].name);
       } else {
         const prevAlbumIndex = albumIndex - 1;
         if (prevAlbumIndex >= 0) {
-          handleSelectSong(
+          setSelectedSong(
             data[prevAlbumIndex].songs[data[prevAlbumIndex].songs.length - 1]
               .name
           );
         } else {
           const lastAlbumIndex = playlistLength - 1;
-          handleSelectSong(
+          setSelectedSong(
             data[lastAlbumIndex].songs[data[lastAlbumIndex].songs.length - 1]
               .name
           );
@@ -147,14 +146,17 @@ function Player(props: Props) {
   return (
     <section className={style.container}>
       <Audio
-        data={data}
         playing={playing}
-        selectedSong={selectedSong}
+        source={song?.src}
         audioRef={audioRef}
         setDuration={setDuration}
         skipSong={skipSong}
       />
-      <Info data={data} selectedSong={selectedSong} />
+      <Info
+        albumArt={album?.art} 
+        albumName={album?.title}
+        songName={song?.name}
+      />
       <div className={style.center}>
         <ProgresssBar audioRef={audioRef} time={time} duration={duration} />
         <div className={style.belowBar}>
@@ -171,7 +173,8 @@ function Player(props: Props) {
       <Tracklist
         data={data}
         selectedSong={selectedSong}
-        handleSelectSong={handleSelectSong}
+        selectedAlbum={album || data[0]}
+        setSelectedSong={setSelectedSong}
         setPlaying={setPlaying}
       />
     </section>

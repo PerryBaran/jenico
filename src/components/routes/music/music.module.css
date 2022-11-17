@@ -10,20 +10,20 @@
   overflow-y: scroll;
 }
 
-.container button {
+.album {
   margin: 10px;
 
   text-align: center;
 }
 
-.container img {
+.album > img {
   width: 80%;
   max-width: 500px;
 
   box-shadow: 0 0 15px black;
 }
 
-.container p {
+.album > p {
   font-family: "Major Mono Display", monospace;
   font-size: 1.75rem;
   font-weight: bold;
@@ -33,15 +33,15 @@
 }
 
 @media screen and (max-height: 560px) {
-  .container button {
+  .album {
     width: 200px;
   }
 
-  .container img {
+  .album > img {
     max-width: 200px;
   }
 
-  .container p {
+  .album > p {
     height: 40px;
     font-size: 1rem;
   }

@@ -13,12 +13,10 @@ function Music(props: { data: SongInfo[] }) {
       <div className={style.container}>
         {data.map((album: SongInfo) => {
           return (
-            <button key={album.title}>
-              <Link to={`${album.title}`}>
-                <img src={album.art} alt={`${album.title} album cover`} />
-                <p>{album.title}</p>
-              </Link>
-            </button>
+            <Link to={album.title} key={album.title} className={style.album}>
+              <img src={album.art} alt={`${album.title} album cover`} />
+              <p>{album.title}</p>
+            </Link>
           );
         })}
       </div>

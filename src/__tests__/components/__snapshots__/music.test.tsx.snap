@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Music snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="container"
+  >
+    <img
+      alt="background"
+      src="background.jpg"
+    />
+  </div>
+  <div
+    class="container"
+  >
+    <a
+      class="album"
+      href="/Where We End"
+    >
+      <img
+        alt="Where We End album cover"
+        src="WhereWeEnd.png"
+      />
+      <p>
+        Where We End
+      </p>
+    </a>
+    <a
+      class="album"
+      href="/Dreaming of Detuned Love"
+    >
+      <img
+        alt="Dreaming of Detuned Love album cover"
+        src="DreamingOfDetunedLove.png"
+      />
+      <p>
+        Dreaming of Detuned Love
+      </p>
+    </a>
+    <a
+      class="album"
+      href="/Lysergic"
+    >
+      <img
+        alt="Lysergic album cover"
+        src="Lysergic.png"
+      />
+      <p>
+        Lysergic
+      </p>
+    </a>
+    <a
+      class="album"
+      href="/Ethereal"
+    >
+      <img
+        alt="Ethereal album cover"
+        src="Ethereal.png"
+      />
+      <p>
+        Ethereal
+      </p>
+    </a>
+    <a
+      class="album"
+      href="/Storm EP"
+    >
+      <img
+        alt="Storm EP album cover"
+        src="StormEP.png"
+      />
+      <p>
+        Storm EP
+      </p>
+    </a>
+  </div>
+</DocumentFragment>
+`;

@@ -15,6 +15,7 @@ const Background = (props: { src: string; video?: boolean }) => {
           src={src}
           onCanPlay={() => setLoaded(true)}
           className={loaded ? style.fadeIn : style.hide}
+          data-testid="video"
         />
       ) : (
         <img src={src} alt="background" />

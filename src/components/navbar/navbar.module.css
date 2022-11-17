@@ -26,10 +26,6 @@
 
 .link {
   width: 25%;
-}
-
-.container button {
-  width: 100%;
   height: 100%;
 
   font-family: "Major Mono Display", monospace;
@@ -37,9 +33,12 @@
   vertical-align: middle;
 
   transition-duration: 500ms;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.container button:hover {
+.link:hover {
   font-size: 1.7rem;
 }
 

@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Background image image snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="container"
+  >
+    <img
+      alt="background"
+      src="string"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Background video video snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="container"
+  >
+    <video
+      autoplay=""
+      class="hide"
+      data-testid="video"
+      loop=""
+      src="string"
+    />
+  </div>
+</DocumentFragment>
+`;

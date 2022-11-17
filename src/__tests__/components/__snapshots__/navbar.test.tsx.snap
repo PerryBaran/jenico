@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navbar snapshot 1`] = `
+<DocumentFragment>
+  <nav
+    class="container"
+  >
+    <a
+      class="link"
+      href="/"
+    >
+      Jenico
+    </a>
+    <div />
+    <a
+      class="link"
+      href="/"
+    >
+      Home
+    </a>
+    <div />
+    <a
+      class="link"
+      href="/music"
+    >
+      Music
+    </a>
+    <div />
+    <a
+      class="link"
+      href="/contact"
+    >
+      Contact
+    </a>
+  </nav>
+</DocumentFragment>
+`;

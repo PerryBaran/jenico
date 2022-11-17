@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home snapshot 1`] = `
+<DocumentFragment>
+  <header
+    class="container"
+  >
+    <div>
+      <h1>
+        Jenico
+      </h1>
+      <div>
+        <a
+          class="social"
+          href="https://open.spotify.com/artist/6XqSoJQMIWNKBuLzzmJwiz"
+          rel="noreferrer"
+          target="_Blank"
+        >
+          <img
+            alt="Spotify icon"
+            src="Spotify.png"
+          />
+          <p>
+            Spotify
+          </p>
+        </a>
+        <a
+          class="social"
+          href="https://jenico.bandcamp.com/"
+          rel="noreferrer"
+          target="_Blank"
+        >
+          <img
+            alt="Bandcamp icon"
+            src="BandCamp.png"
+          />
+          <p>
+            Bandcamp
+          </p>
+        </a>
+        <a
+          class="social"
+          href="https://soundcloud.com/jenico_flac"
+          rel="noreferrer"
+          target="_Blank"
+        >
+          <img
+            alt="Soundcloud icon"
+            src="Soundcloud.png"
+          />
+          <p>
+            Soundcloud
+          </p>
+        </a>
+        <a
+          class="social"
+          href="https://www.youtube.com/channel/UCOHuR2EY8wKXsDcocxDvqOA"
+          rel="noreferrer"
+          target="_Blank"
+        >
+          <img
+            alt="YouTube icon"
+            src="Youtube.png"
+          />
+          <p>
+            YouTube
+          </p>
+        </a>
+        <a
+          class="social"
+          href="https://www.instagram.com/jenico.flac/"
+          rel="noreferrer"
+          target="_Blank"
+        >
+          <img
+            alt="Instagram icon"
+            src="Instagram.png"
+          />
+          <p>
+            Instagram
+          </p>
+        </a>
+      </div>
+    </div>
+  </header>
+  <div
+    class="container"
+  >
+    <video
+      autoplay=""
+      class="hide"
+      data-testid="video"
+      loop=""
+      src="DreamingOfDetunedLove.mp4"
+    />
+  </div>
+</DocumentFragment>
+`;

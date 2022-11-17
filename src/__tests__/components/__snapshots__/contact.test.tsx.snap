@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Contact snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="container"
+  >
+    <img
+      alt="background"
+      src="background.jpg"
+    />
+  </div>
+  <section
+    class="container"
+  >
+    <form>
+      <div>
+        <label
+          for="name"
+        >
+          Name
+        </label>
+        <input
+          name="name"
+          required=""
+          value=""
+        />
+      </div>
+      <div>
+        <label
+          for="email"
+        >
+          Email
+        </label>
+        <input
+          name="email"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\\\\.[a-z]{2,4}$"
+          required=""
+          type="email"
+          value=""
+        />
+      </div>
+      <div>
+        <label
+          for="subject"
+        >
+          Subject
+        </label>
+        <input
+          name="subject"
+          required=""
+          value=""
+        />
+      </div>
+      <div>
+        <label
+          for="message"
+        >
+          Message
+        </label>
+        <textarea
+          name="message"
+          required=""
+        />
+      </div>
+      <div>
+        <button
+          name="submit"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </section>
+</DocumentFragment>
+`;

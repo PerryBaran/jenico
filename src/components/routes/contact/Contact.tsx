@@ -2,8 +2,6 @@ import {
   useReducer,
   useRef,
   FormEvent,
-  Dispatch,
-  SetStateAction,
   ChangeEvent,
 } from "react";
 import Background from "../../background/Background";
@@ -38,8 +36,8 @@ const reducer = (state: Form, action: ReducerAction) => {
   }
 };
 
-function Contact(props: { setFormFocused: Dispatch<SetStateAction<boolean>> }) {
-  const { setFormFocused } = props;
+function Contact(props: { handleFormFocus: (value: boolean) => void}) {
+  const { handleFormFocus } = props;
   const [state, dispatch] = useReducer(reducer, initialValues);
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -55,12 +53,24 @@ function Contact(props: { setFormFocused: Dispatch<SetStateAction<boolean>> }) {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!state.email.match(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/)) {
-      alert("Invalid email");
+    if (!state.name || !state.email || !state.subject || !state.message) {
+      alert("all form fields must be filled");
       return;
-    }
+    };
+    if (!state.email.match(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/)) {
+      alert("invalid email");
+      return;
+    };
     sendEmail(formRef.current);
     dispatch({ type: "reset" });
+  };
+
+  const handleFocus = () => {
+    handleFormFocus(true);
+  };
+
+  const handleBlur = () => {
+    handleFormFocus(false);
   };
 
   return (
@@ -75,8 +85,8 @@ function Contact(props: { setFormFocused: Dispatch<SetStateAction<boolean>> }) {
               required
               value={state.name}
               onChange={handleChange}
-              onFocus={() => setFormFocused(true)}
-              onBlur={() => setFormFocused(false)}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
             />
           </div>
           <div>
@@ -88,8 +98,8 @@ function Contact(props: { setFormFocused: Dispatch<SetStateAction<boolean>> }) {
               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
               value={state.email}
               onChange={handleChange}
-              onFocus={() => setFormFocused(true)}
-              onBlur={() => setFormFocused(false)}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
             />
           </div>
           <div>
@@ -99,8 +109,8 @@ function Contact(props: { setFormFocused: Dispatch<SetStateAction<boolean>> }) {
               required
               value={state.subject}
               onChange={handleChange}
-              onFocus={() => setFormFocused(true)}
-              onBlur={() => setFormFocused(false)}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
             />
           </div>
           <div>
@@ -110,8 +120,8 @@ function Contact(props: { setFormFocused: Dispatch<SetStateAction<boolean>> }) {
               required
               value={state.message}
               onChange={handleChange}
-              onFocus={() => setFormFocused(true)}
-              onBlur={() => setFormFocused(false)}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
             />
           </div>
           <div>

@@ -15,6 +15,10 @@ function App() {
   const [data] = useFirebaseData(songInfo, selectedSong);
   const [formFocused, setFormFocused] = useState(false);
 
+  const handleFormFocus = (focus: boolean) => {
+    setFormFocused(focus);
+  };
+
   return (
     <Router>
       <Navbar />
@@ -35,7 +39,7 @@ function App() {
         />
         <Route
           path="/contact"
-          element={<Contact setFormFocused={setFormFocused} />}
+          element={<Contact handleFormFocus={handleFormFocus} />}
         />
       </Routes>
       <Player

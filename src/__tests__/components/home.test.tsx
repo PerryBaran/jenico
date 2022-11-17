@@ -4,6 +4,8 @@ import Home from "../../components/routes/home/Home";
 import socials from "../../media/socials";
 
 describe("Home", () => {
+  afterEach(cleanup);
+
   test("snapshot", () => {
     const { asFragment } = render(<Home />);
 

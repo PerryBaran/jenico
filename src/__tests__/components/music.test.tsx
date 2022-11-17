@@ -5,20 +5,19 @@ import mockData from "../../media/songInfo";
 import { SongInfo } from "../../Interface";
 import { BrowserRouter as Router } from "react-router-dom";
 
-
-const RenderWithRouter = (props: {data: SongInfo[] }) => {
+const RenderWithRouter = (props: { data: SongInfo[] }) => {
   const { data } = props;
 
   return (
     <Router>
-      <Music data={data}/>
+      <Music data={data} />
     </Router>
   );
 };
 
 describe("Music", () => {
   const validProps = {
-    data: mockData
+    data: mockData,
   };
 
   afterEach(cleanup);
@@ -39,7 +38,10 @@ describe("Music", () => {
       const album = validProps.data[i];
 
       expect(link).toHaveAttribute("href", `/${album.title}`);
-      expect(screen.getByAltText(`${album.title} album cover`)).toHaveAttribute("src", album.art);
+      expect(screen.getByAltText(`${album.title} album cover`)).toHaveAttribute(
+        "src",
+        album.art
+      );
       expect(screen.getByText(album.title)).toBeInTheDocument();
     });
   });

@@ -1,4 +1,3 @@
-import { Dispatch, SetStateAction } from "react";
 import { useParams } from "react-router-dom";
 import { SongInfo, Songs } from "../../../Interface";
 import style from "./album.module.css";
@@ -7,13 +6,14 @@ import { playCircle, pauseCircle } from "../../../media/icons/index";
 interface Props {
   data: SongInfo[];
   playing: boolean;
-  setPlaying: Dispatch<SetStateAction<boolean>>;
+  handlePlaying: (value?: boolean) => void;
   selectedSong: string;
-  setSelectedSong: Dispatch<SetStateAction<string>>;
+  handleSelectSong: (value: string) => void;
 }
 
 function Album(props: Props) {
-  const { data, playing, setPlaying, selectedSong, setSelectedSong } = props;
+  const { data, playing, handlePlaying, selectedSong, handleSelectSong } =
+    props;
   const params = useParams();
   const album = data.find((album) => album.title === params.album);
 
@@ -21,16 +21,16 @@ function Album(props: Props) {
     if (!album) return;
     const { songs } = album;
     if (songs.some((song) => song.name === selectedSong)) {
-      setPlaying((prev) => !prev);
+      handlePlaying();
     } else {
-      setSelectedSong(songs[0].name);
-      setPlaying(true);
+      handleSelectSong(songs[0].name);
+      handlePlaying(true);
     }
   };
 
   const handlePlaySong = (name: string) => {
-    setSelectedSong(name);
-    setPlaying(true);
+    handleSelectSong(name);
+    handlePlaying(true);
   };
 
   return (

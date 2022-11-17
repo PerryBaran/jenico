@@ -19,6 +19,18 @@ function App() {
     setFormFocused(focus);
   };
 
+  const handlePlaying = (playing?: boolean) => {
+    if (playing === undefined) {
+      setPlaying((prev) => !prev);
+    } else {
+      setPlaying(playing);
+    }
+  };
+
+  const handleSelectedSong = (name: string) => {
+    setSelectedSong(name);
+  };
+
   return (
     <Router>
       <Navbar />
@@ -31,9 +43,9 @@ function App() {
             <Album
               data={data}
               playing={playing}
-              setPlaying={setPlaying}
+              handlePlaying={handlePlaying}
               selectedSong={selectedSong}
-              setSelectedSong={setSelectedSong}
+              handleSelectSong={handleSelectedSong}
             />
           }
         />

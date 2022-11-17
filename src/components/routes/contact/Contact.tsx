@@ -1,9 +1,4 @@
-import {
-  useReducer,
-  useRef,
-  FormEvent,
-  ChangeEvent,
-} from "react";
+import { useReducer, useRef, FormEvent, ChangeEvent } from "react";
 import Background from "../../background/Background";
 import style from "./contact.module.css";
 import sendEmail from "../../../services/emailJS";
@@ -36,7 +31,7 @@ const reducer = (state: Form, action: ReducerAction) => {
   }
 };
 
-function Contact(props: { handleFormFocus: (value: boolean) => void}) {
+function Contact(props: { handleFormFocus: (value: boolean) => void }) {
   const { handleFormFocus } = props;
   const [state, dispatch] = useReducer(reducer, initialValues);
   const formRef = useRef<HTMLFormElement>(null);
@@ -56,11 +51,11 @@ function Contact(props: { handleFormFocus: (value: boolean) => void}) {
     if (!state.name || !state.email || !state.subject || !state.message) {
       alert("all form fields must be filled");
       return;
-    };
+    }
     if (!state.email.match(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/)) {
       alert("invalid email");
       return;
-    };
+    }
     sendEmail(formRef.current);
     dispatch({ type: "reset" });
   };

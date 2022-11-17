@@ -1,17 +1,25 @@
-import { render, screen, cleanup, fireEvent, act } from "@testing-library/react";
+import {
+  render,
+  screen,
+  cleanup,
+  fireEvent,
+  act,
+} from "@testing-library/react";
 import "@testing-library/jest-dom";
 import Contact from "../../components/routes/contact/Contact";
 import * as sendEmail from "../../services/emailJS";
 
-describe('Contact', () => {
+describe("Contact", () => {
   const validProps = {
     handleFormFocus: jest.fn(),
-  }
+  };
 
   afterEach(cleanup);
 
   test("snapshot", () => {
-    const { asFragment } = render(<Contact handleFormFocus={validProps.handleFormFocus}/>);
+    const { asFragment } = render(
+      <Contact handleFormFocus={validProps.handleFormFocus} />
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });
@@ -34,7 +42,7 @@ describe('Contact', () => {
     expect(inputs[2]).toHaveAttribute("name", "subject");
     expect(inputs[2]).toHaveAttribute("required");
     expect(inputs[3]).toHaveAttribute("name", "message");
-    expect(inputs[3]).toHaveAttribute("required");      
+    expect(inputs[3]).toHaveAttribute("required");
   });
 
   test("focus and blur", () => {
@@ -44,7 +52,7 @@ describe('Contact', () => {
     expect(validProps.handleFormFocus).toBeCalledTimes(0);
     inputs.forEach((input) => {
       input.focus();
-      expect(validProps.handleFormFocus).lastCalledWith(true)
+      expect(validProps.handleFormFocus).lastCalledWith(true);
       input.blur();
       expect(validProps.handleFormFocus).lastCalledWith(false);
     });
@@ -54,7 +62,7 @@ describe('Contact', () => {
     const mockSendEmail = jest.fn();
     const mockAlert = jest.fn();
     jest.spyOn(sendEmail, "default").mockImplementation(mockSendEmail);
-    jest.spyOn(window, 'alert').mockImplementation(mockAlert);
+    jest.spyOn(window, "alert").mockImplementation(mockAlert);
     render(<Contact handleFormFocus={validProps.handleFormFocus} />);
     const inputs = screen.getAllByRole("textbox");
     const submit = screen.getByText(/submit/i);

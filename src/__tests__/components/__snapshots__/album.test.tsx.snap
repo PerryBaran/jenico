@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Album snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="albumBackground"
+    style="background-image: url(DreamingOfDetunedLove.png);"
+  />
+  <div
+    class="albumContainer"
+  >
+    <div>
+      <h2>
+        <a
+          href="https://distrokid.com/hyperfollow/jenico/dreaming-of-detuned-love"
+          rel="noreferrer"
+          target="_blank"
+        >
+          Dreaming of Detuned Love
+        </a>
+      </h2>
+      <div
+        class="album"
+      >
+        <button>
+          <img
+            alt="Cover for Dreaming of Detuned Love"
+            src="DreamingOfDetunedLove.png"
+          />
+          <img
+            alt="play/pause album"
+            src="playCircle.png"
+          />
+        </button>
+        <ul>
+          <li
+            class="playing"
+          >
+            <button>
+              Slumber
+            </button>
+          </li>
+          <li>
+            <button>
+              Your Careless Embrace
+            </button>
+          </li>
+          <li>
+            <button>
+              Restless Thoughts
+            </button>
+          </li>
+          <li>
+            <button>
+              Detuned Love
+            </button>
+          </li>
+          <li>
+            <button>
+              Falling into the Void
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

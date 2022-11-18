@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MediaControls snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="container"
+  >
+    <button>
+      <img
+        alt="skip backward"
+        src="skip.png"
+      />
+    </button>
+    <button>
+      <img
+        alt="play/pause"
+        src="pause.png"
+      />
+    </button>
+    <button>
+      <img
+        alt="skip forward"
+        src="skip.png"
+      />
+    </button>
+  </div>
+</DocumentFragment>
+`;

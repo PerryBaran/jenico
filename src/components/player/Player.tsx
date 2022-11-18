@@ -60,7 +60,7 @@ function Player(props: Props) {
     switch (e.code) {
       case "Space": {
         e.preventDefault();
-        handlePlaying(!playing);
+        handlePlaying();
         break;
       }
       case "ArrowRight": {
@@ -118,16 +118,12 @@ function Player(props: Props) {
       } else {
         const prevAlbumIndex = albumIndex - 1;
         if (prevAlbumIndex >= 0) {
-          handleSelectedSong(
-            data[prevAlbumIndex].songs[data[prevAlbumIndex].songs.length - 1]
-              .name
-          );
+          const lastSongIndex = data[prevAlbumIndex].songs.length - 1;
+          handleSelectedSong(data[prevAlbumIndex].songs[lastSongIndex].name);
         } else {
           const lastAlbumIndex = playlistLength - 1;
-          handleSelectedSong(
-            data[lastAlbumIndex].songs[data[lastAlbumIndex].songs.length - 1]
-              .name
-          );
+          const lastSongIndex = data[lastAlbumIndex].songs.length - 1;
+          handleSelectedSong(data[lastAlbumIndex].songs[lastSongIndex].name);
         }
       }
     }

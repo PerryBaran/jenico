@@ -1,0 +1,155 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Player snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="container"
+  >
+    <audio
+      data-testid="audio"
+    />
+    <div
+      class="container"
+    >
+      <img
+        alt="Dreaming of Detuned Love cover art"
+        src="DreamingOfDetunedLove.png"
+      />
+      <div>
+        <h3>
+          Dreaming of Detuned Love
+        </h3>
+        <p>
+          Slumber
+        </p>
+      </div>
+    </div>
+    <div
+      class="center"
+    >
+      <input
+        class="bar"
+        data-testid="progress-bar"
+        max="0"
+        min="0"
+        name="time"
+        type="range"
+        value="0"
+      />
+      <div
+        class="belowBar"
+      >
+        <div
+          class="container"
+        >
+          <p>
+            0:00
+          </p>
+        </div>
+        <div
+          class="container"
+        >
+          <button>
+            <img
+              alt="skip backward"
+              src="skip.png"
+            />
+          </button>
+          <button>
+            <img
+              alt="play/pause"
+              src="pause.png"
+            />
+          </button>
+          <button>
+            <img
+              alt="skip forward"
+              src="skip.png"
+            />
+          </button>
+        </div>
+        <div
+          class="container"
+        >
+          <p>
+            0:00
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="container"
+    >
+      <input
+        data-testid="volume"
+        max="100"
+        min="0"
+        name="volume"
+        type="range"
+        value="50"
+      />
+      <img
+        alt="volume"
+        src="medium-volume.png"
+      />
+    </div>
+    <div
+      class="container"
+    >
+      <div
+        class="tracklist"
+      >
+        <img
+          alt="Dreaming of Detuned Love cover art"
+          src="DreamingOfDetunedLove.png"
+        />
+        <div>
+          <button>
+            &lt;
+          </button>
+          <h4>
+            Dreaming of Detuned Love
+          </h4>
+          <button>
+            &gt;
+          </button>
+        </div>
+        <ul>
+          <li
+            class="highlight"
+          >
+            <button>
+              Slumber
+            </button>
+          </li>
+          <li>
+            <button>
+              Your Careless Embrace
+            </button>
+          </li>
+          <li>
+            <button>
+              Restless Thoughts
+            </button>
+          </li>
+          <li>
+            <button>
+              Detuned Love
+            </button>
+          </li>
+          <li>
+            <button>
+              Falling into the Void
+            </button>
+          </li>
+        </ul>
+      </div>
+      <img
+        alt="tracklist"
+        class="tracklistMenu"
+        src="menu.png"
+      />
+    </div>
+  </section>
+</DocumentFragment>
+`;

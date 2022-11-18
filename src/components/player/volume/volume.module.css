@@ -60,9 +60,12 @@
   display: block;
 }
 
-.container button > img {
+.container > img {
+  position: relative;
+  top: 6px;
   width: 30px;
   filter: invert();
+  cursor: pointer;
 }
 
 @media (orientation: portrait) {

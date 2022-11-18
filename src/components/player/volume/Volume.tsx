@@ -28,15 +28,14 @@ function Volume(props: Props) {
         max={100}
         value={volume * 100}
         onChange={changeVolume}
+        data-testid="volume"
       />
-      <button>
-        <img
-          src={
-            volume === 0 ? muteVolume : volume < 0.5 ? lowVolume : mediumVolume
-          }
-          alt="volume"
-        />
-      </button>
+      <img
+        src={
+          volume === 0 ? muteVolume : volume < 0.5 ? lowVolume : mediumVolume
+        }
+        alt="volume"
+      />
     </div>
   );
 }

@@ -204,18 +204,17 @@ exports[`App snapshot 1`] = `
       class="container"
     >
       <input
+        data-testid="volume"
         max="100"
         min="0"
         name="volume"
         type="range"
         value="50"
       />
-      <button>
-        <img
-          alt="volume"
-          src="medium-volume.png"
-        />
-      </button>
+      <img
+        alt="volume"
+        src="medium-volume.png"
+      />
     </div>
     <div
       class="container"

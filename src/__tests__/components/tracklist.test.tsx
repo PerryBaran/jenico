@@ -14,6 +14,8 @@ describe("Tracklist", () => {
     handlePlaying: jest.fn(),
   };
 
+  afterEach(cleanup);
+
   test("snapshot", () => {
     const { asFragment } = render(
       <Tracklist

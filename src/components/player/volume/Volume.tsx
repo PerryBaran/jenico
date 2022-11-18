@@ -27,7 +27,7 @@ function Volume(props: Props) {
         min={0}
         max={100}
         value={volume * 100}
-        onChange={(e) => changeVolume(e)}
+        onChange={changeVolume}
       />
       <button>
         <img

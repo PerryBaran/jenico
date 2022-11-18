@@ -152,6 +152,7 @@ exports[`App snapshot 1`] = `
     >
       <input
         class="bar"
+        data-testid="progress-bar"
         max="0"
         min="0"
         name="time"

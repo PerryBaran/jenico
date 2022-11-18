@@ -1,5 +1,5 @@
 import { RefObject } from "react";
-import { render, screen, cleanup } from "@testing-library/react";
+import { render, screen, cleanup, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import Audio from "../../components/player/audio/Audio";
 
@@ -9,6 +9,7 @@ describe("Audio", () => {
       current: {
         play: jest.fn(),
         pause: jest.fn(),
+        duration: 20,
       },
     } as unknown as RefObject<HTMLAudioElement>,
     playing: true,
@@ -85,5 +86,36 @@ describe("Audio", () => {
     expect(validProps.audioRef.current?.pause).toHaveBeenCalled();
   });
 
-  // setDuration and skipSong require valid audio source to test
+  test("onLoadedMetaData", () => {
+    render(
+      <Audio
+        audioRef={validProps.audioRef}
+        playing={false}
+        source={validProps.source}
+        setDuration={validProps.setDuration}
+        skipSong={validProps.skipSong}
+      />
+    );
+    
+    expect(validProps.setDuration).toBeCalledTimes(0);
+    fireEvent.loadedMetadata(screen.getByTestId("audio"));
+    expect(validProps.setDuration).toBeCalledWith(validProps.audioRef.current?.duration);
+  });
+
+  test("onEnded", () => {
+    render(
+      <Audio
+        audioRef={validProps.audioRef}
+        playing={false}
+        source={validProps.source}
+        setDuration={validProps.setDuration}
+        skipSong={validProps.skipSong}
+      />
+    );
+
+    expect(validProps.skipSong).toBeCalledTimes(0);
+    fireEvent.ended(screen.getByTestId("audio"));
+    expect(validProps.skipSong).toBeCalledTimes(1);
+    expect(validProps.skipSong).toBeCalledWith();
+  });
 });

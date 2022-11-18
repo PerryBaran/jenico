@@ -1,43 +1,36 @@
-import { RefObject, useEffect, useRef } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import style from "./progressBar.module.css";
 
 interface Props {
-  audioRef: RefObject<HTMLAudioElement>;
+  handleAudioTime: (value: number) => void;
   time: number;
   duration: number;
 }
 
 function ProgresssBar(props: Props) {
-  const { audioRef, time, duration } = props;
-  const barRef = useRef<HTMLInputElement | null>(null);
+  const { handleAudioTime, time, duration } = props;
+  const [rangeValue, setRangeValue] = useState(time);
 
-  const changeTime = (value: number) => {
-    if (audioRef.current) {
-      audioRef.current.currentTime = value;
-    }
+  useEffect(() => {
+    setRangeValue(time)
+  }, [time]);
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const time = Number(e.target.value);
+    handleAudioTime(time);
+    setRangeValue(time);
   };
-
-  useEffect(() => {
-    if (barRef.current) {
-      barRef.current.value = `${time}`;
-    }
-  }, [time, barRef]);
-
-  useEffect(() => {
-    if (barRef.current) {
-      barRef.current.max = `${duration}`;
-    }
-  }, [duration, barRef]);
 
   return (
     <input
       type="range"
-      ref={barRef}
       name="time"
       min={0}
-      defaultValue={0}
-      onChange={(e) => changeTime(Number(e.target.value))}
+      max={duration}
+      value={rangeValue}
+      onChange={handleChange}
       className={style.bar}
+      data-testid="progress-bar"
     />
   );
 }

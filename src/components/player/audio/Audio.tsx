@@ -21,10 +21,13 @@ function Audio(props: Props) {
     }
   }, [playing, source, audioRef]);
 
-  const updateDuration = () => {
+  const handleLoadedMetaData = () => {
     if (audioRef.current) {
       const seconds = Math.round(audioRef.current.duration);
       setDuration(seconds);
+      if (playing) {
+        audioRef.current.play()
+      }
     }
   };
 
@@ -32,10 +35,7 @@ function Audio(props: Props) {
     <audio
       ref={audioRef}
       src={source}
-      onLoadedMetadata={() => {
-        updateDuration();
-        playing && audioRef.current?.play();
-      }}
+      onLoadedMetadata={handleLoadedMetaData}
       onEnded={() => skipSong()}
       data-testid="audio"
     />

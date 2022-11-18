@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Info snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="container"
+  >
+    <img
+      alt="album name cover art"
+      src="art"
+    />
+    <div>
+      <h3>
+        album name
+      </h3>
+      <p>
+        song name
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;

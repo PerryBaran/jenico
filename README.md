@@ -1,64 +1,76 @@
 # Jenico
 
-A website to showcase music I've released under the name Jenico.
+A website created using React and Typescript to play and display song information for the music producer Jenico.
 
-## Features
+## Table of Contents
 
-- Built-in music player
-- Contact form - using EmailJS
-- Firebase storage to store songs
+1. [Dependencies](#dependencies)
+2. [Setup](#setup)
+3. [Commands](#commands)
+4. [Attribution](#attribution)
 
-## Technolgies Used
+## [Live Preview](https://perrybaran.github.io/jenico/)
 
-- TypeScript
-- React
-- Jest
-- Firebase
-- EmailJS
+![desktop view](./public/images/jenico-desktop.jpg)
 
-## Available Scripts
+## Dependencies
 
-In the project directory, you can run:
+1. [TypeScript](https://www.typescriptlang.org/)
+2. [React](https://reactjs.org/)
+3. [React-Router-Dom](https://www.npmjs.com/package/react-router-dom)
+4. [Firebase](https://firebase.google.com/)
+5. [EmailJS](https://www.emailjs.com/)
+6. [Jest](https://jestjs.io/)
+7. [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+
+### Dev Dependencies
+
+1. [@types/node](https://www.npmjs.com/package/@types/node)
+2. [gh-pages](https://www.npmjs.com/package/gh-pages)
+3. [prettier](https://prettier.io/)
+4. [typescript-plugin-css-module](https://www.npmjs.com/package/typescript-plugin-css-modules)
+
+## Setup
+
+1. Clone the repo to a local file.
+
+```
+$ git clone https://github.com/PerryBaran/jenico
+```
+
+2. Install all dependencies.
+
+```
+$ npm i
+```
+
+## Commands
 
 ### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the test runner in the interactive watch mode.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Builds the app for production to the `build` folder.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `npm run prettier`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+runs prettier on all files to formal code.
 
-### `npm run eject`
+### `npm run predeploy`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+helps to bundle the react app. This command is run automatically when running deploy.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### `npm run deploy`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Generates a production build of the app and deploys it to GitHub pages.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Attribution
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-## Collobaration
-
-Currently not interested in
+Created by **Perry Baran**.

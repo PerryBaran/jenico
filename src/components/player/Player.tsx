@@ -1,4 +1,4 @@
-import { useState, useEffect, Dispatch, SetStateAction, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import style from "./player.module.css";
 import { SongInfo } from "../../Interface";
 import Audio from "./audio/Audio";
@@ -17,9 +17,9 @@ import {
 interface Props {
   data: SongInfo[];
   playing: boolean;
-  setPlaying: Dispatch<SetStateAction<boolean>>;
+  handlePlaying: (value?: boolean) => void;
   selectedSong: string;
-  setSelectedSong: Dispatch<SetStateAction<string>>;
+  handleSelectedSong: (value: string) => void;
   formFocused: boolean;
 }
 
@@ -27,9 +27,9 @@ function Player(props: Props) {
   const {
     data,
     playing,
-    setPlaying,
+    handlePlaying,
     selectedSong,
-    setSelectedSong,
+    handleSelectedSong,
     formFocused,
   } = props;
   const [time, setTime] = useState(0);
@@ -38,6 +38,94 @@ function Player(props: Props) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const album = findSelectedAlbum(selectedSong, data);
   const song = findSelectedSong(selectedSong, data);
+
+  const handleVolume = (value: number) => {
+    if (value > 1) {
+      setVolume(1);
+    } else if (value < 0) {
+      setVolume(0);
+    } else {
+      setVolume(value);
+    }
+  };
+
+  const keyDownHandler = (e: KeyboardEvent) => {
+    if (formFocused) return;
+    switch (e.code) {
+      case "Space": {
+        e.preventDefault();
+        handlePlaying(!playing);
+        break;
+      }
+      case "ArrowRight": {
+        e.preventDefault();
+        skipSong();
+        break;
+      }
+      case "ArrowLeft": {
+        e.preventDefault();
+        skipSong(false);
+        break;
+      }
+      case "ArrowUp":
+      case "Equal":
+      case "NumpadAdd": {
+        e.preventDefault();
+        const newVolume = volume + 0.01;
+        handleVolume(newVolume);
+        break;
+      }
+      case "ArrowDown":
+      case "Minus":
+      case "NumpadSubtract": {
+        e.preventDefault();
+        const newVolume = volume - 0.01;
+        handleVolume(newVolume);
+        break;
+      }
+    }
+  };
+
+  const skipSong = (forwards = true) => {
+    if (!album || !song) return;
+    const albumIndex = data.indexOf(album);
+    const songIndex = album.songs.indexOf(song);
+    const albumLength = data[albumIndex].songs.length;
+    const playlistLength = data.length;
+
+    if (forwards) {
+      const nextSongIndex = songIndex + 1;
+      if (nextSongIndex < albumLength) {
+        handleSelectedSong(data[albumIndex].songs[nextSongIndex].name);
+      } else {
+        const nextAlbumIndex = albumIndex + 1;
+        if (nextAlbumIndex < playlistLength) {
+          handleSelectedSong(data[nextAlbumIndex].songs[0].name);
+        } else {
+          handleSelectedSong(data[0].songs[0].name);
+        }
+      }
+    } else {
+      const prevSongIndex = songIndex - 1;
+      if (prevSongIndex >= 0) {
+        handleSelectedSong(data[albumIndex].songs[prevSongIndex].name);
+      } else {
+        const prevAlbumIndex = albumIndex - 1;
+        if (prevAlbumIndex >= 0) {
+          handleSelectedSong(
+            data[prevAlbumIndex].songs[data[prevAlbumIndex].songs.length - 1]
+              .name
+          );
+        } else {
+          const lastAlbumIndex = playlistLength - 1;
+          handleSelectedSong(
+            data[lastAlbumIndex].songs[data[lastAlbumIndex].songs.length - 1]
+              .name
+          );
+        }
+      }
+    }
+  };
 
   useEffect(() => {
     const updateTimer = setInterval(() => {
@@ -60,92 +148,6 @@ function Player(props: Props) {
     return () => window.removeEventListener("keydown", keyDownHandler);
   });
 
-  const keyDownHandler = (e: KeyboardEvent) => {
-    if (formFocused) return;
-    switch (e.code) {
-      case "Space": {
-        e.preventDefault();
-        setPlaying(!playing);
-        break;
-      }
-      case "ArrowRight": {
-        e.preventDefault();
-        skipSong();
-        break;
-      }
-      case "ArrowLeft": {
-        e.preventDefault();
-        skipSong(false);
-        break;
-      }
-      case "ArrowUp":
-      case "Equal":
-      case "NumpadAdd": {
-        e.preventDefault();
-        const newVolume = volume + 0.01;
-        if (newVolume < 1) {
-          setVolume(newVolume);
-        } else {
-          setVolume(1);
-        }
-        break;
-      }
-      case "ArrowDown":
-      case "Minus":
-      case "NumpadSubtract": {
-        e.preventDefault();
-        const newVolume = volume - 0.01;
-        if (newVolume > 0) {
-          setVolume(newVolume);
-        } else {
-          setVolume(0);
-        }
-        break;
-      }
-    }
-  };
-
-  const skipSong = (forwards = true) => {
-    if (!album || !song) return;
-    const albumIndex = data.indexOf(album);
-    const songIndex = album.songs.indexOf(song);
-    const albumLength = data[albumIndex].songs.length;
-    const playlistLength = data.length;
-
-    if (forwards) {
-      const nextSongIndex = songIndex + 1;
-      if (nextSongIndex < albumLength) {
-        setSelectedSong(data[albumIndex].songs[nextSongIndex].name);
-      } else {
-        const nextAlbumIndex = albumIndex + 1;
-        if (nextAlbumIndex < playlistLength) {
-          setSelectedSong(data[nextAlbumIndex].songs[0].name);
-        } else {
-          setSelectedSong(data[0].songs[0].name);
-        }
-      }
-    } else {
-      const prevSongIndex = songIndex - 1;
-      if (prevSongIndex >= 0) {
-        setSelectedSong(data[albumIndex].songs[prevSongIndex].name);
-      } else {
-        const prevAlbumIndex = albumIndex - 1;
-        if (prevAlbumIndex >= 0) {
-          setSelectedSong(
-            data[prevAlbumIndex].songs[data[prevAlbumIndex].songs.length - 1]
-              .name
-          );
-        } else {
-          const lastAlbumIndex = playlistLength - 1;
-          setSelectedSong(
-            data[lastAlbumIndex].songs[data[lastAlbumIndex].songs.length - 1]
-              .name
-          );
-        }
-      }
-    }
-  };
-
   return (
     <section className={style.container}>
       <Audio
@@ -166,19 +168,19 @@ function Player(props: Props) {
           <Time time={time} />
           <MediaControls
             playing={playing}
-            setPlaying={setPlaying}
+            handlePlaying={handlePlaying}
             skipSong={skipSong}
           />
           <Time time={duration} />
         </div>
       </div>
-      <Volume volume={volume} setVolume={setVolume} />
+      <Volume volume={volume} handleVolume={handleVolume} />
       <Tracklist
         data={data}
         selectedSong={selectedSong}
         selectedAlbum={album || data[0]}
-        setSelectedSong={setSelectedSong}
-        setPlaying={setPlaying}
+        handleSelectedSong={handleSelectedSong}
+        handlePlaying={handlePlaying}
       />
     </section>
   );

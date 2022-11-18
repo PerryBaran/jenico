@@ -4,8 +4,8 @@ interface Props {
   playing: boolean;
   source: string | undefined;
   audioRef: RefObject<HTMLAudioElement>;
-  setDuration: (duration: number) => void;
-  skipSong: () => void;
+  setDuration: (value: number) => void;
+  skipSong: (value?: boolean) => void;
 }
 
 function Audio(props: Props) {
@@ -37,6 +37,7 @@ function Audio(props: Props) {
         playing && audioRef.current?.play();
       }}
       onEnded={() => skipSong()}
+      data-testid="audio"
     />
   );
 }

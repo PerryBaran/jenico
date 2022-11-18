@@ -1,4 +1,4 @@
-import { ChangeEvent, Dispatch, SetStateAction } from "react";
+import { ChangeEvent } from "react";
 import style from "./volume.module.css";
 import {
   mediumVolume,
@@ -8,15 +8,15 @@ import {
 
 interface Props {
   volume: number;
-  setVolume: Dispatch<SetStateAction<number>>;
+  handleVolume: (value: number) => void;
 }
 
 function Volume(props: Props) {
-  const { volume, setVolume } = props;
+  const { volume, handleVolume } = props;
 
   const changeVolume = (e: ChangeEvent<HTMLInputElement>) => {
     const currentVolume = Number(e.target.value) / 100;
-    setVolume(currentVolume);
+    handleVolume(currentVolume);
   };
 
   return (
@@ -26,7 +26,7 @@ function Volume(props: Props) {
         name="volume"
         min={0}
         max={100}
-        defaultValue={volume * 100}
+        value={volume * 100}
         onChange={(e) => changeVolume(e)}
       />
       <button>

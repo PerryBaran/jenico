@@ -57,9 +57,9 @@ function App() {
       <Player
         data={data}
         playing={playing}
-        setPlaying={setPlaying}
+        handlePlaying={handlePlaying}
         selectedSong={selectedSong}
-        setSelectedSong={setSelectedSong}
+        handleSelectedSong={handleSelectedSong}
         formFocused={formFocused}
       />
     </Router>

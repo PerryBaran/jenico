@@ -1,22 +1,21 @@
-import { Dispatch, SetStateAction } from "react";
 import style from "./mediaControls.module.css";
 import { play, pause, skip } from "../../../media/icons/index";
 
 interface Props {
   playing: boolean;
-  setPlaying: Dispatch<SetStateAction<boolean>>;
+  handlePlaying: (value?: boolean) => void;
   skipSong: (value?: boolean) => void;
 }
 
 function MediaControls(props: Props) {
-  const { playing, setPlaying, skipSong } = props;
+  const { playing, handlePlaying, skipSong } = props;
 
   return (
     <div className={style.container}>
       <button onClick={() => skipSong(false)}>
         <img src={skip} alt="skip backward" />
       </button>
-      <button onClick={() => setPlaying((prev) => !prev)}>
+      <button onClick={() => handlePlaying()}>
         <img src={playing ? pause : play} alt="play/pause" />
       </button>
       <button onClick={() => skipSong()}>

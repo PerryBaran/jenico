@@ -1,4 +1,4 @@
-import { useState, useEffect, Dispatch, SetStateAction } from "react";
+import { useState, useEffect } from "react";
 import style from "./tracklist.module.css";
 import { menu } from "../../../media/icons/index";
 import { SongInfo, Songs } from "../../../Interface";
@@ -7,13 +7,18 @@ interface Props {
   data: SongInfo[];
   selectedSong: string;
   selectedAlbum: SongInfo;
-  setSelectedSong: Dispatch<SetStateAction<string>>;
-  setPlaying: Dispatch<SetStateAction<boolean>>;
+  handleSelectedSong: (value: string) => void;
+  handlePlaying: (value?: boolean) => void;
 }
 
 function Tracklist(props: Props) {
-  const { data, selectedSong, selectedAlbum, setSelectedSong, setPlaying } =
-    props;
+  const {
+    data,
+    selectedSong,
+    selectedAlbum,
+    handleSelectedSong,
+    handlePlaying,
+  } = props;
   const albumIndex = data.indexOf(selectedAlbum);
   const [pageIndex, setPageIndex] = useState(albumIndex);
   const pageAlbum = data[pageIndex];
@@ -42,8 +47,8 @@ function Tracklist(props: Props) {
   };
 
   const selectSong = (name: string) => {
-    setSelectedSong(name);
-    setPlaying(true);
+    handleSelectedSong(name);
+    handlePlaying(true);
   };
 
   return (

@@ -128,7 +128,9 @@ exports[`App snapshot 1`] = `
   <section
     class="container"
   >
-    <audio />
+    <audio
+      data-testid="audio"
+    />
     <div
       class="container"
     >

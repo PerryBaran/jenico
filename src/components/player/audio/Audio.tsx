@@ -26,7 +26,7 @@ function Audio(props: Props) {
       const seconds = Math.round(audioRef.current.duration);
       setDuration(seconds);
       if (playing) {
-        audioRef.current.play()
+        audioRef.current.play();
       }
     }
   };

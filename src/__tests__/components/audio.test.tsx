@@ -96,10 +96,12 @@ describe("Audio", () => {
         skipSong={validProps.skipSong}
       />
     );
-    
+
     expect(validProps.setDuration).toBeCalledTimes(0);
     fireEvent.loadedMetadata(screen.getByTestId("audio"));
-    expect(validProps.setDuration).toBeCalledWith(validProps.audioRef.current?.duration);
+    expect(validProps.setDuration).toBeCalledWith(
+      validProps.audioRef.current?.duration
+    );
   });
 
   test("onEnded", () => {

@@ -14,13 +14,12 @@
   overflow: visible;
 }
 
-.container > button {
+.tracklistMenu {
   position: relative;
-}
-
-.container > button > img {
+  top: 6px;
   width: 30px;
   filter: invert();
+  cursor: pointer;
 }
 
 .container:hover .tracklist {

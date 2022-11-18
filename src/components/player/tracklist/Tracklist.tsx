@@ -78,9 +78,7 @@ function Tracklist(props: Props) {
           })}
         </ul>
       </div>
-      <button>
-        <img src={menu} alt="tracklist" />
-      </button>
+      <img src={menu} alt="tracklist" className={style.tracklistMenu} />
     </div>
   );
 }

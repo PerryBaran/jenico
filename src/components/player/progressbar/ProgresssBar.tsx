@@ -12,7 +12,7 @@ function ProgresssBar(props: Props) {
   const [rangeValue, setRangeValue] = useState(time);
 
   useEffect(() => {
-    setRangeValue(time)
+    setRangeValue(time);
   }, [time]);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {

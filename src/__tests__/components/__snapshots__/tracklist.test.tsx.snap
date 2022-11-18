@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tracklist snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="container"
+  >
+    <div
+      class="tracklist"
+    >
+      <img
+        alt="Dreaming of Detuned Love cover art"
+        src="DreamingOfDetunedLove.png"
+      />
+      <div>
+        <button>
+          &lt;
+        </button>
+        <h4>
+          Dreaming of Detuned Love
+        </h4>
+        <button>
+          &gt;
+        </button>
+      </div>
+      <ul>
+        <li
+          class="highlight"
+        >
+          <button>
+            Slumber
+          </button>
+        </li>
+        <li>
+          <button>
+            Your Careless Embrace
+          </button>
+        </li>
+        <li>
+          <button>
+            Restless Thoughts
+          </button>
+        </li>
+        <li>
+          <button>
+            Detuned Love
+          </button>
+        </li>
+        <li>
+          <button>
+            Falling into the Void
+          </button>
+        </li>
+      </ul>
+    </div>
+    <img
+      alt="tracklist"
+      class="tracklistMenu"
+      src="menu.png"
+    />
+  </div>
+</DocumentFragment>
+`;

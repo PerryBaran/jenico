@@ -4,8 +4,10 @@ import Time from "../../components/player/time/Time";
 
 describe("Time", () => {
   const validProps = {
-    time: 20
+    time: 20,
   };
+
+  afterEach(cleanup);
 
   test("snapshot", () => {
     const { asFragment } = render(<Time time={validProps.time} />);

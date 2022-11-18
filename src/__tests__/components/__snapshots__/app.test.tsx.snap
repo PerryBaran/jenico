@@ -248,12 +248,11 @@ exports[`App snapshot 1`] = `
           </li>
         </ul>
       </div>
-      <button>
-        <img
-          alt="tracklist"
-          src="menu.png"
-        />
-      </button>
+      <img
+        alt="tracklist"
+        class="tracklistMenu"
+        src="menu.png"
+      />
     </div>
   </section>
 </DocumentFragment>

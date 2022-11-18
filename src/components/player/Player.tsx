@@ -169,7 +169,11 @@ function Player(props: Props) {
         songName={song?.name}
       />
       <div className={style.center}>
-        <ProgresssBar handleAudioTime={handleAudioTime} time={time} duration={duration} />
+        <ProgresssBar
+          handleAudioTime={handleAudioTime}
+          time={time}
+          duration={duration}
+        />
         <div className={style.belowBar}>
           <Time time={time} />
           <MediaControls

@@ -32,7 +32,7 @@ describe("ProgressBar", () => {
       />
     );
     const input = screen.getByTestId("progress-bar");
-    
+
     expect(input).toHaveAttribute("type", "range");
     expect(input).toHaveAttribute("name", "time");
     expect(input).toHaveAttribute("min", "0");
